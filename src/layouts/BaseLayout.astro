@@ -6,6 +6,7 @@ import '@fontsource/public-sans/600.css';
 import '@fontsource/public-sans/700.css';
 import '@fontsource-variable/jetbrains-mono/wght.css';
 import '../styles/global.css';
+import '../styles/kiah.css';
 import { ClientRouter } from 'astro:transitions';
 import { withBase } from '../lib/url';
 import { SITE, NAV_ITEMS } from '../consts';
@@ -21,11 +22,7 @@ interface Props {
 }
 
 const siteName = SITE.title;
-
 const { title = siteName, description = SITE.description, ogType = 'website', image } = Astro.props;
-
-// `Astro.site` comes from `site` in astro.config.mjs; fall back to the
-// request URL during dev so canonical/OG links still resolve.
 const siteBase = Astro.site ?? new URL(Astro.url.origin);
 const canonicalURL = new URL(Astro.url.pathname, siteBase);
 const imageURL = image ? new URL(image, siteBase) : new URL(withBase(SITE.ogImage), siteBase);
@@ -52,38 +49,20 @@ const isActive = (href: string) => {
     <link rel="alternate" type="application/rss+xml" title={siteName} href={withBase('/rss.xml')} />
     <title>{fullTitle}</title>
 
-    {/* Astro comment syntax — an HTML comment here would ship on every page. */}
-    {/* Open Graph */}
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    {/* Open Graph wants `ja_JP`, not the `ja-JP` of `<html lang>`. */}
     <meta property="og:locale" content={locale.replace('-', '_')} />
     {imageURL && <meta property="og:image" content={imageURL} />}
 
-    {/* Twitter */}
     <meta name="twitter:card" content={imageURL ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     {imageURL && <meta name="twitter:image" content={imageURL} />}
     <slot name="head" />
     <ClientRouter />
-    <script is:inline>
-      // Runs before paint on the initial load, and again on `astro:after-swap`
-      // because the router resets `<html>` attributes during soft navigation.
-      // IIFE so top-level consts can't clash if the script ever re-runs.
-      (() => {
-        const applyTheme = () => {
-          const storedTheme = localStorage.getItem('theme');
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
-        };
-        applyTheme();
-        document.addEventListener('astro:after-swap', applyTheme);
-      })();
-    </script>
   </head>
   <body>
     <header class="site-header">
@@ -100,9 +79,6 @@ const isActive = (href: string) => {
           ))
         }
       </nav>
-      <button class="theme-toggle" type="button" aria-label={t('theme.toggle')} data-theme-toggle>
-        <span aria-hidden="true"></span>
-      </button>
     </header>
 
     <main>
@@ -112,26 +88,12 @@ const isActive = (href: string) => {
     <footer class="site-footer">
       <p>{SITE.footerText}</p>
       <div class="footer-links">
-        <a href={withBase('/blog/')}>{t('footer.notes')}</a>
-        <a href="https://almanac.p4ni.com" target="_blank" rel="noopener noreferrer">Almanac ↗</a>
+        <a href={withBase('/works/')}>Selected work</a>
+        <a href="https://github.com/iphiginea" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <SocialLinks />
       </div>
-      <SocialLinks />
     </footer>
 
     <CodeCopy />
-
-    <script>
-      // Delegated to `document` so the handler survives view-transition swaps
-      // that replace the toggle button element.
-      document.addEventListener('click', (event) => {
-        if (!(event.target instanceof Element) || !event.target.closest('[data-theme-toggle]')) {
-          return;
-        }
-        const current = document.documentElement.dataset.theme;
-        const next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem('theme', next);
-      });
-    </script>
   </body>
 </html>
