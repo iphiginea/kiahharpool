@@ -20,62 +20,231 @@ const websiteSchema = {
   <section class="kh-hero section">
     <div class="kh-meta-row">
       <span>CHICAGO, IL</span>
-      <span>MEDIA / TECHNOLOGY / PRODUCT</span>
-      <span>2026</span>
+      <span>MEDIA / TECHNOLOGY / PRODUCTS / CULTURE</span>
+      <span>HOMEBASE / 2026</span>
     </div>
-    <h1 class="kh-name"><span>KIAH</span><span>HARPOOL</span></h1>
-    <div class="kh-hero-bottom">
-      <p class="kh-deck">Media leader, builder, and product-minded problem solver.</p>
-      <p class="kh-side-note">I notice friction.<br />Then I make something better.</p>
-    </div>
-  </section>
 
-  <section class="kh-intro section">
-    <p class="kh-kicker">01 / ABOUT THE WORK</p>
-    <h2>I make things work better.</h2>
-    <p class="kh-intro-copy">
-      I work where media, technology, systems, and culture overlap — turning messy processes,
-      interesting ideas, and small frustrations into clearer tools and better experiences.
-    </p>
+    <h1 class="kh-name"><span>KIAH</span><span>HARPOOL</span></h1>
+
+    <div class="kh-hero-bottom">
+      <p class="kh-deck">I make things work better.</p>
+
+      <div class="kh-theme-preview" aria-label="Site theme preview">
+        <div class="kh-theme-preview-head">
+          <span>Currently</span>
+          <span>→</span>
+        </div>
+        <p>Media leader + builder turning friction into clearer systems, tools, and experiences.</p>
+        <div class="kh-swatch-row" aria-hidden="true">
+          <span class="kh-swatch kh-swatch-cream"></span>
+          <span class="kh-swatch kh-swatch-lavender"></span>
+          <span class="kh-swatch kh-swatch-purple"></span>
+          <span class="kh-swatch kh-swatch-brick"></span>
+          <span class="kh-swatch kh-swatch-plum"></span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="kh-work section" aria-labelledby="selected-work">
-    <div class="kh-section-head">
-      <p class="kh-kicker">02 / SELECTED WORK</p>
-      <h2 id="selected-work">Things I thought should exist.</h2>
+    <div class="kh-section-head kh-section-head-ui">
+      <div>
+        <p class="kh-kicker">01 / SELECTED WORK</p>
+        <h2 id="selected-work">Things I thought should exist.</h2>
+      </div>
+      <a class="kh-pill" href={withBase('/works/')}>All work →</a>
     </div>
 
     <article class="kh-project kh-project-lavender">
-      <div class="kh-project-index">01</div>
       <div class="kh-project-copy">
-        <p class="kh-project-meta">PRODUCT / DESIGN / DEVELOPMENT</p>
+        <div class="kh-project-topline">
+          <span>01</span>
+          <span>PRODUCT / DESIGN / DEVELOPMENT</span>
+        </div>
         <h3>DUEL CUT</h3>
-        <p>A movie-ranking app built around head-to-head choices and a taste profile that gets smarter as you rank.</p>
-        <div class="kh-project-links">
-          <a class="button" href="https://github.com/iphiginea/duelcut" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+        <p class="kh-project-deck">Your movie taste, directed by choices instead of star ratings.</p>
+        <p class="kh-project-description">
+          A head-to-head movie ranking app that builds a personal canon through duels, rankings,
+          stats, and taste insights.
+        </p>
+        <div class="kh-chip-row" aria-label="Duel Cut features">
+          <span>DUELS</span>
+          <span>RANKINGS</span>
+          <span>INSIGHTS</span>
+        </div>
+        <a class="kh-pill" href="https://github.com/iphiginea/duelcut" target="_blank" rel="noopener noreferrer">
+          View GitHub ↗
+        </a>
+      </div>
+
+      <div class="kh-device-wrap" aria-label="Stylized preview of the Duel Cut interface">
+        <div class="kh-device kh-duelcut-device">
+          <div class="kh-app-bar">
+            <div>
+              <strong>DUEL CUT</strong>
+              <span>RANK YOUR MOVIES</span>
+            </div>
+            <span class="kh-waffle">•••</span>
+          </div>
+          <div class="kh-app-tabs">
+            <span>SEARCH</span>
+            <span class="active">DUEL</span>
+            <span>RANKINGS</span>
+          </div>
+          <p class="kh-app-progress">WHICH ONE WINS?</p>
+          <div class="kh-duel-stage">
+            <div class="kh-movie-card">
+              <div class="kh-poster kh-poster-one">01</div>
+              <strong>MOVIE A</strong>
+              <span>1999</span>
+            </div>
+            <div class="kh-vs">VS</div>
+            <div class="kh-movie-card">
+              <div class="kh-poster kh-poster-two">02</div>
+              <strong>MOVIE B</strong>
+              <span>2004</span>
+            </div>
+          </div>
+          <div class="kh-app-stats">
+            <div><strong>124</strong><span>RANKED</span></div>
+            <div><strong>38</strong><span>DUELS</span></div>
+            <div><strong>91%</strong><span>CONFIDENCE</span></div>
+          </div>
         </div>
       </div>
-      <div class="kh-project-mark">DC</div>
     </article>
 
-    <article class="kh-project kh-project-blush">
-      <div class="kh-project-index">02</div>
+    <article class="kh-project kh-project-blush kh-project-reverse">
       <div class="kh-project-copy">
-        <p class="kh-project-meta">PRODUCT / MUSIC / PERSONAL DATA</p>
+        <div class="kh-project-topline">
+          <span>02</span>
+          <span>PRODUCT / MUSIC / PERSONAL DATA</span>
+        </div>
         <h3>ENCORE</h3>
-        <p>A concert-ranking project that turns the shows you have seen into a personal canon through head-to-head duels.</p>
-        <div class="kh-project-links">
-          <a class="button" href="https://github.com/iphiginea/encore" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+        <p class="kh-project-deck">Every concert you have seen. Head to head.</p>
+        <p class="kh-project-description">
+          A concert-ranking app that turns a lifetime of shows into a personal canon using duels,
+          ticket-style memories, rankings, and statistics.
+        </p>
+        <div class="kh-chip-row" aria-label="Encore features">
+          <span>SHOWS</span>
+          <span>DUELS</span>
+          <span>MEMORIES</span>
+        </div>
+        <a class="kh-pill" href="https://github.com/iphiginea/encore" target="_blank" rel="noopener noreferrer">
+          View GitHub ↗
+        </a>
+      </div>
+
+      <div class="kh-device-wrap" aria-label="Stylized preview of the Encore interface">
+        <div class="kh-device kh-encore-device">
+          <div class="kh-app-bar">
+            <div>
+              <strong>ENCORE</strong>
+              <span>YOUR SHOWS, RANKED</span>
+            </div>
+            <span class="kh-waffle">•••</span>
+          </div>
+          <div class="kh-app-tabs">
+            <span>ADD SHOW</span>
+            <span class="active">DUEL</span>
+            <span>RANKINGS</span>
+          </div>
+          <p class="kh-app-progress">PICK THE BETTER NIGHT</p>
+          <div class="kh-ticket-duel">
+            <div class="kh-ticket kh-ticket-pink">
+              <div class="kh-ticket-body">
+                <span>ADMIT ONE</span>
+                <strong>SHOW A</strong>
+                <small>CHICAGO · NIGHT 01</small>
+              </div>
+              <div class="kh-ticket-stub"><span>AUG</span><strong>17</strong><span>26</span></div>
+            </div>
+            <div class="kh-ticket-vs">VS</div>
+            <div class="kh-ticket kh-ticket-gold">
+              <div class="kh-ticket-body">
+                <span>ADMIT ONE</span>
+                <strong>SHOW B</strong>
+                <small>CHICAGO · NIGHT 02</small>
+              </div>
+              <div class="kh-ticket-stub"><span>SEP</span><strong>24</strong><span>26</span></div>
+            </div>
+          </div>
+          <div class="kh-app-stats">
+            <div><strong>86</strong><span>SHOWS</span></div>
+            <div><strong>31</strong><span>VENUES</span></div>
+            <div><strong>14</strong><span>YEARS</span></div>
+          </div>
         </div>
       </div>
-      <div class="kh-project-mark">EN</div>
     </article>
   </section>
 
+  <section class="kh-system section" aria-labelledby="what-i-do">
+    <div class="kh-section-head kh-section-head-ui">
+      <div>
+        <p class="kh-kicker">02 / WHAT I DO</p>
+        <h2 id="what-i-do">A working system, not a job title.</h2>
+      </div>
+    </div>
+
+    <div class="kh-system-list">
+      <article>
+        <div class="kh-system-main">
+          <span class="kh-system-number">01</span>
+          <div>
+            <span class="kh-card-label">MEDIA</span>
+            <h3>Investment + strategy</h3>
+          </div>
+        </div>
+        <p>Turning complicated media decisions into plans people can actually use.</p>
+        <span class="kh-system-arrow">→</span>
+      </article>
+
+      <article>
+        <div class="kh-system-main">
+          <span class="kh-system-number">02</span>
+          <div>
+            <span class="kh-card-label">AI + SYSTEMS</span>
+            <h3>Better ways of working</h3>
+          </div>
+        </div>
+        <p>Finding repeatable friction, then designing workflows that remove it.</p>
+        <span class="kh-system-arrow">→</span>
+      </article>
+
+      <article>
+        <div class="kh-system-main">
+          <span class="kh-system-number">03</span>
+          <div>
+            <span class="kh-card-label">PRODUCT</span>
+            <h3>Things that should exist</h3>
+          </div>
+        </div>
+        <p>Small ideas, prototypes, and personal tools that become real products.</p>
+        <span class="kh-system-arrow">→</span>
+      </article>
+
+      <article>
+        <div class="kh-system-main">
+          <span class="kh-system-number">04</span>
+          <div>
+            <span class="kh-card-label">COMMUNITY</span>
+            <h3>Leadership + programming</h3>
+          </div>
+        </div>
+        <p>Building teams, teaching, and creating reasons for an industry to gather.</p>
+        <span class="kh-system-arrow">→</span>
+      </article>
+    </div>
+  </section>
+
   <section class="kh-recognition section" aria-labelledby="recognition">
-    <div class="kh-section-head">
-      <p class="kh-kicker">03 / RECOGNITION + LEADERSHIP</p>
-      <h2 id="recognition">Selected signals.</h2>
+    <div class="kh-section-head kh-section-head-ui">
+      <div>
+        <p class="kh-kicker">03 / RECOGNITION + LEADERSHIP</p>
+        <h2 id="recognition">Selected signals.</h2>
+      </div>
     </div>
 
     <div class="kh-recognition-grid">
@@ -94,11 +263,6 @@ const websiteSchema = {
         <h3>President, Media Advertising Club of Chicago</h3>
         <span class="kh-arrow">→</span>
       </article>
-      <article>
-        <span class="kh-card-label">LEADERSHIP</span>
-        <h3>Team management, AI workflows, training & industry programming</h3>
-        <span class="kh-arrow">→</span>
-      </article>
     </div>
   </section>
 
@@ -108,9 +272,10 @@ const websiteSchema = {
       <h2>Things I’m making because I think they should exist.</h2>
       <div>
         <p>
-          Product experiments, AI workflows, ranking systems, media tools, and small ideas that become more interesting once they are real.
+          Product experiments, AI workflows, ranking systems, media tools, and small ideas that
+          get more interesting once they are real.
         </p>
-        <a class="kh-text-link" href={withBase('/works/')}>See the work →</a>
+        <a class="kh-pill" href={withBase('/works/')}>Enter the lab →</a>
       </div>
     </div>
   </section>
@@ -119,7 +284,7 @@ const websiteSchema = {
     <p class="kh-kicker">05 / SAY HELLO</p>
     <h2>Good ideas welcome.</h2>
     <div class="kh-contact-row">
-      <a class="button" href="mailto:kiah.harpool@gmail.com">Email me</a>
+      <a class="kh-pill" href="mailto:kiah.harpool@gmail.com">Email me</a>
       <a class="kh-text-link" href="https://github.com/iphiginea" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </div>
   </section>
