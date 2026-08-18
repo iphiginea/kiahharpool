@@ -1,17 +1,23 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
-import { formatDate, t } from '../../i18n';
+
+const projectOrder = ['duel-cut', 'encore', 'duel-draw', 'points'];
 
 export async function getStaticPaths() {
   const entries = await getCollection('works');
-  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+  return entries
+    .filter((entry) => projectOrder.includes(entry.id))
+    .map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const currentIndex = projectOrder.indexOf(entry.id);
+const nextId = projectOrder[(currentIndex + 1) % projectOrder.length];
+const nextEntry = (await getCollection('works')).find((work) => work.id === nextId);
+const role = 'Concept / Product Design / Development';
 ---
 
 <BaseLayout
@@ -20,56 +26,99 @@ const { Content } = await render(entry);
   ogType="article"
   image={withBase(`/og/works/${entry.id}.png`)}
 >
-  <article data-pagefind-body>
-    <header class="page-head section article-head">
-      <p class="eyebrow">{t('work.eyebrow')}</p>
-      <h1>{entry.data.title}</h1>
-      <p class="lead">{entry.data.description}</p>
-      <div class="entry-meta">
-        <time datetime={entry.data.publishDate.toISOString()}
-          >{formatDate(entry.data.publishDate)}</time
-        >
-        <span>{entry.data.tech.join(' / ')}</span>
+  <article class="kh-case" data-pagefind-body>
+    <header class="kh-case-head section">
+      <div>
+        <p class="kh-case-kicker">PROJECT / BUILT 2026</p>
+        <h1 class="kh-case-title">{entry.data.title}</h1>
+        <p class="kh-case-deck">{entry.data.description}</p>
+        <div class="kh-case-actions">
+          {
+            entry.data.link && (
+              <a class="kh-pill" href={entry.data.link} target="_blank" rel="noopener noreferrer">
+                Open app ↗
+              </a>
+            )
+          }
+          {
+            entry.data.repo && (
+              <a class="kh-text-link" href={entry.data.repo} target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+              </a>
+            )
+          }
+        </div>
       </div>
-      <div class="action-row">
-        {
-          entry.data.link && (
-            <a class="button" href={entry.data.link}>
-              {t('work.visit')}
-            </a>
-          )
-        }
-        {
-          entry.data.repo && (
-            <a class="text-link" href={entry.data.repo}>
-              {t('work.repository')}
-            </a>
-          )
-        }
-      </div>
-      {
-        entry.data.thumbnail && (
-          <Image
-            class="article-image"
-            src={entry.data.thumbnail}
-            alt=""
-            widths={[720, 1040, 1400]}
-            sizes="(min-width: 900px) 72rem, 100vw"
-          />
-        )
-      }
+
+      <dl class="kh-case-meta">
+        <div>
+          <dt>Role</dt>
+          <dd>{role}</dd>
+        </div>
+        <div>
+          <dt>Focus</dt>
+          <dd>{entry.data.tech.join(' / ')}</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>2026</dd>
+        </div>
+      </dl>
     </header>
 
-    <div class="section article-layout">
-      <aside class="article-toc">
-        <p class="eyebrow">{t('work.stackEyebrow')}</p>
-        <ul class="tech-list">
-          {entry.data.tech.map((item) => <li>{item}</li>)}
-        </ul>
+    {
+      entry.id === 'duel-cut' && (
+        <section class="kh-case-gallery kh-case-gallery-duel section" aria-label="Duel Cut interface">
+          <img
+            src={withBase('/images/duelcut-duel-hd.webp')}
+            alt="Duel Cut interface showing a head-to-head movie ranking choice"
+            width="600"
+            height="959"
+            loading="eager"
+          />
+        </section>
+      )
+    }
+
+    {
+      entry.id === 'encore' && (
+        <section class="kh-case-gallery kh-case-gallery-encore section" aria-label="Encore interface">
+          <img
+            src={withBase('/images/encore-duel-hd.webp')}
+            alt="Encore interface showing a head-to-head concert ranking choice"
+            width="600"
+            height="843"
+            loading="eager"
+          />
+          <img
+            src={withBase('/images/encore-rankings-hd.webp')}
+            alt="Encore interface showing ranked concerts"
+            width="600"
+            height="1035"
+            loading="eager"
+          />
+        </section>
+      )
+    }
+
+    <section class="kh-case-body section">
+      <aside>
+        <p class="kh-case-section-label">PROJECT NOTES</p>
       </aside>
-      <div class="prose">
+      <div class="kh-case-prose">
         <Content />
       </div>
-    </div>
+    </section>
+
+    {
+      nextEntry && (
+        <section class="kh-case-next section">
+          <a href={withBase(`/works/${nextEntry.id}/`)}>
+            <span class="kh-case-section-label">NEXT PROJECT</span>
+            <strong>{nextEntry.data.title} →</strong>
+          </a>
+        </section>
+      )
+    }
   </article>
 </BaseLayout>
