@@ -101,5 +101,28 @@ const isActive = (href: string) => {
     </footer>
 
     <CodeCopy />
+
+    <script>
+      const screenshotFallbacks = {
+        'duelcut-duel-hd.webp': 'duelcut-duel.webp',
+        'encore-duel-hd.webp': 'encore-duel.webp',
+        'encore-rankings-hd.webp': 'encore-rankings.webp',
+      };
+
+      document.addEventListener(
+        'error',
+        (event) => {
+          const image = event.target;
+          if (!(image instanceof HTMLImageElement) || image.dataset.fallbackApplied === 'true') return;
+
+          const failedName = image.currentSrc.split('/').pop();
+          if (!failedName || !(failedName in screenshotFallbacks)) return;
+
+          image.dataset.fallbackApplied = 'true';
+          image.src = image.src.replace(failedName, screenshotFallbacks[failedName]);
+        },
+        true,
+      );
+    </script>
   </body>
 </html>
