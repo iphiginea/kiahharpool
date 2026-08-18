@@ -281,6 +281,82 @@ body {
   transform: translateX(2px);
 }
 
+/* Step 2: refined hero */
+.kh-meta-row {
+  grid-template-columns: 1fr auto;
+  align-items: start;
+}
+
+.kh-hero-bottom {
+  grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+  gap: clamp(2.5rem, 6vw, 7rem);
+  align-items: end;
+}
+
+.kh-hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kh-hero-positioning {
+  max-width: 34rem;
+  margin: 1.4rem 0 1.6rem;
+  color: #5A1F4F;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.kh-hero-cta {
+  margin-top: 0.15rem;
+}
+
+.kh-current-card {
+  align-self: end;
+  padding: clamp(1.35rem, 2.5vw, 1.9rem);
+}
+
+.kh-current-card p {
+  max-width: 32rem;
+  margin: 1.6rem 0 1.5rem;
+  color: #5A1F4F;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.kh-current-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(90, 31, 79, 0.2);
+}
+
+.kh-current-meta div {
+  min-width: 0;
+}
+
+.kh-current-meta dt {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.kh-current-meta dd {
+  margin: 0;
+  color: #5A1F4F;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 @media (max-width: 980px) {
   .kh-project {
     gap: 1.75rem;
@@ -288,6 +364,16 @@ body {
 
   .kh-system-list article {
     min-height: 0;
+  }
+
+  .kh-hero-bottom {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kh-current-card {
+    width: min(100%, 42rem);
+    justify-self: end;
   }
 }
 
@@ -304,6 +390,21 @@ body {
 
   .kh-lab {
     padding-inline: var(--page-pad);
+  }
+
+  .kh-meta-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .kh-current-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .kh-current-meta {
+    grid-template-columns: 1fr;
   }
 }
 
