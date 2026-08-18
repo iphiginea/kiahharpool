@@ -390,8 +390,49 @@ const websiteSchema = {
     </div>
   </section>
 
+  <section class="kh-about section" aria-labelledby="about">
+    <div class="kh-about-shell">
+      <div class="kh-about-heading">
+        <p class="kh-kicker">04 / ABOUT</p>
+        <h2 id="about">I like the point where strategy turns into something real.</h2>
+      </div>
+
+      <div class="kh-about-body">
+        <p class="kh-about-lead">
+          I’m a Chicago-based media leader and builder working across investment, AI, product ideas,
+          and the systems that connect them.
+        </p>
+        <p>
+          My work usually starts with friction: a process that is harder than it needs to be, a
+          decision that could be clearer, or an idea I cannot stop thinking should exist. I like
+          finding the structure underneath the problem and turning it into something people can
+          actually use.
+        </p>
+        <p>
+          Away from the day job, I’m usually making something, ranking something, or thinking about
+          movies, music, media, and the strange little systems people build around culture.
+        </p>
+
+        <dl class="kh-about-notes">
+          <div>
+            <dt>Based</dt>
+            <dd>Chicago, IL</dd>
+          </div>
+          <div>
+            <dt>Working across</dt>
+            <dd>Media / AI / Product</dd>
+          </div>
+          <div>
+            <dt>Always circling</dt>
+            <dd>Movies / Music / Culture</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <section class="kh-lab section">
-    <p class="kh-kicker">04 / THE LAB</p>
+    <p class="kh-kicker">05 / THE LAB</p>
     <div class="kh-lab-grid">
       <h2>Things I’m making because I think they should exist.</h2>
       <div>
@@ -405,7 +446,7 @@ const websiteSchema = {
   </section>
 
   <section class="kh-contact section">
-    <p class="kh-kicker">05 / SAY HELLO</p>
+    <p class="kh-kicker">06 / SAY HELLO</p>
     <h2>Good ideas welcome.</h2>
     <div class="kh-contact-row">
       <a class="kh-pill" href="mailto:kiah.harpool@gmail.com">Email me</a>
@@ -617,6 +658,78 @@ const websiteSchema = {
     color: #5A1F4F;
   }
 
+  .kh-about-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.72fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .kh-about-heading h2 {
+    max-width: 10ch;
+    margin: 0.5rem 0 0;
+    color: #5A1F4F;
+    font-family: var(--font-display);
+    font-size: clamp(3.8rem, 7.7vw, 8rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.84;
+  }
+
+  .kh-about-body {
+    padding-top: clamp(1rem, 2vw, 2rem);
+    border-top: 1px solid rgba(90, 31, 79, 0.24);
+    color: #5A1F4F;
+  }
+
+  .kh-about-body > p {
+    max-width: 40rem;
+    margin: 0 0 1.25rem;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .kh-about-body .kh-about-lead {
+    margin-bottom: 1.6rem;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+  }
+
+  .kh-about-notes {
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    border-top: 1px solid rgba(90, 31, 79, 0.24);
+  }
+
+  .kh-about-notes div {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 0.42fr) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(90, 31, 79, 0.18);
+  }
+
+  .kh-about-notes dt,
+  .kh-about-notes dd {
+    margin: 0;
+  }
+
+  .kh-about-notes dt {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    opacity: 0.62;
+  }
+
+  .kh-about-notes dd {
+    font-size: 0.96rem;
+    font-weight: 650;
+  }
+
   @media (max-width: 760px) {
     .kh-more-projects-head {
       align-items: flex-start;
@@ -685,6 +798,30 @@ const websiteSchema = {
 
     .kh-recognition-row-leadership::after {
       display: none;
+    }
+
+    .kh-about-shell {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .kh-about-heading h2 {
+      max-width: 11ch;
+      font-size: clamp(3rem, 13vw, 5rem);
+      line-height: 0.88;
+    }
+
+    .kh-about-body {
+      padding-top: 1.25rem;
+    }
+
+    .kh-about-body .kh-about-lead {
+      font-size: 1.25rem;
+    }
+
+    .kh-about-notes div {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
     }
 
     .kh-lab h2 {
