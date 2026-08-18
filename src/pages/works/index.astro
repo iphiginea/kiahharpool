@@ -2,43 +2,213 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
-import { SITE } from '../../consts';
-import { t } from '../../i18n';
 
-const works = (await getCollection('works')).sort((a, b) => {
-  const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
-  const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
-  if (orderA !== orderB) return orderA - orderB;
-  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
-});
+const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points']);
+const works = (await getCollection('works'))
+  .filter((work) => featuredIds.has(work.id))
+  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 ---
 
 <BaseLayout
-  title={t('works.title')}
-  description={`Selected projects and case studies — ${SITE.title}.`}
+  title="Work"
+  description="Products and experiments built by Kiah Harpool across film, music, games, personal data, and guided interaction."
 >
-  <section class="page-head section">
-    <p class="eyebrow">{t('works.eyebrow')}</p>
-    <h1>Selected projects and case studies.</h1>
-    <p class="lead">
-      The works collection is typed for descriptions, technology lists, external links,
-      repositories, thumbnails, ordering, and publish dates.
+  <section class="kh-work-index-head section">
+    <p class="kh-kicker">WORK / BUILT 2026</p>
+    <h1>Things I thought should exist.</h1>
+    <p>
+      Products and experiments that started with a small irritation, an impossible question, or the
+      recurring thought: why isn’t there a better way to do this?
     </p>
   </section>
 
-  <section class="section" aria-label={t('works.listLabel')}>
-    <div class="work-list">
+  <section class="kh-work-index section" aria-label="Selected projects">
+    <div class="kh-work-index-grid">
       {
-        works.map((work) => (
-          <article class="work-card">
-            <p class="entry-meta">{work.data.tech.join(' / ')}</p>
-            <h2>
-              <a href={withBase(`/works/${work.id}/`)}>{work.data.title}</a>
-            </h2>
-            <p>{work.data.description}</p>
+        works.map((work, index) => (
+          <article class="kh-work-index-card">
+            <div class="kh-work-index-topline">
+              <span>{String(index + 1).padStart(2, '0')} / {work.data.title}</span>
+              <span>{work.data.tech.join(' / ')}</span>
+            </div>
+
+            <div class="kh-work-index-copy">
+              <h2>
+                <a href={withBase(`/works/${work.id}/`)}>{work.data.title}</a>
+              </h2>
+              <p>{work.data.description}</p>
+            </div>
+
+            <div class="kh-work-index-actions">
+              <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>Case study →</a>
+              {work.data.link && (
+                <a class="kh-text-link" href={work.data.link} target="_blank" rel="noopener noreferrer">
+                  Open app ↗
+                </a>
+              )}
+            </div>
           </article>
         ))
       }
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .kh-work-index-head {
+    padding-top: clamp(3rem, 7vw, 6rem);
+  }
+
+  .kh-work-index-head h1 {
+    max-width: 10ch;
+    margin: 0.6rem 0 1.5rem;
+    color: #5A1F4F;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10vw, 10rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.8;
+  }
+
+  .kh-work-index-head > p:last-child {
+    max-width: 42rem;
+    margin: 0;
+    color: #5A1F4F;
+    font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+    line-height: 1.6;
+    opacity: 0.82;
+  }
+
+  .kh-work-index {
+    padding-top: 1rem;
+  }
+
+  .kh-work-index-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .kh-work-index-card {
+    min-height: 33rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: clamp(1.5rem, 3vw, 2.75rem);
+    border: 1.5px solid rgba(90, 31, 79, 0.55);
+    border-radius: 22px;
+    color: #5A1F4F;
+  }
+
+  .kh-work-index-card:nth-child(1),
+  .kh-work-index-card:nth-child(4) {
+    background: #D7CAF5;
+  }
+
+  .kh-work-index-card:nth-child(2) {
+    background: #F7E8EA;
+  }
+
+  .kh-work-index-card:nth-child(3) {
+    background: #B39FEF;
+  }
+
+  .kh-work-index-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.065em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-topline span:last-child {
+    max-width: 18rem;
+    text-align: right;
+    opacity: 0.65;
+  }
+
+  .kh-work-index-copy h2 {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(3.3rem, 7vw, 7rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .kh-work-index-copy h2 a {
+    color: inherit;
+    background: none;
+  }
+
+  .kh-work-index-copy h2 a:hover,
+  .kh-work-index-copy h2 a:focus-visible {
+    color: #A23D3D;
+  }
+
+  .kh-work-index-copy p {
+    max-width: 35rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .kh-work-index-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.2rem;
+    align-items: center;
+  }
+
+  .kh-work-index-actions .kh-text-link {
+    margin-top: 0;
+  }
+
+  @media (max-width: 800px) {
+    .kh-work-index-head h1 {
+      font-size: clamp(3.75rem, 17vw, 6rem);
+      line-height: 0.83;
+    }
+
+    .kh-work-index-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-work-index-card {
+      min-height: 0;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .kh-work-index-head h1 {
+      font-size: clamp(3.3rem, 15vw, 4.8rem);
+    }
+
+    .kh-work-index-card {
+      padding: 1.25rem;
+      border-radius: 18px;
+    }
+
+    .kh-work-index-topline {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .kh-work-index-topline span:last-child {
+      max-width: none;
+      text-align: left;
+    }
+
+    .kh-work-index-copy h2 {
+      font-size: clamp(3rem, 15vw, 4.5rem);
+    }
+  }
+</style>
