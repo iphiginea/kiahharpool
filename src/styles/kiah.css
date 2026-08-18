@@ -727,10 +727,21 @@ body {
 }
 
 .kh-contact {
-  padding-bottom: clamp(5rem, 10vw, 10rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(2.25rem, 6vw, 5rem);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  background: var(--kh-plum);
+  color: var(--kh-cream);
+}
+
+.kh-contact .kh-kicker,
+.kh-contact h2,
+.kh-contact .kh-text-link {
+  color: var(--kh-cream);
 }
 
 .kh-contact h2 {
+  max-width: 9ch;
   margin-top: 1.5rem;
   font-size: clamp(4.5rem, 11vw, 11rem);
   line-height: 0.78;
@@ -741,19 +752,37 @@ body {
   flex-wrap: wrap;
   gap: 1.5rem;
   align-items: center;
-  margin-top: 2.5rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.kh-contact .kh-pill {
+  border-color: var(--kh-cream);
+  background: var(--kh-cream);
+  color: var(--kh-plum) !important;
+}
+
+.kh-contact .kh-pill:hover {
+  border-color: var(--kh-lavender);
+  background: var(--kh-lavender);
+}
+
+.kh-contact .kh-text-link {
+  margin-top: 0;
+  text-decoration-color: rgba(252, 245, 242, 0.5);
 }
 
 .site-footer {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  padding-block: 1.4rem 2rem;
-  border-top: 1px solid rgba(89, 25, 78, 0.2);
+  gap: 2rem;
+  padding-block: 1.25rem 2.25rem;
+  border-top: 0;
   color: var(--kh-plum);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
 }
 
@@ -761,10 +790,24 @@ body {
   margin: 0;
 }
 
+.footer-signature {
+  opacity: 0.68;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-end;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+}
+
+.footer-links a {
+  color: var(--kh-plum);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--kh-brick);
 }
 
 @media (max-width: 980px) {
@@ -848,12 +891,28 @@ body {
     grid-template-columns: 3rem 1fr;
   }
 
+  .kh-contact {
+    padding: 1.5rem;
+  }
+
+  .kh-contact h2 {
+    max-width: 10ch;
+    font-size: clamp(3.8rem, 17vw, 6rem);
+    line-height: 0.82;
+  }
+
+  .kh-contact-row {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
   .site-footer {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .footer-links {
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 }
