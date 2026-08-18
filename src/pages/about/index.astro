@@ -1,80 +1,412 @@
 ---
-// The prose on this page is placeholder copy — rewrite it as your own. It is
-// intentionally *not* in `src/i18n/`: the dictionary holds UI chrome, so a
-// translator isn't handed someone else's biography, and you don't have to open
-// a dictionary file to edit your own about page.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE } from '../../consts';
-import { t } from '../../i18n';
+import { withBase } from '../../lib/url';
 ---
 
 <BaseLayout
-  title={t('about.title')}
-  description={`About the author behind this ${SITE.title} site.`}
+  title="About"
+  description="About Kiah Harpool — a Chicago media leader, systems thinker, and product builder working across media investment, AI workflows, products, and culture."
 >
-  <section class="page-head section">
-    <p class="eyebrow">{t('about.eyebrow')}</p>
-    <h1>A measured profile for the person behind the work.</h1>
-    <p class="lead">
-      This page is shaped for a concise biography, a working philosophy, and the handful of details
-      that help readers understand how you think.
-    </p>
-  </section>
-
-  <section class="section prose-grid">
-    <div>
-      <p class="eyebrow">Profile</p>
-      <h2>Quiet systems, clear writing, durable interfaces.</h2>
+  <section class="kh-about-hero section">
+    <div class="kh-about-meta">
+      <span>ABOUT / KIAH HARPOOL</span>
+      <span>CHICAGO, IL</span>
     </div>
-    <div class="prose-stack">
-      <p>
-        I work across product strategy, interface systems, and technical writing. The common thread
-        is structure: making complex material easier to scan, trust, and maintain.
+
+    <h1>
+      <span>Media person.</span>
+      <span>Systems thinker.</span>
+      <span>Compulsive builder.</span>
+    </h1>
+
+    <div class="kh-about-intro-grid">
+      <p class="kh-about-deck">
+        I’m most interested in the moment when something technically works — but could work much
+        better.
       </p>
-      <p>
-        Astro Keel leaves room for this kind of context without forcing a loud personal brand.
-        Replace this placeholder with a specific background, current role, and the constraints that
-        shape your work.
+      <p class="kh-about-intro-copy">
+        My work sits between media, operations, technology, and product. I like finding the hidden
+        logic inside complicated work, making it clearer, and then building the thing that helps
+        people move through it.
       </p>
     </div>
   </section>
 
-  <section class="section" aria-label={t('about.ledgerLabel')}>
-    <div class="about-ledger">
+  <section class="kh-about-story section" aria-labelledby="about-story">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">01 / THE THREAD</p>
+      <h2 id="about-story">Media led me to systems. Systems led me to building.</h2>
+    </div>
+
+    <div class="kh-about-story-copy">
+      <p>
+        I work in media investment at <strong>Publicis Media / PMX</strong>, where I lead people and
+        help turn a lot of moving pieces — audiences, markets, investment decisions, process, and
+        execution — into work that feels understandable and manageable.
+      </p>
+      <p>
+        Over time, I became just as interested in <em>how</em> the work happens as the work itself.
+        Where does a decision stall? What gets repeated manually? What knowledge lives in one
+        person’s head? What would make the right next step obvious to someone else?
+      </p>
+      <p>
+        That naturally pulled me toward AI and workflow design. I map decision logic, prototype
+        tools, and think about adoption as part of the system — not as an afterthought. The goal is
+        rarely “use AI.” The goal is usually to make complicated work clearer, faster, or easier to
+        trust.
+      </p>
+      <p>
+        The same instinct follows me outside my day job. If I keep wishing a product existed, I tend
+        to build it: <strong>Duel Cut</strong> for ranking movies through head-to-head choices,
+        <strong>Encore</strong> for figuring out which concerts really were the best,
+        <strong>Duel Draw</strong> for playing a drawing game directly with one other person, and
+        <strong>Points</strong> for exploring a more focused, ritual-driven guided practice.
+      </p>
+    </div>
+  </section>
+
+  <section class="kh-about-ledger section" aria-labelledby="about-now">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">02 / CURRENTLY</p>
+      <h2 id="about-now">A few useful coordinates.</h2>
+    </div>
+
+    <div class="kh-about-facts">
+      <article>
+        <span class="kh-about-fact-number">01</span>
+        <div>
+          <span class="kh-about-fact-label">WORK</span>
+          <h3>Media investment + team leadership</h3>
+          <p>Publicis Media / PMX, with a focus on strategy, execution, people, and better systems.</p>
+        </div>
+      </article>
+
+      <article>
+        <span class="kh-about-fact-number">02</span>
+        <div>
+          <span class="kh-about-fact-label">SYSTEMS</span>
+          <h3>AI workflows + decision logic</h3>
+          <p>Finding repeatable friction and turning it into workflows, tools, and clearer choices.</p>
+        </div>
+      </article>
+
+      <article>
+        <span class="kh-about-fact-number">03</span>
+        <div>
+          <span class="kh-about-fact-label">BUILDING</span>
+          <h3>Duel Cut / Encore / Duel Draw / Points</h3>
+          <p>Independent products built because the version I wanted to use did not exist yet.</p>
+        </div>
+      </article>
+
+      <article>
+        <span class="kh-about-fact-number">04</span>
+        <div>
+          <span class="kh-about-fact-label">COMMUNITY</span>
+          <h3>Media Advertising Club of Chicago</h3>
+          <p>Industry programming, leadership, mentorship, and giving people a reason to show up.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="kh-about-method section" aria-labelledby="about-method">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">03 / HOW I WORK</p>
+      <h2 id="about-method">The method is usually the same.</h2>
+    </div>
+
+    <div class="kh-about-principles">
       <article>
         <span>01</span>
-        <h3>Current focus</h3>
-        <p>Designing lean content systems, portfolio surfaces, and editorial product pages.</p>
+        <h3>Find the friction.</h3>
+        <p>The workaround, repeated question, confusing handoff, or tiny annoyance is usually the clue.</p>
       </article>
       <article>
         <span>02</span>
-        <h3>Background</h3>
-        <p>
-          Experience spanning frontend implementation, design systems, and writing for technical
-          audiences.
-        </p>
+        <h3>Map the logic.</h3>
+        <p>Before automating anything, I want to know what decision is actually being made and why.</p>
       </article>
       <article>
         <span>03</span>
-        <h3>Contact</h3>
-        <p>
-          Use this section for availability, collaboration preferences, or a direct contact route.
-        </p>
+        <h3>Make it tangible.</h3>
+        <p>A prototype answers questions that another meeting, deck, or abstract discussion cannot.</p>
+      </article>
+      <article>
+        <span>04</span>
+        <h3>Make it usable by someone else.</h3>
+        <p>A clever system is not finished until another person can understand it, trust it, and use it.</p>
       </article>
     </div>
   </section>
 
-  <section class="section prose-grid about-closing">
+  <section class="kh-about-interests section" aria-labelledby="about-interests">
     <div>
-      <p class="eyebrow">Method</p>
-      <h2>Structure before surface.</h2>
+      <p class="kh-kicker">04 / OFF THE CLOCK</p>
+      <h2 id="about-interests">Culture is part of the operating system.</h2>
     </div>
-    <div class="prose-stack">
+
+    <div class="kh-about-interests-copy">
       <p>
-        The theme treats the page like a working document: hierarchy first, rhythm second, visual
-        signature third. Fine rules, generous spacing, and type contrast carry the identity without
-        competing with the content.
+        I’m a music person, a movie person, and the kind of person who will turn either one into a
+        ranking system if given enough time. I care about concerts, records, film, books, design,
+        Chicago, and the strange little artifacts that make culture feel specific instead of generic.
       </p>
+      <p>
+        Those interests are not separate from how I work. They are usually where the product ideas
+        start — with curiosity, taste, and a question I cannot stop trying to answer.
+      </p>
+      <a class="kh-pill" href={withBase('/works/')}>See what I’m building →</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .kh-about-hero,
+  .kh-about-story,
+  .kh-about-ledger,
+  .kh-about-method,
+  .kh-about-interests {
+    color: #5A1F4F;
+  }
+
+  .kh-about-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kh-about-hero h1 {
+    max-width: 15ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10.8vw, 11rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.78;
+  }
+
+  .kh-about-hero h1 span {
+    display: block;
+  }
+
+  .kh-about-hero h1 span:nth-child(2) {
+    margin-left: clamp(0rem, 6vw, 7rem);
+  }
+
+  .kh-about-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 0.6fr);
+    gap: clamp(2rem, 8vw, 9rem);
+    align-items: start;
+    margin-top: clamp(3rem, 8vw, 7rem);
+  }
+
+  .kh-about-deck {
+    max-width: 25ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 4.25rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+  }
+
+  .kh-about-intro-copy {
+    max-width: 35rem;
+    margin: 0;
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.6;
+  }
+
+  .kh-about-story,
+  .kh-about-ledger,
+  .kh-about-method,
+  .kh-about-interests {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.42fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 8vw, 9rem);
+    border-top: 1px solid rgba(90, 31, 79, 0.25);
+  }
+
+  .kh-about-section-label h2,
+  .kh-about-interests h2 {
+    max-width: 12ch;
+    margin: 0.85rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 5.5rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
+  }
+
+  .kh-about-story-copy {
+    max-width: 48rem;
+  }
+
+  .kh-about-story-copy p {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+    line-height: 1.65;
+  }
+
+  .kh-about-story-copy p:first-child {
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    line-height: 1.45;
+  }
+
+  .kh-about-facts {
+    border-top: 1px solid rgba(90, 31, 79, 0.2);
+  }
+
+  .kh-about-facts article {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(90, 31, 79, 0.2);
+  }
+
+  .kh-about-fact-number,
+  .kh-about-fact-label,
+  .kh-about-principles article > span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+
+  .kh-about-fact-number {
+    opacity: 0.55;
+  }
+
+  .kh-about-fact-label {
+    color: #A23D3D;
+  }
+
+  .kh-about-facts h3 {
+    margin: 0.4rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 3.2rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+  }
+
+  .kh-about-facts p {
+    max-width: 42rem;
+    margin: 0.7rem 0 0;
+    line-height: 1.55;
+  }
+
+  .kh-about-principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .kh-about-principles article {
+    min-height: 15rem;
+    padding: 1.5rem;
+    border: 1.5px solid #5A1F4F;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kh-about-principles article:nth-child(1),
+  .kh-about-principles article:nth-child(4) {
+    background: #D7CAF5;
+  }
+
+  .kh-about-principles article:nth-child(2) {
+    background: #F7E8EA;
+  }
+
+  .kh-about-principles article:nth-child(3) {
+    background: #B39FEF;
+  }
+
+  .kh-about-principles h3 {
+    margin: auto 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3.6rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+
+  .kh-about-principles p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .kh-about-interests-copy {
+    max-width: 44rem;
+  }
+
+  .kh-about-interests-copy p {
+    margin: 0 0 1.4rem;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .kh-about-interests-copy .kh-pill {
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 760px) {
+    .kh-about-meta {
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .kh-about-hero h1 {
+      font-size: clamp(3.7rem, 17vw, 6rem);
+      line-height: 0.82;
+    }
+
+    .kh-about-hero h1 span:nth-child(2) {
+      margin-left: 0;
+    }
+
+    .kh-about-intro-grid,
+    .kh-about-story,
+    .kh-about-ledger,
+    .kh-about-method,
+    .kh-about-interests {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .kh-about-intro-grid {
+      margin-top: 3rem;
+    }
+
+    .kh-about-section-label h2,
+    .kh-about-interests h2 {
+      font-size: clamp(2.8rem, 13vw, 4.8rem);
+    }
+
+    .kh-about-principles {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-about-principles article {
+      min-height: 12rem;
+    }
+  }
+</style>
