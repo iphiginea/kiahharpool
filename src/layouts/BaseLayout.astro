@@ -17,7 +17,6 @@ import { withBase } from '../lib/url';
 import { SITE, NAV_ITEMS } from '../consts';
 import { locale, navLabel, t } from '../i18n';
 import CodeCopy from '../components/CodeCopy.astro';
-import SocialLinks from '../components/SocialLinks.astro';
 
 interface Props {
   title?: string;
@@ -69,7 +68,7 @@ const isActive = (href: string) => {
     <slot name="head" />
     <ClientRouter />
   </head>
-  <body>
+  <body id="top">
     <header class="site-header">
       <a class="brand" href={withBase('/')} aria-label={t('nav.brandHome', { site: siteName })}>
         <span class="brand-mark" aria-hidden="true"></span>
@@ -91,12 +90,13 @@ const isActive = (href: string) => {
     </main>
 
     <footer class="site-footer">
-      <p>{SITE.footerText}</p>
-      <div class="footer-links">
-        <a href={withBase('/works/')}>Selected work</a>
+      <p class="footer-signature">{SITE.footerText}</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href={withBase('/works/')}>Work</a>
+        <a href="mailto:kiah.harpool@gmail.com">Email</a>
         <a href="https://github.com/iphiginea" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <SocialLinks />
-      </div>
+        <a href="#top">Back to top ↑</a>
+      </nav>
     </footer>
 
     <CodeCopy />
