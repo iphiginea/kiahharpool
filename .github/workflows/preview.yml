@@ -40,9 +40,6 @@ jobs:
           SITE_URL: https://iphiginea.github.io
           BASE_PATH: /kiahharpool/preview/soft-brutalist-editorial
         run: |
-          base64 -d public/images/duelcut-duel-hd.webp.b64 > public/images/duelcut-duel-hd.webp
-          base64 -d public/images/encore-duel-hd.webp.b64 > public/images/encore-duel-hd.webp
-          base64 -d public/images/encore-rankings-hd.webp.b64 > public/images/encore-rankings-hd.webp
           npm ci
           npm run build
 
