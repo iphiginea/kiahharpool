@@ -1,7 +1,6 @@
 ---
 title: 'Points'
-description: 'A guided practice app that turns a body map into the starting point for each session — select where you're carrying it, and let that point guide the focus.'
-thumbnail: ./points-showcase.webp
+description: "A guided practice app that turns a body map into the starting point for each session — select where you're carrying it, and let that point guide the focus."
 tech:
   - HTML
   - CSS
