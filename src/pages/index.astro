@@ -283,25 +283,44 @@ const websiteSchema = {
     <div class="kh-section-head kh-section-head-ui">
       <div>
         <p class="kh-kicker">03 / RECOGNITION + LEADERSHIP</p>
-        <h2 id="recognition">Selected signals.</h2>
+        <h2 id="recognition">A few things worth noting.</h2>
       </div>
     </div>
 
-    <div class="kh-recognition-grid">
-      <article>
-        <span class="kh-card-label">TVB</span>
-        <h3>Executive NEXT Buyer Honoree</h3>
-        <span class="kh-arrow">→</span>
+    <div class="kh-recognition-editorial">
+      <article class="kh-recognition-row">
+        <div class="kh-recognition-meta">
+          <span>RECOGNITION</span>
+          <strong>TVB</strong>
+          <span>2025</span>
+        </div>
+        <div class="kh-recognition-copy">
+          <h3>Executive NEXT Buyer Honoree</h3>
+          <p>Recognition for my work in media investment and buying.</p>
+        </div>
       </article>
-      <article>
-        <span class="kh-card-label">PMX</span>
-        <h3>Investment Credo Award</h3>
-        <span class="kh-arrow">→</span>
+
+      <article class="kh-recognition-row">
+        <div class="kh-recognition-meta">
+          <span>RECOGNITION</span>
+          <strong>PMX / PUBLICIS MEDIA</strong>
+        </div>
+        <div class="kh-recognition-copy">
+          <h3>Investment Credo Award</h3>
+          <p>Internal recognition for leadership, mentorship, and contributions across Investment.</p>
+        </div>
       </article>
-      <article>
-        <span class="kh-card-label">MAC</span>
-        <h3>President, Media Advertising Club of Chicago</h3>
-        <span class="kh-arrow">→</span>
+
+      <article class="kh-recognition-row kh-recognition-row-leadership">
+        <div class="kh-recognition-meta">
+          <span>LEADERSHIP</span>
+          <strong>MEDIA ADVERTISING CLUB OF CHICAGO</strong>
+          <span>2025–26</span>
+        </div>
+        <div class="kh-recognition-copy">
+          <h3>President</h3>
+          <p>Leading industry programming, member engagement, and community-building in Chicago media.</p>
+        </div>
       </article>
     </div>
   </section>
@@ -329,3 +348,101 @@ const websiteSchema = {
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .kh-recognition-editorial {
+    border-top: 1px solid rgba(90, 31, 79, 0.22);
+  }
+
+  .kh-recognition-row {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.32fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(2.2rem, 4.5vw, 4.25rem) 0;
+    border-bottom: 1px solid rgba(90, 31, 79, 0.22);
+  }
+
+  .kh-recognition-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    color: #5A1F4F;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .kh-recognition-meta > span:first-child {
+    color: #A23D3D;
+  }
+
+  .kh-recognition-meta > span:last-child:not(:first-child) {
+    margin-top: 0.55rem;
+    opacity: 0.62;
+  }
+
+  .kh-recognition-copy h3 {
+    max-width: 16ch;
+    margin: 0;
+    color: #5A1F4F;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.83;
+  }
+
+  .kh-recognition-copy p {
+    max-width: 40rem;
+    margin: clamp(1.2rem, 2vw, 1.7rem) 0 0;
+    color: #5A1F4F;
+    font-size: clamp(1rem, 1.2vw, 1.12rem);
+    line-height: 1.6;
+    opacity: 0.82;
+  }
+
+  .kh-recognition-row-leadership {
+    position: relative;
+  }
+
+  .kh-recognition-row-leadership::after {
+    content: '';
+    position: absolute;
+    inset: 1rem 0 1rem auto;
+    width: 0.4rem;
+    border-radius: 999px;
+    background: #B39FEF;
+  }
+
+  .kh-recognition-row-leadership .kh-recognition-meta > span:first-child {
+    color: #5A1F4F;
+  }
+
+  @media (max-width: 760px) {
+    .kh-recognition-row {
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+    }
+
+    .kh-recognition-meta {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 0.55rem 1rem;
+    }
+
+    .kh-recognition-meta > span:last-child:not(:first-child) {
+      margin-top: 0;
+    }
+
+    .kh-recognition-copy h3 {
+      max-width: 13ch;
+      font-size: clamp(2.8rem, 14vw, 5.8rem);
+    }
+  }
+</style>
