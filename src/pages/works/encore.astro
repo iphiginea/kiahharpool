@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/url';
+---
+
+<BaseLayout
+  title="Encore"
+  description="A concert diary and ranking app that compares a lifetime of shows head to head."
+>
+  <article class="kh-case section">
+    <header class="kh-case-head">
+      <div>
+        <p class="kh-case-kicker">02 / PRODUCT / MUSIC / PERSONAL DATA</p>
+        <h1 class="kh-case-title">ENCORE</h1>
+        <p class="kh-case-deck">Every concert you have seen. Head to head.</p>
+      </div>
+
+      <div>
+        <dl class="kh-case-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Concept / Product Design / Development</dd>
+          </div>
+          <div>
+            <dt>Built</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Core idea</dt>
+            <dd>Compare shows two at a time to build a personal concert canon.</dd>
+          </div>
+        </dl>
+        <div class="kh-case-actions">
+          <a class="kh-pill" href="https://iphiginea.github.io/encore/" target="_blank" rel="noopener noreferrer">Open app ↗</a>
+          <a class="kh-text-link" href="https://github.com/iphiginea/encore" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="kh-case-gallery kh-case-gallery-encore">
+      <img
+        src={withBase('/images/encore-duel.webp')}
+        alt="Encore interface showing a concert duel between Joanna Newsom and Kendrick Lamar"
+        width="680"
+        height="892"
+      />
+      <img
+        src={withBase('/images/encore-rankings.webp')}
+        alt="Encore rankings interface showing ranked concerts"
+        width="680"
+        height="1216"
+      />
+    </div>
+
+    <div class="kh-case-body">
+      <p class="kh-case-section-label">THE PROJECT</p>
+      <div class="kh-case-prose">
+        <h2>Why I made it</h2>
+        <p>
+          I kept coming back to an impossible question: what was the best concert I had ever seen?
+          Memory does not behave like a five-star scale, and a show from fifteen years ago can be
+          difficult to compare with one from last month. A duel made the question smaller and more
+          answerable.
+        </p>
+
+        <h2>What I built</h2>
+        <p>
+          Encore combines a concert diary with a pairwise ranking system. Shows become ticket-like
+          records, then enter head-to-head duels. Each decision contributes to an evolving ranking,
+          turning a pile of memories into a personal concert canon.
+        </p>
+
+        <h2>The payoff</h2>
+        <p>
+          The rankings page gives the duels somewhere to go. Instead of simply storing where and
+          when a show happened, Encore turns the archive into something interpretable: favorites,
+          relative placement, and patterns across the shows you have seen.
+        </p>
+
+        <h2>Design direction</h2>
+        <p>
+          I wanted the interface to feel like the physical ephemera of going to shows rather than a
+          spreadsheet of attendance. The duel screen borrows from ticket typography and perforated
+          stubs; the rankings screen is deliberately denser, functioning more like a personal music
+          archive.
+        </p>
+      </div>
+    </div>
+
+    <div class="kh-case-next">
+      <a href={withBase('/works/duel-cut/')}>
+        <span class="kh-case-section-label">PREVIOUS PROJECT</span>
+        <strong>← Duel Cut</strong>
+      </a>
+    </div>
+  </article>
+</BaseLayout>
