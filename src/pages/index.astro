@@ -174,6 +174,71 @@ const websiteSchema = {
         </figure>
       </div>
     </article>
+
+    <div class="kh-more-projects">
+      <div class="kh-more-projects-head">
+        <p class="kh-kicker">MORE PROJECTS / BUILT 2026</p>
+        <p>Smaller experiments, fully real.</p>
+      </div>
+
+      <div class="kh-project-pair">
+        <article class="kh-mini-project kh-mini-project-dueldraw">
+          <div class="kh-mini-project-topline">
+            <span>03 / DUEL DRAW</span>
+            <span>GAME / MULTIPLAYER / DRAWING</span>
+          </div>
+          <div class="kh-mini-project-body">
+            <span class="kh-project-role">Concept / Product Design / Development</span>
+            <h3>DUEL DRAW</h3>
+            <p class="kh-mini-project-deck">Draw it. Clue it. See if they get it.</p>
+            <p class="kh-mini-project-description">
+              A two-player browser drawing game built around private room codes, alternating turns,
+              optional clues, and a shared score.
+            </p>
+            <p class="kh-mini-project-why"><strong>Why:</strong> I wanted a drawing game that felt like playing directly with one person, not entering a giant public game room.</p>
+          </div>
+          <div class="kh-mini-project-footer">
+            <div class="kh-mini-tags" aria-label="Duel Draw features">
+              <span>REAL-TIME</span>
+              <span>DRAWING</span>
+              <span>GAME DESIGN</span>
+            </div>
+            <div class="kh-mini-actions">
+              <a class="kh-pill" href="https://iphiginea.github.io/dueldraw/duel-draw.html" target="_blank" rel="noopener noreferrer">Open app ↗</a>
+              <a class="kh-text-link" href="https://github.com/iphiginea/dueldraw" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="kh-mini-project kh-mini-project-points">
+          <div class="kh-mini-project-topline">
+            <span>04 / POINTS</span>
+            <span>WELLNESS / GUIDED AUDIO / INTERACTION</span>
+          </div>
+          <div class="kh-mini-project-body">
+            <span class="kh-project-role">Concept / Product Design / Development</span>
+            <h3>POINTS</h3>
+            <p class="kh-mini-project-deck">A guided practice, one point at a time.</p>
+            <p class="kh-mini-project-description">
+              A body-point-based guided self-hypnosis experience that lets you choose a point,
+              select what you are carrying, and move through a focused audio session.
+            </p>
+            <p class="kh-mini-project-why"><strong>Why:</strong> I wanted to explore whether the ritual and focus of acupuncture could become a calming at-home experience without needles.</p>
+          </div>
+          <div class="kh-mini-project-footer">
+            <div class="kh-mini-tags" aria-label="Points features">
+              <span>GUIDED AUDIO</span>
+              <span>BODY MAP</span>
+              <span>INTERACTION DESIGN</span>
+            </div>
+            <div class="kh-mini-actions">
+              <a class="kh-pill" href="https://iphiginea.github.io/points/" target="_blank" rel="noopener noreferrer">Open app ↗</a>
+              <a class="kh-text-link" href="https://github.com/iphiginea/points" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
   </section>
 
   <section class="kh-system section" aria-labelledby="what-i-do">
@@ -350,6 +415,135 @@ const websiteSchema = {
 </BaseLayout>
 
 <style>
+  .kh-more-projects {
+    margin-top: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .kh-more-projects-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.2rem;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid rgba(90, 31, 79, 0.24);
+  }
+
+  .kh-more-projects-head p {
+    margin: 0;
+  }
+
+  .kh-more-projects-head > p:last-child {
+    color: #5A1F4F;
+    font-size: 0.95rem;
+    opacity: 0.72;
+  }
+
+  .kh-project-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .kh-mini-project {
+    min-width: 0;
+    min-height: 31rem;
+    padding: clamp(1.4rem, 2.5vw, 2.25rem);
+    border: 2px solid #5A1F4F;
+    border-radius: 22px;
+    color: #5A1F4F;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  .kh-mini-project-dueldraw {
+    background: #D7CAF5;
+  }
+
+  .kh-mini-project-points {
+    background: #F7E8EA;
+  }
+
+  .kh-mini-project-topline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .kh-mini-project-topline span:last-child {
+    max-width: 16rem;
+    text-align: right;
+    opacity: 0.66;
+  }
+
+  .kh-mini-project-body h3 {
+    margin: 0.55rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 6vw, 6.4rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.84;
+  }
+
+  .kh-mini-project-deck {
+    max-width: 22ch;
+    margin: 1.1rem 0 0;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .kh-mini-project-description,
+  .kh-mini-project-why {
+    max-width: 38rem;
+    margin: 1rem 0 0;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .kh-mini-project-why {
+    opacity: 0.76;
+  }
+
+  .kh-mini-project-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .kh-mini-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .kh-mini-tags span {
+    padding: 0.38rem 0.58rem;
+    border: 1px solid rgba(90, 31, 79, 0.34);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+  }
+
+  .kh-mini-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
   .kh-recognition-editorial {
     border-top: 1px solid rgba(90, 31, 79, 0.22);
   }
@@ -424,6 +618,35 @@ const websiteSchema = {
   }
 
   @media (max-width: 760px) {
+    .kh-more-projects-head {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .kh-project-pair {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-mini-project {
+      min-height: 0;
+      gap: 2rem;
+    }
+
+    .kh-mini-project-topline {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .kh-mini-project-topline span:last-child {
+      max-width: none;
+      text-align: left;
+    }
+
+    .kh-mini-project-body h3 {
+      font-size: clamp(3rem, 15vw, 4.8rem);
+    }
+
     .kh-recognition-row {
       grid-template-columns: 1fr;
       gap: 1rem;
