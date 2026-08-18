@@ -1,7 +1,6 @@
 ---
 title: 'Duel Draw'
 description: 'A two-player sketch & guess game — create a room, take turns drawing from a deck of 100 prompts, and guess what the other is drawing.'
-thumbnail: ./duel-draw-showcase.webp
 tech:
   - HTML
   - CSS
