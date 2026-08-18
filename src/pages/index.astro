@@ -66,78 +66,111 @@ const websiteSchema = {
     <article class="kh-project kh-project-lavender">
       <div class="kh-project-copy">
         <div class="kh-project-topline">
-          <span>01</span>
-          <span>PRODUCT / DESIGN / DEVELOPMENT</span>
+          <span>01 / DUEL CUT</span>
+          <span>PRODUCT / FILM / PERSONAL DATA</span>
         </div>
-        <h3>DUEL CUT</h3>
+        <span class="kh-project-role">Concept / Product Design / Development</span>
+        <h3><a class="kh-project-title-link" href={withBase('/works/duel-cut/')}>DUEL CUT</a></h3>
         <p class="kh-project-deck">Your movie taste, directed by choices instead of star ratings.</p>
         <p class="kh-project-description">
-          A head-to-head movie ranking app that builds a personal canon through duels, rankings,
-          stats, and taste insights.
+          I built a head-to-head ranking system that turns repeated choices into a personal movie
+          canon, then surfaces rankings and taste patterns from those decisions.
         </p>
+        <div class="kh-project-why">
+          <strong>Why I made it</strong>
+          <p>
+            Choosing between two movies I love tells me more than giving both of them four stars.
+            I wanted a ranking system that behaves more like taste actually does.
+          </p>
+        </div>
         <div class="kh-chip-row" aria-label="Duel Cut features">
           <span>DUELS</span>
           <span>RANKINGS</span>
           <span>INSIGHTS</span>
         </div>
-        <a class="kh-pill" href="https://github.com/iphiginea/duelcut" target="_blank" rel="noopener noreferrer">
-          View GitHub ↗
-        </a>
+        <div class="kh-project-actions">
+          <a class="kh-pill" href="https://iphiginea.github.io/duelcut/" target="_blank" rel="noopener noreferrer">
+            Open app ↗
+          </a>
+          <a class="kh-text-link" href="https://github.com/iphiginea/duelcut" target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+        </div>
       </div>
 
       <div class="kh-product-visual kh-product-visual-duelcut">
         <figure class="kh-product-shot kh-product-shot-single">
-          <img
-            src={withBase('/images/duelcut-duel.webp')}
-            alt="Duel Cut interface showing a movie duel between Bugonia and Harold and Maude"
-            width="340"
-            height="614"
-            loading="lazy"
-          />
+          <a href={withBase('/works/duel-cut/')} aria-label="Read the Duel Cut case study">
+            <img
+              src={withBase('/images/duelcut-duel.webp')}
+              alt="Duel Cut interface showing a movie duel between Bugonia and Harold and Maude"
+              width="340"
+              height="614"
+              loading="lazy"
+            />
+          </a>
         </figure>
       </div>
     </article>
 
-    <article class="kh-project kh-project-blush kh-project-reverse">
+    <article class="kh-project kh-project-blush">
       <div class="kh-project-copy">
         <div class="kh-project-topline">
-          <span>02</span>
+          <span>02 / ENCORE</span>
           <span>PRODUCT / MUSIC / PERSONAL DATA</span>
         </div>
-        <h3>ENCORE</h3>
+        <span class="kh-project-role">Concept / Product Design / Development</span>
+        <h3><a class="kh-project-title-link" href={withBase('/works/encore/')}>ENCORE</a></h3>
         <p class="kh-project-deck">Every concert you have seen. Head to head.</p>
         <p class="kh-project-description">
-          A concert-ranking app that turns a lifetime of shows into a personal canon using duels,
-          ticket-style memories, rankings, and statistics.
+          I built a concert diary and ranking system around pairwise duels, ticket-like memories,
+          ranked shows, and personal statistics.
         </p>
+        <div class="kh-project-why">
+          <strong>Why I made it</strong>
+          <p>
+            I kept coming back to an impossible question: what was the best concert I had ever
+            seen? Comparing two nights at a time felt more honest than trying to score a lifetime
+            of shows.
+          </p>
+        </div>
         <div class="kh-chip-row" aria-label="Encore features">
           <span>SHOWS</span>
           <span>DUELS</span>
-          <span>MEMORIES</span>
+          <span>RANKINGS</span>
         </div>
-        <a class="kh-pill" href="https://github.com/iphiginea/encore" target="_blank" rel="noopener noreferrer">
-          View GitHub ↗
-        </a>
+        <div class="kh-project-actions">
+          <a class="kh-pill" href="https://iphiginea.github.io/encore/" target="_blank" rel="noopener noreferrer">
+            Open app ↗
+          </a>
+          <a class="kh-text-link" href="https://github.com/iphiginea/encore" target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+        </div>
       </div>
 
       <div class="kh-product-visual kh-product-visual-encore">
         <figure class="kh-product-shot kh-product-shot-primary">
-          <img
-            src={withBase('/images/encore-duel.webp')}
-            alt="Encore interface showing a concert duel between Joanna Newsom and Kendrick Lamar"
-            width="340"
-            height="446"
-            loading="lazy"
-          />
+          <a href={withBase('/works/encore/')} aria-label="Read the Encore case study">
+            <img
+              src={withBase('/images/encore-duel.webp')}
+              alt="Encore interface showing a concert duel between Joanna Newsom and Kendrick Lamar"
+              width="340"
+              height="446"
+              loading="lazy"
+            />
+          </a>
         </figure>
         <figure class="kh-product-shot kh-product-shot-secondary">
-          <img
-            src={withBase('/images/encore-rankings.webp')}
-            alt="Encore rankings interface showing ranked concerts"
-            width="340"
-            height="614"
-            loading="lazy"
-          />
+          <a href={withBase('/works/encore/')} aria-label="Read the Encore case study">
+            <img
+              src={withBase('/images/encore-rankings.webp')}
+              alt="Encore rankings interface showing ranked concerts"
+              width="340"
+              height="614"
+              loading="lazy"
+            />
+          </a>
         </figure>
       </div>
     </article>
