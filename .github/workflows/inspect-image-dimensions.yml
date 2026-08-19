@@ -13,12 +13,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - name: Inspect candidate screenshots
         run: |
+          echo "CURRENT PREVIEW SOURCES"
           file public/images/duelcut-duel.webp || true
           file public/images/encore-duel.webp || true
           file public/images/encore-rankings.webp || true
-          file src/content/works/duel-cut-showcase.webp || true
-          file src/content/works/encore-showcase.webp || true
-          file src/content/works/IMG_4676.jpeg || true
-          file IMG_4679.jpeg || true
+
+          echo "MAIN BRANCH CANDIDATES"
+          git fetch origin main
+          git show origin/main:src/content/works/duel-cut-showcase.webp > /tmp/duel-cut-showcase.webp || true
+          git show origin/main:src/content/works/encore-showcase.webp > /tmp/encore-showcase.webp || true
+          git show origin/main:src/content/works/IMG_4676.jpeg > /tmp/IMG_4676.jpeg || true
+          git show origin/main:IMG_4679.jpeg > /tmp/IMG_4679.jpeg || true
+          file /tmp/duel-cut-showcase.webp || true
+          file /tmp/encore-showcase.webp || true
+          file /tmp/IMG_4676.jpeg || true
+          file /tmp/IMG_4679.jpeg || true
