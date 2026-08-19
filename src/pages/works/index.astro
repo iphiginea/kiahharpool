@@ -8,10 +8,22 @@ const works = (await getCollection('works'))
   .filter((work) => featuredIds.has(work.id))
   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 
-const miniCardDecks: Record<string, string> = {
+const cardDecks: Record<string, string> = {
+  'duel-cut': 'Your movie taste, directed by choices instead of star ratings.',
+  encore: 'Every concert you have seen. Head to head.',
   'duel-draw': 'Draw it. Clue it. See if they get it.',
   points: 'A guided practice, one point at a time.',
 };
+
+const featureTags: Record<string, string[]> = {
+  'duel-cut': ['DUELS', 'RANKINGS', 'INSIGHTS'],
+  encore: ['SHOWS', 'DUELS', 'RANKINGS'],
+  'duel-draw': ['REAL-TIME', 'DRAWING', 'GAME DESIGN'],
+  points: ['GUIDED AUDIO', 'BODY MAP', 'INTERACTION DESIGN'],
+};
+
+const usesHomepageProjectCard = (id: string) => id === 'duel-cut' || id === 'encore';
+const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'points';
 ---
 
 <BaseLayout
@@ -39,7 +51,9 @@ const miniCardDecks: Record<string, string> = {
               work.id === 'duel-draw' && 'kh-work-index-card-dueldraw',
               work.id === 'points' && 'kh-work-index-card-points',
               work.id === 'first-light' && 'kh-work-index-card-firstlight',
-              (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project',
+              work.id === 'duel-cut' && 'kh-project-lavender',
+              work.id === 'encore' && 'kh-project-blush',
+              usesHomepageMiniCard(work.id) && 'kh-mini-project',
               work.id === 'duel-draw' && 'kh-mini-project-dueldraw',
               work.id === 'points' && 'kh-mini-project-points',
             ]}
@@ -47,7 +61,8 @@ const miniCardDecks: Record<string, string> = {
             <div
               class:list={[
                 'kh-work-index-topline',
-                (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project-topline',
+                usesHomepageProjectCard(work.id) && 'kh-project-topline',
+                usesHomepageMiniCard(work.id) && 'kh-mini-project-topline',
               ]}
             >
               <span>
@@ -59,14 +74,19 @@ const miniCardDecks: Record<string, string> = {
             <div
               class:list={[
                 'kh-work-index-copy',
-                (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project-body',
+                usesHomepageProjectCard(work.id) && 'kh-project-copy',
+                usesHomepageMiniCard(work.id) && 'kh-mini-project-body',
               ]}
             >
-              {(work.id === 'duel-draw' || work.id === 'points') && (
+              {(usesHomepageProjectCard(work.id) || usesHomepageMiniCard(work.id)) && (
                 <span class="kh-project-role">Personal experiment / Concept + Build</span>
               )}
+
               <h2 class:list={[work.id === 'first-light' && 'kh-work-index-firstlight-title']}>
-                <a href={withBase(`/works/${work.id}/`)}>
+                <a
+                  class:list={[usesHomepageProjectCard(work.id) && 'kh-project-title-link']}
+                  href={withBase(`/works/${work.id}/`)}
+                >
                   {work.id === 'first-light' ? (
                     <>
                       <span class="kh-flight-f">F</span>
@@ -78,19 +98,30 @@ const miniCardDecks: Record<string, string> = {
                   )}
                 </a>
               </h2>
+
               {work.id === 'first-light' && (
                 <p class="kh-flight-equation" aria-hidden="true">
                   F + LIGHT = FLIGHT
                 </p>
               )}
-              {miniCardDecks[work.id] && (
-                <p class="kh-work-index-deck kh-mini-project-deck">{miniCardDecks[work.id]}</p>
+
+              {cardDecks[work.id] && (
+                <p
+                  class:list={[
+                    'kh-work-index-deck',
+                    usesHomepageProjectCard(work.id) && 'kh-project-deck',
+                    usesHomepageMiniCard(work.id) && 'kh-mini-project-deck',
+                  ]}
+                >
+                  {cardDecks[work.id]}
+                </p>
               )}
+
               <p
                 class:list={[
                   'kh-work-index-description',
-                  (work.id === 'duel-draw' || work.id === 'points') &&
-                    'kh-mini-project-description',
+                  usesHomepageProjectCard(work.id) && 'kh-project-description',
+                  usesHomepageMiniCard(work.id) && 'kh-mini-project-description',
                 ]}
               >
                 {work.data.description}
@@ -100,23 +131,29 @@ const miniCardDecks: Record<string, string> = {
             <div
               class:list={[
                 'kh-work-index-footer',
-                (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project-footer',
+                usesHomepageMiniCard(work.id) && 'kh-mini-project-footer',
               ]}
             >
-              {(work.id === 'duel-draw' || work.id === 'points') && (
+              {featureTags[work.id] && (
                 <div
-                  class="kh-work-index-tags kh-mini-tags"
+                  class:list={[
+                    'kh-work-index-tags',
+                    usesHomepageProjectCard(work.id) && 'kh-chip-row',
+                    usesHomepageMiniCard(work.id) && 'kh-mini-tags',
+                  ]}
                   aria-label={`${work.data.title} features`}
                 >
-                  {work.data.tech.map((item) => (
+                  {featureTags[work.id].map((item) => (
                     <span>{item}</span>
                   ))}
                 </div>
               )}
+
               <div
                 class:list={[
                   'kh-work-index-actions',
-                  (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-actions',
+                  usesHomepageProjectCard(work.id) && 'kh-project-actions',
+                  usesHomepageMiniCard(work.id) && 'kh-mini-actions',
                 ]}
               >
                 <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
@@ -199,27 +236,17 @@ const miniCardDecks: Record<string, string> = {
     color: #5a1f4f;
   }
 
-  .kh-work-index-card-duelcut {
-    background: #d7caf5;
-  }
-
-  .kh-work-index-card-encore {
-    background: #f7e8ea;
-  }
-
+  .kh-work-index-card-duelcut,
+  .kh-work-index-card-encore,
   .kh-work-index-card-dueldraw,
   .kh-work-index-card-points {
     min-height: 31rem;
     padding: clamp(1.4rem, 2.5vw, 2.25rem);
-    border: 2px solid #5a1f4f;
   }
 
-  .kh-work-index-card-dueldraw {
-    background: #d7caf5;
-  }
-
+  .kh-work-index-card-dueldraw,
   .kh-work-index-card-points {
-    background: #f7e8ea;
+    border: 2px solid #5a1f4f;
   }
 
   .kh-work-index-card-firstlight {
@@ -259,6 +286,7 @@ const miniCardDecks: Record<string, string> = {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    margin-bottom: 0;
     font-family: var(--font-mono);
     font-size: 0.66rem;
     font-weight: 700;
@@ -356,10 +384,23 @@ const miniCardDecks: Record<string, string> = {
     line-height: 1.55;
   }
 
+  .kh-work-index-card-duelcut .kh-work-index-description,
+  .kh-work-index-card-encore .kh-work-index-description,
   .kh-work-index-card-dueldraw .kh-work-index-description,
   .kh-work-index-card-points .kh-work-index-description {
     margin-top: 1rem;
     font-size: 0.98rem;
+  }
+
+  .kh-work-index-card-duelcut .kh-project-copy,
+  .kh-work-index-card-encore .kh-project-copy {
+    min-height: 0;
+  }
+
+  .kh-work-index-card-duelcut .kh-project-actions,
+  .kh-work-index-card-encore .kh-project-actions {
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .kh-work-index-footer {
@@ -372,6 +413,7 @@ const miniCardDecks: Record<string, string> = {
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
+    margin: 0;
   }
 
   .kh-work-index-tags span {
