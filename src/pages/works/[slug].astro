@@ -6,9 +6,10 @@ import { withBase } from '../../lib/url';
 const projectOrder = ['duel-cut', 'encore', 'duel-draw', 'points', 'first-light'];
 
 export async function getStaticPaths() {
+  const projectIds = ['duel-cut', 'encore', 'duel-draw', 'points', 'first-light'];
   const entries = await getCollection('works');
   return entries
-    .filter((entry) => projectOrder.includes(entry.id))
+    .filter((entry) => projectIds.includes(entry.id))
     .map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
