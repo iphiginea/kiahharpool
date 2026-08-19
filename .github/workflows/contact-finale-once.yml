@@ -1,0 +1,192 @@
+name: Update contact finale once
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  update-contact:
+    if: github.head_ref == 'soft-brutalist-editorial' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout editorial branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Update contact finale
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/pages/index.astro')
+          text = path.read_text()
+
+          old = '''  <section class="kh-contact section">
+    <p class="kh-kicker">05 / SAY HELLO</p>
+    <h2>Good ideas welcome.</h2>
+    <p>Have an interesting problem, idea, or conversation? I’m always happy to talk.</p>
+    <div class="kh-contact-row">
+      <a class="kh-pill" href="mailto:kiah.harpool@gmail.com">Email me</a>
+      <a
+        class="kh-text-link"
+        href="https://github.com/iphiginea"
+        target="_blank"
+        rel="noopener noreferrer">GitHub ↗</a
+      >
+    </div>
+  </section>'''
+
+          new = '''  <section class="kh-contact section">
+    <p class="kh-kicker">05 / SAY HELLO</p>
+    <div class="kh-contact-finale">
+      <h2>Let’s talk.</h2>
+      <div class="kh-contact-details">
+        <p class="kh-contact-lead">
+          Media, workflows, automation, industry ideas, little questions — if there’s something
+          worth figuring out, I’m your girl.
+        </p>
+        <div class="kh-contact-row">
+          <a class="kh-pill" href="mailto:kiah.harpool@gmail.com">Email me →</a>
+          <a
+            class="kh-text-link"
+            href="https://github.com/iphiginea"
+            target="_blank"
+            rel="noopener noreferrer">GitHub ↗</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="kh-contact-signoff" aria-label="Kiah Harpool, Chicago, 2026">
+      <span>KIAH HARPOOL</span>
+      <span>CHICAGO</span>
+      <span>2026</span>
+    </div>
+  </section>'''
+
+          if old not in text:
+              raise SystemExit('Expected contact block not found')
+          text = text.replace(old, new, 1)
+
+          css = '''
+  .kh-contact {
+    padding-top: clamp(5rem, 10vw, 10rem);
+    padding-bottom: 2rem;
+  }
+
+  .kh-contact-finale {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: end;
+    margin-top: clamp(2rem, 4vw, 4rem);
+  }
+
+  .kh-contact h2 {
+    max-width: 7ch;
+    margin: 0;
+    color: #5a1f4f;
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.78;
+  }
+
+  .kh-contact-details {
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(90, 31, 79, 0.24);
+    color: #5a1f4f;
+  }
+
+  .kh-contact-lead {
+    max-width: 34rem;
+    margin: 0;
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+  }
+
+  .kh-contact-row {
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .kh-contact-signoff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: clamp(7rem, 14vw, 13rem);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(90, 31, 79, 0.24);
+    color: #5a1f4f;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+  }
+'''
+
+          marker = '  @media (max-width: 760px) {'
+          if marker not in text:
+              raise SystemExit('Mobile media marker not found')
+          text = text.replace(marker, css + '\n' + marker, 1)
+
+          mobile = '''
+    .kh-contact {
+      padding-top: 4.5rem;
+    }
+
+    .kh-contact-finale {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .kh-contact h2 {
+      font-size: clamp(4.5rem, 23vw, 7rem);
+      line-height: 0.8;
+    }
+
+    .kh-contact-details {
+      padding-top: 1.25rem;
+    }
+
+    .kh-contact-lead {
+      font-size: 1.3rem;
+    }
+
+    .kh-contact-signoff {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 6rem;
+    }
+'''
+
+          mobile_marker = '    .kh-more-projects-head {'
+          if mobile_marker not in text:
+              raise SystemExit('Mobile insertion marker not found')
+          text = text.replace(mobile_marker, mobile + '\n' + mobile_marker, 1)
+
+          path.write_text(text)
+          PY
+      - name: Format homepage
+        run: npx prettier --write src/pages/index.astro
+      - name: Commit contact finale
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro
+          git commit -m "Polish homepage contact finale"
+          git push origin HEAD:soft-brutalist-editorial
