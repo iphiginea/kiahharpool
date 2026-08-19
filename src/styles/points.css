@@ -57,6 +57,7 @@
   color: #a9884f;
 }
 
+.kh-mini-project-points .kh-mini-project-body h2,
 .kh-mini-project-points .kh-mini-project-body h3 {
   margin: 0.65rem 0 0;
   color: #3a4638;
@@ -69,6 +70,7 @@
   text-transform: uppercase;
 }
 
+.kh-mini-project-points .kh-mini-project-body h2::after,
 .kh-mini-project-points .kh-mini-project-body h3::after {
   content: '●  GUIDED SESSIONS';
   display: block;
@@ -129,6 +131,7 @@
     bottom: 16%;
   }
 
+  .kh-mini-project-points .kh-mini-project-body h2,
   .kh-mini-project-points .kh-mini-project-body h3 {
     font-size: clamp(3.5rem, 18vw, 5.2rem) !important;
   }
