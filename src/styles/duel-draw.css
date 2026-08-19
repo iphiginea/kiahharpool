@@ -41,6 +41,7 @@
   display: none;
 }
 
+.kh-mini-project-dueldraw .kh-mini-project-body h2,
 .kh-mini-project-dueldraw .kh-mini-project-body h3 {
   margin: 0.65rem 0 0;
   color: #241b33;
@@ -53,11 +54,13 @@
   text-transform: none;
 }
 
+.kh-mini-project-dueldraw .kh-mini-project-body h2::before,
 .kh-mini-project-dueldraw .kh-mini-project-body h3::before {
   content: none;
   display: none;
 }
 
+.kh-mini-project-dueldraw .kh-mini-project-body h2::after,
 .kh-mini-project-dueldraw .kh-mini-project-body h3::after {
   content: '●  A TWO-PLAYER SKETCH & GUESS';
   display: block;
@@ -102,6 +105,7 @@
 }
 
 @media (max-width: 760px) {
+  .kh-mini-project-dueldraw .kh-mini-project-body h2,
   .kh-mini-project-dueldraw .kh-mini-project-body h3 {
     font-size: clamp(3.3rem, 17vw, 5rem) !important;
   }
