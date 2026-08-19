@@ -1,0 +1,170 @@
+/* Duel Cut — app identity translated into the portfolio card */
+.kh-work .kh-project-lavender {
+  position: relative;
+  overflow: hidden;
+  border-color: #2A2035 !important;
+  background: #040011 !important;
+  color: #F3ECDD !important;
+  box-shadow: 0 24px 60px -42px rgba(4, 0, 17, 0.95);
+}
+
+.kh-work .kh-project-lavender::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.34rem;
+  background: linear-gradient(90deg, #BA0101 0 48%, #E99D25 48% 74%, #ADD794 74% 100%);
+  pointer-events: none;
+}
+
+.kh-work .kh-project-lavender .kh-project-copy,
+.kh-work .kh-project-lavender .kh-product-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.kh-work .kh-project-lavender .kh-project-topline,
+.kh-work .kh-project-lavender .kh-project-description,
+.kh-work .kh-project-lavender .kh-project-deck,
+.kh-work .kh-project-lavender .kh-project-why,
+.kh-work .kh-project-lavender .kh-project-why p {
+  color: #F3ECDD !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-topline span:first-child {
+  color: #E99D25 !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-topline span:last-child {
+  color: #9CA88C !important;
+  opacity: 1 !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-role {
+  color: #ADD794 !important;
+}
+
+.kh-work .kh-project-lavender h3 {
+  max-width: none !important;
+  margin-bottom: 0.55rem !important;
+  color: #F3ECDD !important;
+  font-family: var(--font-body) !important;
+  font-size: clamp(5rem, 11vw, 10.5rem) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.075em !important;
+  line-height: 0.76 !important;
+  text-transform: uppercase;
+}
+
+.kh-work .kh-project-lavender h3::after {
+  content: 'YOUR MOVIES / HEAD TO HEAD';
+  display: block;
+  margin-top: 1rem;
+  color: #BA0101;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+}
+
+.kh-work .kh-project-lavender .kh-project-title-link,
+.kh-work .kh-project-lavender .kh-project-title-link:hover,
+.kh-work .kh-project-lavender .kh-project-title-link:focus-visible {
+  color: #F3ECDD !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-deck {
+  color: #F3ECDD !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-description {
+  color: #D8D0C2 !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-why {
+  border-top-color: #2A2035 !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-why strong {
+  color: #ADD794 !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-why p {
+  color: #9CA88C !important;
+}
+
+.kh-work .kh-project-lavender .kh-chip-row span {
+  border-color: #2A2035 !important;
+  background: #120B1E !important;
+  color: #E99D25 !important;
+}
+
+.kh-work .kh-project-lavender .kh-pill {
+  border-color: #BA0101 !important;
+  background: #BA0101 !important;
+  color: #F3ECDD !important;
+  box-shadow: 0 12px 28px -18px rgba(186, 1, 1, 0.78);
+}
+
+.kh-work .kh-project-lavender .kh-pill:hover,
+.kh-work .kh-project-lavender .kh-pill:focus-visible {
+  border-color: #E99D25 !important;
+  background: #E99D25 !important;
+  color: #040011 !important;
+  transform: translateY(-1px);
+}
+
+.kh-work .kh-project-lavender .kh-text-link {
+  color: #ADD794 !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #2A2035;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(186, 1, 1, 0.035), transparent 38%),
+    #120B1E !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut::before {
+  content: 'DUELS  /  RANKINGS  /  INSIGHTS';
+  position: absolute;
+  top: 1rem;
+  left: 1.1rem;
+  z-index: 2;
+  color: #9CA88C;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot {
+  border-color: #2A2035 !important;
+  background: #1C1329 !important;
+  box-shadow: 0 16px 34px -20px rgba(0, 0, 0, 0.78) !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot img {
+  border-radius: 10px !important;
+}
+
+@media (max-width: 760px) {
+  .kh-work .kh-project-lavender h3 {
+    font-size: clamp(4rem, 20vw, 6rem) !important;
+  }
+
+  .kh-work .kh-project-lavender .kh-product-visual-duelcut::before {
+    top: 0.75rem;
+    left: 0.8rem;
+    font-size: 0.52rem;
+  }
+}
