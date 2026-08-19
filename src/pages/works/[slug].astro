@@ -6,7 +6,7 @@ import { withBase } from '../../lib/url';
 const projectOrder = ['duel-cut', 'encore', 'duel-draw', 'points', 'first-light'];
 
 export async function getStaticPaths() {
-  const projectIds = ['duel-cut', 'encore', 'duel-draw', 'points', 'first-light'];
+  const projectIds = ['duel-draw', 'points', 'first-light'];
   const entries = await getCollection('works');
   return entries
     .filter((entry) => projectIds.includes(entry.id))
