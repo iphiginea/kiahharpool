@@ -1,4 +1,5 @@
 name: Remove Lab from editorial branch
+# Trigger branch-native removal.
 
 on:
   push:
