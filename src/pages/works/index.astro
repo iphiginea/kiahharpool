@@ -7,6 +7,11 @@ const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points', 'first
 const works = (await getCollection('works'))
   .filter((work) => featuredIds.has(work.id))
   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+
+const miniCardDecks: Record<string, string> = {
+  'duel-draw': 'Draw it. Clue it. See if they get it.',
+  points: 'A guided practice, one point at a time.',
+};
 ---
 
 <BaseLayout
@@ -29,6 +34,10 @@ const works = (await getCollection('works'))
           <article
             class:list={[
               'kh-work-index-card',
+              work.id === 'duel-cut' && 'kh-work-index-card-duelcut',
+              work.id === 'encore' && 'kh-work-index-card-encore',
+              work.id === 'duel-draw' && 'kh-work-index-card-dueldraw',
+              work.id === 'points' && 'kh-work-index-card-points',
               work.id === 'first-light' && 'kh-work-index-card-firstlight',
             ]}
           >
@@ -40,6 +49,9 @@ const works = (await getCollection('works'))
             </div>
 
             <div class="kh-work-index-copy">
+              {(work.id === 'duel-draw' || work.id === 'points') && (
+                <span class="kh-project-role">Personal experiment / Concept + Build</span>
+              )}
               <h2 class:list={[work.id === 'first-light' && 'kh-work-index-firstlight-title']}>
                 <a href={withBase(`/works/${work.id}/`)}>
                   {work.id === 'first-light' ? (
@@ -58,33 +70,43 @@ const works = (await getCollection('works'))
                   F + LIGHT = FLIGHT
                 </p>
               )}
-              <p>{work.data.description}</p>
+              {miniCardDecks[work.id] && (
+                <p class="kh-work-index-deck">{miniCardDecks[work.id]}</p>
+              )}
+              <p class="kh-work-index-description">{work.data.description}</p>
             </div>
 
-            <div class="kh-work-index-actions">
-              <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
-                See experiment →
-              </a>
-              {work.data.link && (
-                <a
-                  class="kh-text-link"
-                  href={work.data.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open app ↗
-                </a>
+            <div class="kh-work-index-footer">
+              {(work.id === 'duel-draw' || work.id === 'points') && (
+                <div class="kh-work-index-tags" aria-label={`${work.data.title} features`}>
+                  {work.data.tech.map((item) => <span>{item}</span>)}
+                </div>
               )}
-              {work.id === 'first-light' && work.data.repo && (
-                <a
-                  class="kh-text-link"
-                  href={work.data.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
+              <div class="kh-work-index-actions">
+                <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
+                  See experiment →
                 </a>
-              )}
+                {work.data.link && (
+                  <a
+                    class="kh-text-link"
+                    href={work.data.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open app ↗
+                  </a>
+                )}
+                {work.id === 'first-light' && work.data.repo && (
+                  <a
+                    class="kh-text-link"
+                    href={work.data.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
             </div>
           </article>
         ))
@@ -141,17 +163,27 @@ const works = (await getCollection('works'))
     color: #5a1f4f;
   }
 
-  .kh-work-index-card:nth-child(1),
-  .kh-work-index-card:nth-child(4) {
+  .kh-work-index-card-duelcut {
     background: #d7caf5;
   }
 
-  .kh-work-index-card:nth-child(2) {
+  .kh-work-index-card-encore {
     background: #f7e8ea;
   }
 
-  .kh-work-index-card:nth-child(3) {
-    background: #b39fef;
+  .kh-work-index-card-dueldraw,
+  .kh-work-index-card-points {
+    min-height: 31rem;
+    padding: clamp(1.4rem, 2.5vw, 2.25rem);
+    border: 2px solid #5a1f4f;
+  }
+
+  .kh-work-index-card-dueldraw {
+    background: #d7caf5;
+  }
+
+  .kh-work-index-card-points {
+    background: #f7e8ea;
   }
 
   .kh-work-index-card-firstlight {
@@ -192,10 +224,10 @@ const works = (await getCollection('works'))
     justify-content: space-between;
     gap: 1rem;
     font-family: var(--font-mono);
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 700;
-    letter-spacing: 0.065em;
-    line-height: 1.4;
+    letter-spacing: 0.075em;
+    line-height: 1.35;
     text-transform: uppercase;
   }
 
@@ -213,6 +245,13 @@ const works = (await getCollection('works'))
     font-weight: 900;
     letter-spacing: -0.06em;
     line-height: 0.82;
+  }
+
+  .kh-work-index-card-dueldraw .kh-work-index-copy h2,
+  .kh-work-index-card-points .kh-work-index-copy h2 {
+    margin: 0.55rem 0 0;
+    font-size: clamp(3.2rem, 6vw, 6.4rem);
+    line-height: 0.84;
   }
 
   .kh-work-index-copy h2 a {
@@ -266,11 +305,48 @@ const works = (await getCollection('works'))
     text-transform: uppercase;
   }
 
-  .kh-work-index-copy p {
+  .kh-work-index-deck {
+    max-width: 22ch;
+    margin: 1.1rem 0 0;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .kh-work-index-description {
     max-width: 35rem;
     margin: 0;
     font-size: 1rem;
     line-height: 1.55;
+  }
+
+  .kh-work-index-card-dueldraw .kh-work-index-description,
+  .kh-work-index-card-points .kh-work-index-description {
+    margin-top: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .kh-work-index-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .kh-work-index-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .kh-work-index-tags span {
+    padding: 0.38rem 0.58rem;
+    border: 1px solid rgba(90, 31, 79, 0.34);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
   }
 
   .kh-work-index-actions {
@@ -324,6 +400,11 @@ const works = (await getCollection('works'))
 
     .kh-work-index-copy h2 {
       font-size: clamp(3rem, 15vw, 4.5rem);
+    }
+
+    .kh-work-index-card-dueldraw .kh-work-index-copy h2,
+    .kh-work-index-card-points .kh-work-index-copy h2 {
+      font-size: clamp(3rem, 15vw, 4.8rem);
     }
 
     .kh-work-index-firstlight-title {
