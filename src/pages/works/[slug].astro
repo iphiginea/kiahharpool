@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
 
-const projectOrder = ['duel-cut', 'encore', 'duel-draw', 'points'];
+const projectOrder = ['duel-cut', 'encore', 'duel-draw', 'points', 'first-light'];
 
 export async function getStaticPaths() {
   const entries = await getCollection('works');
@@ -26,11 +26,20 @@ const role = 'Concept / Product Design / Development';
   ogType="article"
   image={withBase(`/og/works/${entry.id}.png`)}
 >
-  <article class="kh-case" data-pagefind-body>
+  <article class:list={['kh-case', entry.id === 'first-light' && 'kh-case-firstlight']} data-pagefind-body>
     <header class="kh-case-head section">
       <div>
         <p class="kh-case-kicker">PROJECT / BUILT 2026</p>
-        <h1 class="kh-case-title">{entry.data.title}</h1>
+        {
+          entry.id === 'first-light' ? (
+            <h1 class="kh-case-title kh-case-title-firstlight" aria-label="First Light">
+              <span class="kh-flight-f">F</span><span class="kh-flight-irst">irst</span> <span class="kh-flight-light">LIGHT</span>
+            </h1>
+          ) : (
+            <h1 class="kh-case-title">{entry.data.title}</h1>
+          )
+        }
+        {entry.id === 'first-light' && <p class="kh-flight-equation">F + LIGHT = FLIGHT</p>}
         <p class="kh-case-deck">{entry.data.description}</p>
         <div class="kh-case-actions">
           {
@@ -101,6 +110,28 @@ const role = 'Concept / Product Design / Development';
       )
     }
 
+    {
+      entry.id === 'first-light' && (
+        <section class="kh-firstlight-case-visual section" aria-label="First Light concept preview">
+          <div class="kh-firstlight-stars" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="kh-firstlight-preview-copy">
+            <p>YOUR LOCAL DAWN CHORUS</p>
+            <h2><span>F</span><em>irst</em> <span>LIGHT</span></h2>
+            <p class="kh-firstlight-preview-tagline">five birds, wherever you are, whatever the season</p>
+          </div>
+          <div class="kh-firstlight-birds" aria-hidden="true">
+            <span><i></i>01 / RECENT + LOCAL</span>
+            <span><i></i>02 / RECENT + LOCAL</span>
+            <span><i></i>03 / RECENT + LOCAL</span>
+            <span><i></i>04 / RECENT + LOCAL</span>
+            <span><i></i>05 / RECENT + LOCAL</span>
+          </div>
+        </section>
+      )
+    }
+
     <section class="kh-case-body section">
       <aside>
         <p class="kh-case-section-label">PROJECT NOTES</p>
@@ -122,3 +153,173 @@ const role = 'Concept / Product Design / Development';
     }
   </article>
 </BaseLayout>
+
+<style>
+  .kh-case-firstlight .kh-case-meta {
+    background: #1B2140;
+    color: #F0E6D8;
+    border-color: rgba(240, 230, 216, 0.25);
+  }
+
+  .kh-case-title-firstlight {
+    max-width: none;
+    font-style: normal;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .kh-flight-f,
+  .kh-flight-light {
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .kh-flight-irst {
+    color: #8FA3A0;
+    font-size: 0.43em;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    vertical-align: 0.2em;
+  }
+
+  .kh-flight-equation {
+    margin: -0.25rem 0 1.4rem;
+    color: #A23D3D;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .kh-firstlight-case-visual {
+    position: relative;
+    min-height: clamp(30rem, 58vw, 48rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.65fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(2rem, 6vw, 6rem);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 75% 110%, rgba(242, 200, 121, 0.96) 0, rgba(232, 147, 95, 0.76) 22%, transparent 48%),
+      linear-gradient(165deg, #1B2140 10%, #4A3B63 58%, #A65E62 100%);
+    color: #F0E6D8;
+  }
+
+  .kh-firstlight-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .kh-firstlight-stars i {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #F0E6D8;
+    opacity: 0.55;
+  }
+
+  .kh-firstlight-stars i:nth-child(1) { left: 8%; top: 16%; }
+  .kh-firstlight-stars i:nth-child(2) { left: 18%; top: 30%; }
+  .kh-firstlight-stars i:nth-child(3) { left: 31%; top: 12%; }
+  .kh-firstlight-stars i:nth-child(4) { left: 47%; top: 26%; }
+  .kh-firstlight-stars i:nth-child(5) { left: 63%; top: 14%; }
+  .kh-firstlight-stars i:nth-child(6) { left: 76%; top: 33%; }
+  .kh-firstlight-stars i:nth-child(7) { left: 87%; top: 18%; }
+  .kh-firstlight-stars i:nth-child(8) { left: 55%; top: 42%; }
+
+  .kh-firstlight-preview-copy,
+  .kh-firstlight-birds {
+    position: relative;
+    z-index: 1;
+  }
+
+  .kh-firstlight-preview-copy > p:first-child {
+    margin: 0 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .kh-firstlight-preview-copy h2 {
+    max-width: none;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 10rem);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.07em;
+    line-height: 0.78;
+    white-space: nowrap;
+  }
+
+  .kh-firstlight-preview-copy h2 span {
+    font-weight: 700;
+  }
+
+  .kh-firstlight-preview-copy h2 em {
+    color: #8FA3A0;
+    font-size: 0.43em;
+    font-weight: 300;
+    vertical-align: 0.2em;
+  }
+
+  .kh-firstlight-preview-tagline {
+    max-width: 28rem;
+    margin: 1.5rem 0 0;
+    color: #8FA3A0;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.5;
+  }
+
+  .kh-firstlight-birds {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .kh-firstlight-birds span {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(240, 230, 216, 0.18);
+    border-radius: 14px;
+    background: rgba(240, 230, 216, 0.06);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .kh-firstlight-birds i {
+    width: 0.55rem;
+    height: 0.55rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #F2C879;
+    box-shadow: 0 0 0 0.3rem rgba(242, 200, 121, 0.08);
+  }
+
+  @media (max-width: 760px) {
+    .kh-case-title-firstlight {
+      white-space: normal;
+    }
+
+    .kh-firstlight-case-visual {
+      grid-template-columns: 1fr;
+      min-height: 0;
+      padding: 1.5rem;
+    }
+
+    .kh-firstlight-preview-copy h2 {
+      font-size: clamp(3.5rem, 19vw, 6rem);
+    }
+  }
+</style>
