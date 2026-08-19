@@ -1,4 +1,5 @@
 /* Duel Cut — app identity translated into the portfolio card */
+/* Shared by the homepage panel and the compact Work index card. */
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) {
   position: relative;
   overflow: hidden;
