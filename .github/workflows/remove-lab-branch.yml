@@ -1,5 +1,5 @@
 name: Remove Lab from editorial branch
-# Install repo dependencies before formatting.
+# Trigger the default-branch PR remover.
 
 on:
   push:
