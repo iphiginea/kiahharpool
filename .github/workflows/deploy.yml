@@ -11,6 +11,7 @@ name: Deploy to GitHub Pages
 # Rebuild with the Encore app treatment.
 # Rebuild with the Duel Cut app treatment.
 # Rebuild with Duel Draw sans title and retina project screenshots.
+# Rebuild with media-leadership positioning and curiosity framing.
 on:
   push:
     branches: [main]
