@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
-# Combined deployment: production main + soft-brutalist editorial preview.
+# One workflow owns both production and the editorial preview.
 on:
   push:
-    branches: [main]
+    branches: [main, soft-brutalist-editorial]
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
