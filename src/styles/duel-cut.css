@@ -21,14 +21,17 @@
 
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-copy,
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-product-visual,
-:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-work-index-topline,
-:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-work-index-footer {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-work-index-topline,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-work-index-footer {
   position: relative;
   z-index: 1;
 }
 
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-topline,
-:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-description,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-description,
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-deck,
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why,
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why p {
@@ -78,7 +81,8 @@
   line-height: 1.45;
 }
 
-:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-title-link,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-title-link,
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
   .kh-project-title-link:hover,
 :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
