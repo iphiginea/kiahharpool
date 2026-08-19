@@ -1,0 +1,53 @@
+name: Remove Lab section once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  remove-lab:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout editorial branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Remove Lab and renumber contact
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/pages/index.astro')
+          text = path.read_text()
+
+          start = text.index('  <section class="kh-lab section">')
+          end = text.index('  <section class="kh-contact section">', start)
+          text = text[:start] + text[end:]
+          text = text.replace(
+              '<p class="kh-kicker">06 / SAY HELLO</p>',
+              '<p class="kh-kicker">05 / SAY HELLO</p>',
+              1,
+          )
+
+          # Remove the now-unused page-scoped mobile Lab heading rule.
+          lab_css = '''\n    .kh-lab h2 {\n      font-size: clamp(3rem, 12.5vw, 4.25rem);\n      line-height: 0.88;\n      letter-spacing: -0.05em;\n    }\n'''
+          text = text.replace(lab_css, '\n', 1)
+
+          path.write_text(text)
+          PY
+      - name: Format homepage
+        run: npx prettier --write src/pages/index.astro
+      - name: Commit Lab removal
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro
+          git commit -m "Remove Lab from homepage"
+          git push origin HEAD:soft-brutalist-editorial
