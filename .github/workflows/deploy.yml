@@ -10,6 +10,7 @@ name: Deploy to GitHub Pages
 # Rebuild after forcing final card styles over page-scoped CSS.
 # Rebuild with the Encore app treatment.
 # Rebuild with the Duel Cut app treatment.
+# Rebuild with Duel Draw sans title and retina project screenshots.
 on:
   push:
     branches: [main]
