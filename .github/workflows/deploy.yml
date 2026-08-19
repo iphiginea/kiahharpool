@@ -6,6 +6,7 @@ name: Deploy to GitHub Pages
 # Rebuild after the preview static-path fix.
 # Rebuild with the cleaned Duel Draw treatment.
 # Rebuild with the Points app treatment.
+# Rebuild with aligned app-card typography and backgrounds.
 on:
   push:
     branches: [main]
