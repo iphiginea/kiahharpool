@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
 
-const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points']);
+const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points', 'first-light']);
 const works = (await getCollection('works'))
   .filter((work) => featuredIds.has(work.id))
   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
@@ -11,7 +11,7 @@ const works = (await getCollection('works'))
 
 <BaseLayout
   title="Work"
-  description="Products and experiments built by Kiah Harpool across film, music, games, personal data, and guided interaction."
+  description="Products and experiments built by Kiah Harpool across film, music, games, personal data, guided interaction, and location-aware audio."
 >
   <section class="kh-work-index-head section">
     <p class="kh-kicker">WORK / BUILT 2026</p>
@@ -26,16 +26,21 @@ const works = (await getCollection('works'))
     <div class="kh-work-index-grid">
       {
         works.map((work, index) => (
-          <article class="kh-work-index-card">
+          <article class:list={['kh-work-index-card', work.id === 'first-light' && 'kh-work-index-card-firstlight']}>
             <div class="kh-work-index-topline">
               <span>{String(index + 1).padStart(2, '0')} / {work.data.title}</span>
               <span>{work.data.tech.join(' / ')}</span>
             </div>
 
             <div class="kh-work-index-copy">
-              <h2>
-                <a href={withBase(`/works/${work.id}/`)}>{work.data.title}</a>
+              <h2 class:list={[work.id === 'first-light' && 'kh-work-index-firstlight-title']}>
+                <a href={withBase(`/works/${work.id}/`)}>
+                  {work.id === 'first-light' ? (
+                    <><span class="kh-flight-f">F</span><span class="kh-flight-irst">irst</span> <span class="kh-flight-light">LIGHT</span></>
+                  ) : work.data.title}
+                </a>
               </h2>
+              {work.id === 'first-light' && <p class="kh-flight-equation" aria-hidden="true">F + LIGHT = FLIGHT</p>}
               <p>{work.data.description}</p>
             </div>
 
@@ -44,6 +49,11 @@ const works = (await getCollection('works'))
               {work.data.link && (
                 <a class="kh-text-link" href={work.data.link} target="_blank" rel="noopener noreferrer">
                   Open app ↗
+                </a>
+              )}
+              {work.id === 'first-light' && work.data.repo && (
+                <a class="kh-text-link" href={work.data.repo} target="_blank" rel="noopener noreferrer">
+                  GitHub ↗
                 </a>
               )}
             </div>
@@ -115,6 +125,34 @@ const works = (await getCollection('works'))
     background: #B39FEF;
   }
 
+  .kh-work-index-card-firstlight {
+    grid-column: 1 / -1;
+    min-height: 28rem;
+    border-color: rgba(240, 230, 216, 0.35);
+    background:
+      radial-gradient(circle at 80% 115%, rgba(242, 200, 121, 0.95) 0, rgba(232, 147, 95, 0.72) 22%, transparent 48%),
+      linear-gradient(155deg, #1B2140 12%, #4A3B63 58%, #A65E62 100%);
+    color: #F0E6D8;
+  }
+
+  .kh-work-index-card-firstlight .kh-work-index-topline,
+  .kh-work-index-card-firstlight .kh-work-index-copy p,
+  .kh-work-index-card-firstlight .kh-text-link {
+    color: #F0E6D8;
+  }
+
+  .kh-work-index-card-firstlight .kh-pill {
+    border-color: #F0E6D8;
+    background: #F0E6D8;
+    color: #1B2140 !important;
+  }
+
+  .kh-work-index-card-firstlight .kh-pill:hover,
+  .kh-work-index-card-firstlight .kh-pill:focus-visible {
+    border-color: #F2C879;
+    background: #F2C879;
+  }
+
   .kh-work-index-topline {
     display: flex;
     justify-content: space-between;
@@ -153,6 +191,47 @@ const works = (await getCollection('works'))
     color: #A23D3D;
   }
 
+  .kh-work-index-card-firstlight .kh-work-index-copy h2 a:hover,
+  .kh-work-index-card-firstlight .kh-work-index-copy h2 a:focus-visible {
+    color: #F2C879;
+  }
+
+  .kh-work-index-firstlight-title {
+    max-width: none;
+    margin-bottom: 0.5rem !important;
+    font-size: clamp(4.5rem, 11vw, 11rem) !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.06em !important;
+    line-height: 0.78 !important;
+  }
+
+  .kh-flight-f,
+  .kh-flight-light {
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .kh-flight-irst {
+    color: #8FA3A0;
+    font-size: 0.47em;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    vertical-align: 0.18em;
+  }
+
+  .kh-flight-equation {
+    margin: 0 0 1.4rem !important;
+    color: #F2C879 !important;
+    font-family: var(--font-mono);
+    font-size: 0.68rem !important;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
   .kh-work-index-copy p {
     max-width: 35rem;
     margin: 0;
@@ -181,7 +260,9 @@ const works = (await getCollection('works'))
       grid-template-columns: 1fr;
     }
 
-    .kh-work-index-card {
+    .kh-work-index-card,
+    .kh-work-index-card-firstlight {
+      grid-column: auto;
       min-height: 0;
       gap: 2rem;
     }
@@ -209,6 +290,10 @@ const works = (await getCollection('works'))
 
     .kh-work-index-copy h2 {
       font-size: clamp(3rem, 15vw, 4.5rem);
+    }
+
+    .kh-work-index-firstlight-title {
+      font-size: clamp(3.4rem, 17vw, 5rem) !important;
     }
   }
 </style>
