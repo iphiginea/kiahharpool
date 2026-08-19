@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 # Superseded pushes to the same ref don't need to finish.
 concurrency:
@@ -15,6 +15,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  format-preview-once:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout editorial branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Format Work page
+        run: npx prettier --write src/pages/works/index.astro
+      - name: Commit formatting
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/works/index.astro
+          git commit -m "Format Work page mini cards"
+          git push origin HEAD:soft-brutalist-editorial
+
   check:
     runs-on: ubuntu-latest
     steps:
