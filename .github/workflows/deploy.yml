@@ -16,6 +16,7 @@ name: Deploy to GitHub Pages
 # Rebuild with revised professional, leadership, and about copy.
 # Rebuild after final formatting pass.
 # Rebuild with the homepage contact finale.
+# Rebuild after fixing contact finale contrast and mobile spacing.
 on:
   push:
     branches: [main]
