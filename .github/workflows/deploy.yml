@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
   pages: write
   id-token: write
 
@@ -50,13 +51,30 @@ jobs:
           path: preview-src
 
       - name: Build preview site
+        id: preview_build
+        continue-on-error: true
         working-directory: preview-src
         env:
           SITE_URL: https://iphiginea.github.io
           BASE_PATH: /kiahharpool/preview/soft-brutalist-editorial
         run: |
-          npm ci
-          npm run build
+          set -o pipefail
+          (npm ci && npm run build) 2>&1 | tee ../preview-build.log
+
+      - name: Report preview build failure
+        if: steps.preview_build.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo '### Preview build failed'
+            echo
+            echo '```text'
+            tail -n 120 preview-build.log
+            echo '```'
+          } > preview-failure.md
+          gh issue comment 1 --repo "${{ github.repository }}" --body-file preview-failure.md
+          exit 1
 
       - name: Combine production and preview
         run: |
