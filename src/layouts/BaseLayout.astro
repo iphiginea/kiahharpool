@@ -13,6 +13,7 @@ import '../styles/design-system.css';
 import '../styles/projects.css';
 import '../styles/what-i-do.css';
 import '../styles/responsive-pass.css';
+import '../styles/first-light.css';
 import { ClientRouter } from 'astro:transitions';
 import { withBase } from '../lib/url';
 import { SITE, NAV_ITEMS } from '../consts';
@@ -127,5 +128,6 @@ const isActive = (href: string) => {
         true,
       );
     </script>
+    <script src={withBase('/firstlight-home.js')}></script>
   </body>
 </html>
