@@ -18,6 +18,7 @@ name: Deploy to GitHub Pages
 # Rebuild with the homepage contact finale.
 # Rebuild after fixing contact finale contrast and mobile spacing.
 # Rebuild with Work page mini cards aligned to the homepage.
+# Force rebuild after final formatted Work page branch head 6b3babf.
 on:
   push:
     branches: [main]
