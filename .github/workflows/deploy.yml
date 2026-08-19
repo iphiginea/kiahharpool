@@ -9,6 +9,7 @@ name: Deploy to GitHub Pages
 # Rebuild with aligned app-card typography and backgrounds.
 # Rebuild after forcing final card styles over page-scoped CSS.
 # Rebuild with the Encore app treatment.
+# Rebuild with the Duel Cut app treatment.
 on:
   push:
     branches: [main]
