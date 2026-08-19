@@ -1,4 +1,5 @@
 name: Remove Lab section once
+# Trigger removal from the editorial preview branch.
 
 on:
   push:
