@@ -11,18 +11,18 @@ const works = (await getCollection('works'))
 
 <BaseLayout
   title="Work"
-  description="Products and experiments built by Kiah Harpool across film, music, games, personal data, guided interaction, and location-aware audio."
+  description="Personal experiments by Kiah Harpool across film, music, games, personal data, guided interaction, and location-aware audio."
 >
   <section class="kh-work-index-head section">
-    <p class="kh-kicker">WORK / BUILT 2026</p>
-    <h1>Things I thought should exist.</h1>
+    <p class="kh-kicker">EXPERIMENTS / 2026</p>
+    <h1>Experiments in things I’m curious about.</h1>
     <p>
-      Products and experiments that started with a small irritation, an impossible question, or the
+      Personal projects that started with a small irritation, an impossible question, or the
       recurring thought: why isn’t there a better way to do this?
     </p>
   </section>
 
-  <section class="kh-work-index section" aria-label="Selected projects">
+  <section class="kh-work-index section" aria-label="Personal experiments">
     <div class="kh-work-index-grid">
       {
         works.map((work, index) => (
@@ -63,7 +63,7 @@ const works = (await getCollection('works'))
 
             <div class="kh-work-index-actions">
               <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
-                Case study →
+                See experiment →
               </a>
               {work.data.link && (
                 <a
