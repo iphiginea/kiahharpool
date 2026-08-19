@@ -1,18 +1,11 @@
 name: Deploy to GitHub Pages
 
-# Pages is deployed only from main. The build still checks out the editorial
-# branch and publishes it under /preview/soft-brutalist-editorial/.
-# Each main run rebuilds the current preview branch head.
-# Rebuild after the preview static-path fix.
-# Rebuild with the cleaned Duel Draw treatment.
-# Rebuild with the Points app treatment.
-# Rebuild with aligned app-card typography and backgrounds.
-# Rebuild after forcing final card styles over page-scoped CSS.
-# Rebuild with the Encore app treatment.
-# Rebuild with the Duel Cut app treatment.
+# Rebuild both production and the editorial preview when either source changes.
+# Production is always checked out from main; the preview is always checked out
+# from soft-brutalist-editorial and published under its preview path.
 on:
   push:
-    branches: [main]
+    branches: [main, soft-brutalist-editorial]
   workflow_dispatch:
 
 permissions:
