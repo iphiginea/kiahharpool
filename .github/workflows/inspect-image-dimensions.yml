@@ -1,0 +1,24 @@
+name: Inspect image dimensions
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Inspect candidate screenshots
+        run: |
+          file public/images/duelcut-duel.webp || true
+          file public/images/encore-duel.webp || true
+          file public/images/encore-rankings.webp || true
+          file src/content/works/duel-cut-showcase.webp || true
+          file src/content/works/encore-showcase.webp || true
+          file src/content/works/IMG_4676.jpeg || true
+          file IMG_4679.jpeg || true
