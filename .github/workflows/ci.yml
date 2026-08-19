@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 # Superseded pushes to the same ref don't need to finish.
 concurrency:
@@ -15,6 +15,81 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  apply-contact-once:
+    if: github.event_name == 'pull_request' && github.head_ref == 'soft-brutalist-editorial'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout editorial branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Render contact finale in source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/pages/index.astro')
+          text = path.read_text()
+          old = '''  <section class="kh-contact section">
+    <p class="kh-kicker">05 / SAY HELLO</p>
+    <h2>Good ideas welcome.</h2>
+    <p>Have an interesting problem, idea, or conversation? I’m always happy to talk.</p>
+    <div class="kh-contact-row">
+      <a class="kh-pill" href="mailto:kiah.harpool@gmail.com">Email me</a>
+      <a
+        class="kh-text-link"
+        href="https://github.com/iphiginea"
+        target="_blank"
+        rel="noopener noreferrer">GitHub ↗</a
+      >
+    </div>
+  </section>'''
+          new = '''  <section class="kh-contact section">
+    <p class="kh-kicker">05 / SAY HELLO</p>
+    <div class="kh-contact-finale">
+      <h2>Let’s talk</h2>
+      <div class="kh-contact-details">
+        <p class="kh-contact-lead">
+          Media, workflows, automation, industry ideas, little questions — if there’s something
+          worth figuring out, I’m your girl.
+        </p>
+        <div class="kh-contact-row">
+          <a class="kh-pill" href="mailto:kiah.harpool@gmail.com">Email me →</a>
+          <a
+            class="kh-text-link"
+            href="https://github.com/iphiginea"
+            target="_blank"
+            rel="noopener noreferrer">GitHub ↗</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="kh-contact-signoff" aria-label="Kiah Harpool, Chicago, 2026">
+      <span>KIAH HARPOOL</span>
+      <span>CHICAGO</span>
+      <span>2026</span>
+    </div>
+  </section>'''
+          if old in text:
+              path.write_text(text.replace(old, new, 1))
+          PY
+      - name: Format homepage
+        run: npx prettier --write src/pages/index.astro
+      - name: Commit static contact finale
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro
+          git commit -m "Render contact finale in homepage source"
+          git push origin HEAD:soft-brutalist-editorial
+
   check:
     runs-on: ubuntu-latest
     steps:
