@@ -1,5 +1,5 @@
 /* Duel Cut — app identity translated into the portfolio card */
-.kh-work .kh-project-lavender {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) {
   position: relative;
   overflow: hidden;
   border-color: #2a2035 !important;
@@ -8,7 +8,7 @@
   box-shadow: 0 24px 60px -42px rgba(4, 0, 17, 0.95);
 }
 
-.kh-work .kh-project-lavender::before {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)::before {
   content: '';
   position: absolute;
   top: 0;
@@ -19,34 +19,40 @@
   pointer-events: none;
 }
 
-.kh-work .kh-project-lavender .kh-project-copy,
-.kh-work .kh-project-lavender .kh-product-visual {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-copy,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-product-visual,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-work-index-topline,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-work-index-footer {
   position: relative;
   z-index: 1;
 }
 
-.kh-work .kh-project-lavender .kh-project-topline,
-.kh-work .kh-project-lavender .kh-project-description,
-.kh-work .kh-project-lavender .kh-project-deck,
-.kh-work .kh-project-lavender .kh-project-why,
-.kh-work .kh-project-lavender .kh-project-why p {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-topline,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-description,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-deck,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why p {
   color: #f3ecdd !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-topline span:first-child {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-topline
+  span:first-child {
   color: #e99d25 !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-topline span:last-child {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-topline
+  span:last-child {
   color: #9ca88c !important;
   opacity: 1 !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-role {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-role {
   color: #add794 !important;
 }
 
-.kh-work .kh-project-lavender h3 {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) :is(h2, h3) {
   max-width: none !important;
   margin-bottom: 0.55rem !important;
   color: #f3ecdd !important;
@@ -59,7 +65,7 @@
   text-transform: uppercase;
 }
 
-.kh-work .kh-project-lavender h3::after {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) :is(h2, h3)::after {
   content: 'YOUR MOVIES / HEAD TO HEAD';
   display: block;
   margin-top: 1rem;
@@ -72,54 +78,60 @@
   line-height: 1.45;
 }
 
-.kh-work .kh-project-lavender .kh-project-title-link,
-.kh-work .kh-project-lavender .kh-project-title-link:hover,
-.kh-work .kh-project-lavender .kh-project-title-link:focus-visible {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-title-link,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-title-link:hover,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-title-link:focus-visible {
   color: #f3ecdd !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-deck {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-deck {
   color: #f3ecdd !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-description {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-description {
   color: #d8d0c2 !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-why {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why {
   border-top-color: #2a2035 !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-why strong {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-why
+  strong {
   color: #add794 !important;
 }
 
-.kh-work .kh-project-lavender .kh-project-why p {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why p {
   color: #9ca88c !important;
 }
 
-.kh-work .kh-project-lavender .kh-chip-row span {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-chip-row span {
   border-color: #2a2035 !important;
   background: #120b1e !important;
   color: #e99d25 !important;
 }
 
-.kh-work .kh-project-lavender .kh-pill {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-pill {
   border-color: #ba0101 !important;
   background: #ba0101 !important;
   color: #f3ecdd !important;
   box-shadow: 0 12px 28px -18px rgba(186, 1, 1, 0.78);
 }
 
-.kh-work .kh-project-lavender .kh-pill:hover,
-.kh-work .kh-project-lavender .kh-pill:focus-visible {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-pill:hover,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-pill:focus-visible {
   border-color: #e99d25 !important;
   background: #e99d25 !important;
   color: #040011 !important;
   transform: translateY(-1px);
 }
 
-.kh-work .kh-project-lavender .kh-text-link {
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-text-link {
   color: #add794 !important;
 }
 
@@ -156,7 +168,7 @@
 }
 
 @media (max-width: 760px) {
-  .kh-work .kh-project-lavender h3 {
+  :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) :is(h2, h3) {
     font-size: clamp(4rem, 20vw, 6rem) !important;
   }
 
