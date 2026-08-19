@@ -1,0 +1,62 @@
+name: Reorder homepage sections
+
+on:
+  push:
+    branches: [soft-brutalist-editorial]
+
+permissions:
+  contents: write
+
+jobs:
+  reorder:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Move professional section before experiments
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/pages/index.astro')
+          text = path.read_text()
+
+          work_start = text.index('  <section class="kh-work section"')
+          system_start = text.index('  <section class="kh-system section"')
+          recognition_start = text.index('  <section class="kh-recognition section"')
+
+          work_block = text[work_start:system_start]
+          system_block = text[system_start:recognition_start]
+
+          system_block = system_block.replace(
+              '<p class="kh-kicker">02 / WHAT I DO</p>',
+              '<p class="kh-kicker">01 / WHAT I DO</p>',
+          )
+          work_block = work_block.replace(
+              '<p class="kh-kicker">01 / PERSONAL EXPERIMENTS</p>',
+              '<p class="kh-kicker">02 / PERSONAL EXPERIMENTS</p>',
+          )
+
+          text = text[:work_start] + system_block + '\n' + work_block + text[recognition_start:]
+          text = text.replace(
+              'class="kh-pill kh-pill-secondary kh-hero-cta" href="#selected-work">See my work →',
+              'class="kh-pill kh-pill-secondary kh-hero-cta" href="#what-i-do">See my work →',
+          )
+
+          path.write_text(text)
+          PY
+      - name: Format homepage
+        run: npx prettier --write src/pages/index.astro
+      - name: Commit reorder
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro
+          git commit -m "Move professional section before experiments"
+          git push origin HEAD:soft-brutalist-editorial
