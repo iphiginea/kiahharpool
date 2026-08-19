@@ -39,16 +39,29 @@ const miniCardDecks: Record<string, string> = {
               work.id === 'duel-draw' && 'kh-work-index-card-dueldraw',
               work.id === 'points' && 'kh-work-index-card-points',
               work.id === 'first-light' && 'kh-work-index-card-firstlight',
+              (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project',
+              work.id === 'duel-draw' && 'kh-mini-project-dueldraw',
+              work.id === 'points' && 'kh-mini-project-points',
             ]}
           >
-            <div class="kh-work-index-topline">
+            <div
+              class:list={[
+                'kh-work-index-topline',
+                (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project-topline',
+              ]}
+            >
               <span>
                 {String(index + 1).padStart(2, '0')} / {work.data.title}
               </span>
               <span>{work.data.tech.join(' / ')}</span>
             </div>
 
-            <div class="kh-work-index-copy">
+            <div
+              class:list={[
+                'kh-work-index-copy',
+                (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project-body',
+              ]}
+            >
               {(work.id === 'duel-draw' || work.id === 'points') && (
                 <span class="kh-project-role">Personal experiment / Concept + Build</span>
               )}
@@ -70,19 +83,42 @@ const miniCardDecks: Record<string, string> = {
                   F + LIGHT = FLIGHT
                 </p>
               )}
-              {miniCardDecks[work.id] && <p class="kh-work-index-deck">{miniCardDecks[work.id]}</p>}
-              <p class="kh-work-index-description">{work.data.description}</p>
+              {miniCardDecks[work.id] && (
+                <p class="kh-work-index-deck kh-mini-project-deck">{miniCardDecks[work.id]}</p>
+              )}
+              <p
+                class:list={[
+                  'kh-work-index-description',
+                  (work.id === 'duel-draw' || work.id === 'points') &&
+                    'kh-mini-project-description',
+                ]}
+              >
+                {work.data.description}
+              </p>
             </div>
 
-            <div class="kh-work-index-footer">
+            <div
+              class:list={[
+                'kh-work-index-footer',
+                (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-project-footer',
+              ]}
+            >
               {(work.id === 'duel-draw' || work.id === 'points') && (
-                <div class="kh-work-index-tags" aria-label={`${work.data.title} features`}>
+                <div
+                  class="kh-work-index-tags kh-mini-tags"
+                  aria-label={`${work.data.title} features`}
+                >
                   {work.data.tech.map((item) => (
                     <span>{item}</span>
                   ))}
                 </div>
               )}
-              <div class="kh-work-index-actions">
+              <div
+                class:list={[
+                  'kh-work-index-actions',
+                  (work.id === 'duel-draw' || work.id === 'points') && 'kh-mini-actions',
+                ]}
+              >
                 <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
                   See experiment →
                 </a>
