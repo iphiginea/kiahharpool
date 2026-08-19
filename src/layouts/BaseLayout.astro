@@ -12,6 +12,7 @@ import '../styles/product-alignment.css';
 import '../styles/design-system.css';
 import '../styles/projects.css';
 import '../styles/what-i-do.css';
+import '../styles/contact-finale.css';
 import '../styles/responsive-pass.css';
 import '../styles/first-light.css';
 import '../styles/duel-draw.css';
@@ -136,8 +137,62 @@ const isActive = (href: string) => {
         }
       };
 
-      document.addEventListener('astro:page-load', arrangeHomepage);
-      arrangeHomepage();
+      const enhanceContactFinale = () => {
+        const contact = document.querySelector('.kh-contact');
+        document.body.classList.toggle('has-contact-finale', contact instanceof HTMLElement);
+
+        if (!(contact instanceof HTMLElement) || contact.dataset.finaleEnhanced === 'true') return;
+
+        const heading = contact.querySelector('h2');
+        const actions = contact.querySelector('.kh-contact-row');
+        const body = Array.from(contact.children).find(
+          (element) =>
+            element instanceof HTMLParagraphElement && !element.classList.contains('kh-kicker'),
+        );
+
+        if (
+          !(heading instanceof HTMLHeadingElement) ||
+          !(actions instanceof HTMLElement) ||
+          !(body instanceof HTMLParagraphElement)
+        )
+          return;
+
+        heading.textContent = 'Let’s talk';
+        body.textContent =
+          'Media, workflows, automation, industry ideas, little questions — if there’s something worth figuring out, I’m your girl.';
+        body.classList.add('kh-contact-lead');
+
+        const emailLink = actions.querySelector('a[href^="mailto:"]');
+        if (emailLink) emailLink.textContent = 'Email me →';
+
+        const finale = document.createElement('div');
+        finale.className = 'kh-contact-finale';
+
+        const details = document.createElement('div');
+        details.className = 'kh-contact-details';
+
+        heading.insertAdjacentElement('beforebegin', finale);
+        finale.appendChild(heading);
+        details.appendChild(body);
+        details.appendChild(actions);
+        finale.appendChild(details);
+
+        const signoff = document.createElement('div');
+        signoff.className = 'kh-contact-signoff';
+        signoff.setAttribute('aria-label', 'Kiah Harpool, Chicago, 2026');
+        signoff.innerHTML = '<span>KIAH HARPOOL</span><span>CHICAGO</span><span>2026</span>';
+        contact.appendChild(signoff);
+
+        contact.dataset.finaleEnhanced = 'true';
+      };
+
+      const enhanceHomepage = () => {
+        arrangeHomepage();
+        enhanceContactFinale();
+      };
+
+      document.addEventListener('astro:page-load', enhanceHomepage);
+      enhanceHomepage();
 
       document.addEventListener(
         'error',
