@@ -115,6 +115,30 @@ const isActive = (href: string) => {
         ['encore-rankings-hd.webp', 'encore-rankings.webp'],
       ]);
 
+      const arrangeHomepage = () => {
+        const professionalSection = document.querySelector('.kh-system');
+        const experimentsSection = document.querySelector('.kh-work');
+
+        if (
+          professionalSection instanceof HTMLElement &&
+          experimentsSection instanceof HTMLElement &&
+          professionalSection.parentElement === experimentsSection.parentElement
+        ) {
+          experimentsSection.parentElement?.insertBefore(professionalSection, experimentsSection);
+
+          const professionalKicker = professionalSection.querySelector('.kh-kicker');
+          const experimentsKicker = experimentsSection.querySelector('.kh-kicker');
+          const heroCta = document.querySelector('.kh-hero-cta');
+
+          if (professionalKicker) professionalKicker.textContent = '01 / WHAT I DO';
+          if (experimentsKicker) experimentsKicker.textContent = '02 / PERSONAL EXPERIMENTS';
+          if (heroCta instanceof HTMLAnchorElement) heroCta.href = '#what-i-do';
+        }
+      };
+
+      document.addEventListener('astro:page-load', arrangeHomepage);
+      arrangeHomepage();
+
       document.addEventListener(
         'error',
         (event) => {
