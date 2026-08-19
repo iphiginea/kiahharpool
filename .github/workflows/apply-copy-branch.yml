@@ -1,0 +1,94 @@
+name: Apply editorial copy
+
+on:
+  push:
+    branches: [soft-brutalist-editorial]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout editorial branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+
+      - name: Apply requested homepage copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          index_path = Path('src/pages/index.astro')
+          text = index_path.read_text()
+
+          replacements = {
+              """        <p>
+          Leading media strategy, developing teams, and exploring how AI can make complicated work
+          clearer.
+        </p>""": """        <p>
+          Executing media investment, developing teams, and exploring how to make complicated work
+          clearer.
+        </p>""",
+              """            <dd>AI workflows / personal experiments</dd>""": """            <dd>Bettering workflows / personal experiments</dd>""",
+              """          <p>
+            Turning audience, market, and investment complexity into clear decisions — then leading
+            teams through execution.
+          </p>""": """          <p>
+            Turning audience, market, and investment complexity into clear decisions, then leading
+            teams through execution.
+          </p>""",
+              """          <p>
+            Finding repeatable friction, mapping the decision logic underneath it, and building
+            AI-assisted tools that remove unnecessary work.
+          </p>""": """          <p>
+            Finding repeatable friction, mapping the decision logic underneath it, and building tools
+            that remove unnecessary work.
+          </p>""",
+              """          <p>
+            Leading industry programming, member engagement, and community-building in Chicago
+            media.
+          </p>""": """          <p>
+            Leading industry programming, member engagement, and community-building in Chicago media
+            through Chicago's legacy advertising club.
+          </p>""",
+              """        <p class=\"kh-about-lead\">
+          I’m a Chicago-based media leader working across investment, strategy, AI, and the systems
+          that help people make better decisions.
+        </p>""": """        <p class=\"kh-about-lead\">
+          I’m a Chicago-based media leader working across investment, strategy, operations, AI, and
+          the systems that help people make better decisions.
+        </p>""",
+              """        <p>
+          Away from the day job, I’m usually following some curiosity about movies, music, media, or
+          culture — and every so often that curiosity turns into a small experiment of its own.
+        </p>""": """        <p>
+          Outside of my work, I’m usually following some curiosity about music, media, or culture,
+          and every so often that curiosity turns into a small experiment of its own.
+        </p>""",
+          }
+
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Missing expected homepage block:\n{old}')
+              text = text.replace(old, new, 1)
+
+          index_path.write_text(text)
+          PY
+
+      - name: Format homepage
+        run: npx prettier --write src/pages/index.astro
+
+      - name: Commit copy updates
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro
+          git commit -m "Update requested homepage copy"
+          git push origin HEAD:soft-brutalist-editorial
