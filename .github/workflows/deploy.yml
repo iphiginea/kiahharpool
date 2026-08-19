@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 # Pages is deployed only from main. The build still checks out the editorial
 # branch and publishes it under /preview/soft-brutalist-editorial/.
 # Each main run rebuilds the current preview branch head.
+# Rebuild after the preview static-path fix.
 on:
   push:
     branches: [main]
