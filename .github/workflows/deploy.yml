@@ -8,6 +8,7 @@ name: Deploy to GitHub Pages
 # Rebuild with the Points app treatment.
 # Rebuild with aligned app-card typography and backgrounds.
 # Rebuild after forcing final card styles over page-scoped CSS.
+# Rebuild with the Encore app treatment.
 on:
   push:
     branches: [main]
