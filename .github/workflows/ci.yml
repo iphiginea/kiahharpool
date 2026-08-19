@@ -1,20 +1,25 @@
 name: CI
 
 on:
+  pull_request:
+  # Keep main verified too, so a green branch that goes stale is caught on merge.
   push:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
+
+# Superseded pushes to the same ref don't need to finish.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  format-preview-cards:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout preview branch
+      - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: soft-brutalist-editorial
       - name: Set up Node
         uses: actions/setup-node@v7
         with:
@@ -22,15 +27,12 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Format card styles
-        run: npx prettier --write src/styles/duel-cut.css src/styles/encore.css
-      - name: Commit formatting
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/styles/duel-cut.css src/styles/encore.css
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "Format Duel Cut and Encore Work card styles"
-          git push origin HEAD:soft-brutalist-editorial
+      - name: Check formatting
+        # Before the slower steps: a formatting miss is the cheapest failure to
+        # surface, and `npm run format` is the whole fix.
+        run: npm run format:check
+      - name: Type-check
+        run: npm run check
+      - name: Build
+        # Also exercises the postbuild Pagefind index step.
+        run: npm run build
