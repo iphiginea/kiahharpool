@@ -1,5 +1,5 @@
 /* Encore — app identity translated into the portfolio card */
-.kh-work .kh-project-blush {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) {
   position: relative;
   overflow: hidden;
   border-color: #3d3155 !important;
@@ -8,7 +8,7 @@
   box-shadow: 0 24px 60px -42px rgba(26, 20, 37, 0.9);
 }
 
-.kh-work .kh-project-blush::before {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)::before {
   content: '';
   position: absolute;
   top: 0;
@@ -19,34 +19,40 @@
   pointer-events: none;
 }
 
-.kh-work .kh-project-blush .kh-project-copy,
-.kh-work .kh-project-blush .kh-product-visual {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-copy,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-product-visual,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-work-index-topline,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-work-index-footer {
   position: relative;
   z-index: 1;
 }
 
-.kh-work .kh-project-blush .kh-project-topline,
-.kh-work .kh-project-blush .kh-project-description,
-.kh-work .kh-project-blush .kh-project-deck,
-.kh-work .kh-project-blush .kh-project-why,
-.kh-work .kh-project-blush .kh-project-why p {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-topline,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-description,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-deck,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why p {
   color: #f6f1e7 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-topline span:first-child {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-topline
+  span:first-child {
   color: #ffb800 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-topline span:last-child {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-topline
+  span:last-child {
   color: #a99bc4 !important;
   opacity: 1 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-role {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-role {
   color: #4ecdc4 !important;
 }
 
-.kh-work .kh-project-blush h3 {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) :is(h2, h3) {
   max-width: none !important;
   margin-bottom: 0.55rem !important;
   color: #f6f1e7 !important;
@@ -59,7 +65,7 @@
   text-transform: uppercase;
 }
 
-.kh-work .kh-project-blush h3::after {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) :is(h2, h3)::after {
   content: 'YOUR CONCERTS / HEAD TO HEAD';
   display: block;
   margin-top: 1rem;
@@ -72,54 +78,60 @@
   line-height: 1.45;
 }
 
-.kh-work .kh-project-blush .kh-project-title-link,
-.kh-work .kh-project-blush .kh-project-title-link:hover,
-.kh-work .kh-project-blush .kh-project-title-link:focus-visible {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-title-link,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-title-link:hover,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-title-link:focus-visible {
   color: #f6f1e7 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-deck {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-deck {
   color: #f6f1e7 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-description {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-description {
   color: #d7cee5 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-why {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why {
   border-top-color: #3d3155 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-why strong {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-why
+  strong {
   color: #4ecdc4 !important;
 }
 
-.kh-work .kh-project-blush .kh-project-why p {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why p {
   color: #a99bc4 !important;
 }
 
-.kh-work .kh-project-blush .kh-chip-row span {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-chip-row span {
   border-color: #3d3155 !important;
   background: #241c33 !important;
   color: #ffb800 !important;
 }
 
-.kh-work .kh-project-blush .kh-pill {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-pill {
   border-color: #ff2e88 !important;
   background: #ff2e88 !important;
   color: #f6f1e7 !important;
   box-shadow: 0 12px 28px -18px rgba(255, 46, 136, 0.8);
 }
 
-.kh-work .kh-project-blush .kh-pill:hover,
-.kh-work .kh-project-blush .kh-pill:focus-visible {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-pill:hover,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-pill:focus-visible {
   border-color: #ffb800 !important;
   background: #ffb800 !important;
   color: #1a1425 !important;
   transform: translateY(-1px);
 }
 
-.kh-work .kh-project-blush .kh-text-link {
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-text-link {
   color: #4ecdc4 !important;
 }
 
@@ -157,7 +169,7 @@
 }
 
 @media (max-width: 760px) {
-  .kh-work .kh-project-blush h3 {
+  :is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) :is(h2, h3) {
     font-size: clamp(4rem, 20vw, 6rem) !important;
   }
 
