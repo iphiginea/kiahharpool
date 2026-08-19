@@ -44,13 +44,13 @@
 .kh-mini-project-dueldraw .kh-mini-project-body h3 {
   margin: 0.65rem 0 0;
   color: #241b33;
-  font-family: var(--font-display) !important;
-  font-size: clamp(4.5rem, 10vw, 10rem) !important;
+  font-family: var(--font-body) !important;
+  font-size: clamp(4.2rem, 9.5vw, 9.4rem) !important;
   font-style: normal !important;
-  font-weight: 500 !important;
-  letter-spacing: -0.07em !important;
-  line-height: 0.78 !important;
-  text-transform: uppercase;
+  font-weight: 800 !important;
+  letter-spacing: -0.06em !important;
+  line-height: 0.82 !important;
+  text-transform: none;
 }
 
 .kh-mini-project-dueldraw .kh-mini-project-body h3::before {
@@ -69,6 +69,7 @@
   font-weight: 700;
   letter-spacing: 0.085em;
   line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .kh-mini-project-dueldraw .kh-mini-project-deck {
@@ -102,6 +103,6 @@
 
 @media (max-width: 760px) {
   .kh-mini-project-dueldraw .kh-mini-project-body h3 {
-    font-size: clamp(3.5rem, 18vw, 5.2rem) !important;
+    font-size: clamp(3.3rem, 17vw, 5rem) !important;
   }
 }
