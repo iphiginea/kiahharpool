@@ -1,5 +1,6 @@
 name: Reorder editorial homepage once
 
+# Trigger the one-shot hierarchy update.
 on:
   push:
     branches: [main]
