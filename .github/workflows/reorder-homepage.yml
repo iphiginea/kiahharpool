@@ -1,5 +1,6 @@
 name: Reorder homepage sections
 
+# Temporary one-shot workflow for the homepage hierarchy update.
 on:
   push:
     branches: [soft-brutalist-editorial]
