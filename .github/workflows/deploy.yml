@@ -13,6 +13,7 @@ name: Deploy to GitHub Pages
 # Rebuild with Duel Draw sans title and retina project screenshots.
 # Rebuild with media-leadership positioning and curiosity framing.
 # Rebuild with the professional section ahead of personal experiments.
+# Rebuild with revised professional, leadership, and about copy.
 on:
   push:
     branches: [main]
