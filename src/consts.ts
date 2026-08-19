@@ -5,7 +5,8 @@ import type { UIKey } from './i18n/en';
 export const SITE = {
   locale: 'en',
   title: 'Kiah Harpool',
-  description: 'Media leader, builder, and product-minded problem solver working across media, technology, and culture.',
+  description:
+    'Media leader, builder, and product-minded problem solver working across media, technology, and culture.',
   rssDescription: 'Notes and projects from Kiah Harpool.',
   ogImage: '/og.jpg',
   author: 'Kiah Harpool',

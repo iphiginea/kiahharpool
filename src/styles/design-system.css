@@ -12,8 +12,8 @@
 /* Overall color balance: blush + lavender dominate; plum carries the UI. */
 html,
 body {
-  background: #F7E8EA;
-  color: #5A1F4F;
+  background: #f7e8ea;
+  color: #5a1f4f;
 }
 
 body {
@@ -60,10 +60,10 @@ body {
 .kh-pill {
   min-height: 3.05rem;
   padding: 0.8rem 1.45rem;
-  border: 1.5px solid #5A1F4F;
+  border: 1.5px solid #5a1f4f;
   border-radius: var(--kh-radius-control);
-  background: #5A1F4F;
-  color: #F7E8EA !important;
+  background: #5a1f4f;
+  color: #f7e8ea !important;
   box-shadow: none;
   transition:
     transform var(--kh-motion),
@@ -75,29 +75,29 @@ body {
 .kh-pill:hover,
 .kh-pill:focus-visible {
   transform: translateY(-1px);
-  border-color: #A23D3D;
-  background: #A23D3D;
-  color: #F7E8EA !important;
+  border-color: #a23d3d;
+  background: #a23d3d;
+  color: #f7e8ea !important;
 }
 
 .kh-pill-secondary {
-  border-color: #5A1F4F;
+  border-color: #5a1f4f;
   background: transparent;
-  color: #5A1F4F !important;
+  color: #5a1f4f !important;
 }
 
 .kh-pill-secondary:hover,
 .kh-pill-secondary:focus-visible {
-  border-color: #5A1F4F;
-  background: #D7CAF5;
-  color: #5A1F4F !important;
+  border-color: #5a1f4f;
+  background: #d7caf5;
+  color: #5a1f4f !important;
 }
 
 /* Hero UI object: soft, chunky, but not bubbly. */
 .kh-theme-preview {
   border: var(--kh-border);
   border-radius: var(--kh-radius-card);
-  background: #D7CAF5;
+  background: #d7caf5;
 }
 
 .kh-swatch-row {
@@ -115,11 +115,11 @@ body {
 }
 
 .kh-project-lavender {
-  background: #D7CAF5;
+  background: #d7caf5;
 }
 
 .kh-project-blush {
-  background: #F7E8EA;
+  background: #f7e8ea;
 }
 
 .kh-chip-row span {
@@ -164,12 +164,12 @@ body {
   border-bottom: 1px solid rgba(90, 31, 79, 0.2);
   border-radius: 0;
   background: transparent;
-  color: #5A1F4F;
+  color: #5a1f4f;
 }
 
 .kh-system-main h3 {
   margin-top: 0.35rem;
-  color: #5A1F4F;
+  color: #5a1f4f;
   font-family: var(--font-body);
   font-size: clamp(1.65rem, 3vw, 3rem);
   font-style: normal;
@@ -180,12 +180,12 @@ body {
 
 .kh-system-list article > p,
 .kh-system-list article:nth-child(4) > p {
-  color: #5A1F4F;
+  color: #5a1f4f;
   opacity: 0.82;
 }
 
 .kh-system-arrow {
-  color: #A23D3D;
+  color: #a23d3d;
   font-family: var(--font-body);
   font-size: 2rem;
   font-style: normal;
@@ -213,15 +213,15 @@ body {
 }
 
 .kh-recognition-grid article:nth-child(1) {
-  background: #D7CAF5;
+  background: #d7caf5;
 }
 
 .kh-recognition-grid article:nth-child(2) {
-  background: #F7E8EA;
+  background: #f7e8ea;
 }
 
 .kh-recognition-grid article:nth-child(3) {
-  background: #B39FEF;
+  background: #b39fef;
 }
 
 .kh-recognition-grid h3 {
@@ -234,7 +234,7 @@ body {
 }
 
 .kh-arrow {
-  color: #A23D3D;
+  color: #a23d3d;
   font-family: var(--font-body);
   font-size: 2rem;
   font-style: normal;
@@ -253,11 +253,11 @@ body {
   padding-block: var(--kh-section-space);
   padding-inline: max(var(--page-pad), calc((100vw - var(--content-width)) / 2 + var(--page-pad)));
   border: 0;
-  background: #D7CAF5;
+  background: #d7caf5;
 }
 
 .kh-lab-grid p {
-  color: #5A1F4F;
+  color: #5a1f4f;
   opacity: 0.86;
 }
 
@@ -269,12 +269,14 @@ body {
 /* Quiet interactive motion only. */
 .site-nav a,
 .kh-text-link {
-  transition: color var(--kh-motion), transform var(--kh-motion);
+  transition:
+    color var(--kh-motion),
+    transform var(--kh-motion);
 }
 
 .site-nav a:hover,
 .kh-text-link:hover {
-  color: #A23D3D;
+  color: #a23d3d;
 }
 
 .kh-text-link:hover {
@@ -302,7 +304,7 @@ body {
 .kh-hero-positioning {
   max-width: 34rem;
   margin: 1.4rem 0 1.6rem;
-  color: #5A1F4F;
+  color: #5a1f4f;
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.35vw, 1.2rem);
   font-weight: 500;
@@ -321,7 +323,7 @@ body {
 .kh-current-card p {
   max-width: 32rem;
   margin: 1.6rem 0 1.5rem;
-  color: #5A1F4F;
+  color: #5a1f4f;
   font-size: clamp(1rem, 1.2vw, 1.1rem);
   line-height: 1.5;
 }
@@ -350,7 +352,7 @@ body {
 
 .kh-current-meta dd {
   margin: 0;
-  color: #5A1F4F;
+  color: #5a1f4f;
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;

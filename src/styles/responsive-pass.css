@@ -9,14 +9,14 @@
   margin-bottom: clamp(1rem, 2vw, 1.5rem);
   padding: clamp(2.25rem, 6vw, 5rem);
   border-radius: clamp(1rem, 2vw, 1.5rem);
-  background: #5A1F4F;
-  color: #F7E8EA;
+  background: #5a1f4f;
+  color: #f7e8ea;
 }
 
 .kh-contact .kh-kicker,
 .kh-contact h2,
 .kh-contact .kh-text-link {
-  color: #F7E8EA;
+  color: #f7e8ea;
 }
 
 .kh-contact h2 {
@@ -28,21 +28,21 @@
 }
 
 .kh-contact .kh-pill {
-  border-color: #F7E8EA;
-  background: #F7E8EA;
-  color: #5A1F4F !important;
+  border-color: #f7e8ea;
+  background: #f7e8ea;
+  color: #5a1f4f !important;
 }
 
 .kh-contact .kh-pill:hover,
 .kh-contact .kh-pill:focus-visible {
-  border-color: #D7CAF5;
-  background: #D7CAF5;
-  color: #5A1F4F !important;
+  border-color: #d7caf5;
+  background: #d7caf5;
+  color: #5a1f4f !important;
 }
 
 .kh-contact .kh-text-link:hover,
 .kh-contact .kh-text-link:focus-visible {
-  color: #D7CAF5;
+  color: #d7caf5;
 }
 
 /* Avoid touch devices holding on to desktop hover scaling. */

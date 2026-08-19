@@ -123,7 +123,10 @@ body {
   font-family: var(--font-display);
   font-size: clamp(5.2rem, 16.5vw, 16.7rem);
   font-style: italic;
-  font-variation-settings: 'opsz' 144, 'SOFT' 90, 'WONK' 1;
+  font-variation-settings:
+    'opsz' 144,
+    'SOFT' 90,
+    'WONK' 1;
   font-weight: 900;
   letter-spacing: -0.08em;
   line-height: 0.7;
@@ -186,11 +189,21 @@ body {
   height: 3.4rem;
 }
 
-.kh-swatch-cream { background: #fff0ec; }
-.kh-swatch-lavender { background: var(--kh-lavender); }
-.kh-swatch-purple { background: var(--kh-purple); }
-.kh-swatch-brick { background: var(--kh-brick); }
-.kh-swatch-plum { background: var(--kh-plum); }
+.kh-swatch-cream {
+  background: #fff0ec;
+}
+.kh-swatch-lavender {
+  background: var(--kh-lavender);
+}
+.kh-swatch-purple {
+  background: var(--kh-purple);
+}
+.kh-swatch-brick {
+  background: var(--kh-brick);
+}
+.kh-swatch-plum {
+  background: var(--kh-plum);
+}
 
 .kh-work,
 .kh-system,
@@ -248,7 +261,10 @@ body {
   font-size: 0.9rem;
   font-weight: 700;
   background-image: none !important;
-  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease;
 }
 
 .kh-pill:hover {
@@ -340,7 +356,7 @@ body {
   padding: 0.45rem 0.75rem;
   border: 1px solid rgba(89, 25, 78, 0.45);
   border-radius: 999px;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .kh-device-wrap {
@@ -353,7 +369,7 @@ body {
   width: min(100%, 470px);
   min-height: 560px;
   padding: 1rem;
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 2rem;
   box-shadow: 0 28px 60px rgba(53, 22, 49, 0.24);
   transform: rotate(1.5deg);
@@ -378,7 +394,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.4rem 0 0.9rem;
-  border-bottom: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .kh-app-bar > div {
@@ -404,7 +420,7 @@ body {
   width: 2.2rem;
   height: 2.2rem;
   place-items: center;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
 }
 
@@ -417,9 +433,9 @@ body {
 
 .kh-app-tabs span {
   padding: 0.65rem 0.4rem;
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 0.65rem;
-  color: rgba(255,255,255,0.58);
+  color: rgba(255, 255, 255, 0.58);
   font-family: var(--font-mono);
   font-size: 0.62rem;
   text-align: center;
@@ -437,7 +453,7 @@ body {
 
 .kh-app-progress {
   margin: 1.2rem 0;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.1em;
@@ -453,7 +469,7 @@ body {
 
 .kh-movie-card {
   padding: 0.65rem;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0.8rem;
   background: #120b1e;
   text-align: center;
@@ -490,7 +506,7 @@ body {
 
 .kh-movie-card span {
   margin-top: 0.15rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-mono);
   font-size: 0.6rem;
 }
@@ -514,7 +530,7 @@ body {
 .kh-app-stats div {
   padding: 0.8rem 0.35rem;
   border-radius: 0.7rem;
-  background: rgba(255,255,255,0.07);
+  background: rgba(255, 255, 255, 0.07);
   text-align: center;
 }
 
@@ -530,7 +546,7 @@ body {
 
 .kh-app-stats span {
   margin-top: 0.2rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-mono);
   font-size: 0.55rem;
 }
@@ -546,7 +562,7 @@ body {
   overflow: hidden;
   border-radius: 0.8rem;
   color: #fff8ec;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.28);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
 }
 
 .kh-ticket-pink {
@@ -583,7 +599,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-left: 2px dashed rgba(255,255,255,0.5);
+  border-left: 2px dashed rgba(255, 255, 255, 0.5);
 }
 
 .kh-ticket-stub strong {
@@ -615,9 +631,15 @@ body {
   background: var(--kh-gray);
 }
 
-.kh-system-list article:nth-child(2) { background: var(--kh-lavender); }
-.kh-system-list article:nth-child(3) { background: var(--kh-blush); }
-.kh-system-list article:nth-child(4) { background: var(--kh-purple); }
+.kh-system-list article:nth-child(2) {
+  background: var(--kh-lavender);
+}
+.kh-system-list article:nth-child(3) {
+  background: var(--kh-blush);
+}
+.kh-system-list article:nth-child(4) {
+  background: var(--kh-purple);
+}
 
 .kh-system-main {
   display: grid;

@@ -10,9 +10,14 @@
   overflow: hidden;
   border-color: rgba(240, 230, 216, 0.32);
   background:
-    radial-gradient(circle at 78% 112%, rgba(242, 200, 121, 0.98) 0, rgba(232, 147, 95, 0.72) 22%, transparent 48%),
-    linear-gradient(155deg, #1B2140 8%, #4A3B63 58%, #A65E62 100%);
-  color: #F0E6D8;
+    radial-gradient(
+      circle at 78% 112%,
+      rgba(242, 200, 121, 0.98) 0,
+      rgba(232, 147, 95, 0.72) 22%,
+      transparent 48%
+    ),
+    linear-gradient(155deg, #1b2140 8%, #4a3b63 58%, #a65e62 100%);
+  color: #f0e6d8;
 }
 
 .kh-firstlight-copy {
@@ -27,7 +32,7 @@
 .kh-mini-project-firstlight .kh-mini-project-description,
 .kh-mini-project-firstlight .kh-mini-project-why,
 .kh-mini-project-firstlight .kh-text-link {
-  color: #F0E6D8;
+  color: #f0e6d8;
 }
 
 .kh-mini-project-firstlight .kh-mini-project-topline span:last-child {
@@ -37,7 +42,7 @@
 .kh-firstlight-wordmark {
   max-width: none !important;
   margin: 0.65rem 0 0 !important;
-  color: #F0E6D8;
+  color: #f0e6d8;
   font-family: var(--font-display) !important;
   font-size: clamp(4.5rem, 10vw, 10rem) !important;
   font-style: normal !important;
@@ -55,7 +60,7 @@
 }
 
 .kh-firstlight-wordmark .kh-flight-irst {
-  color: #8FA3A0;
+  color: #8fa3a0;
   font-size: 0.43em;
   font-style: italic;
   font-weight: 300;
@@ -65,7 +70,7 @@
 
 .kh-firstlight-equation {
   margin: 0.45rem 0 0;
-  color: #F2C879;
+  color: #f2c879;
   font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 700;
@@ -76,7 +81,7 @@
 .kh-mini-project-firstlight .kh-mini-project-deck {
   max-width: 28ch;
   margin-top: 1.5rem;
-  color: #F0E6D8;
+  color: #f0e6d8;
 }
 
 .kh-mini-project-firstlight .kh-mini-project-description {
@@ -90,7 +95,7 @@
 
 .kh-mini-project-firstlight .kh-mini-tags span {
   border-color: rgba(240, 230, 216, 0.36);
-  color: #F0E6D8;
+  color: #f0e6d8;
 }
 
 .kh-mini-project-firstlight .kh-mini-project-footer {
@@ -99,16 +104,16 @@
 }
 
 .kh-mini-project-firstlight .kh-pill {
-  border-color: #F0E6D8;
-  background: #F0E6D8;
-  color: #1B2140 !important;
+  border-color: #f0e6d8;
+  background: #f0e6d8;
+  color: #1b2140 !important;
 }
 
 .kh-mini-project-firstlight .kh-pill:hover,
 .kh-mini-project-firstlight .kh-pill:focus-visible {
-  border-color: #F2C879;
-  background: #F2C879;
-  color: #1B2140 !important;
+  border-color: #f2c879;
+  background: #f2c879;
+  color: #1b2140 !important;
 }
 
 .kh-firstlight-visual {
@@ -136,23 +141,44 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #F0E6D8;
+  background: #f0e6d8;
   opacity: 0.5;
 }
 
-.kh-firstlight-stars i:nth-child(1) { left: 10%; top: 14%; }
-.kh-firstlight-stars i:nth-child(2) { left: 25%; top: 28%; }
-.kh-firstlight-stars i:nth-child(3) { left: 39%; top: 12%; }
-.kh-firstlight-stars i:nth-child(4) { left: 58%; top: 25%; }
-.kh-firstlight-stars i:nth-child(5) { left: 72%; top: 11%; }
-.kh-firstlight-stars i:nth-child(6) { left: 86%; top: 31%; }
-.kh-firstlight-stars i:nth-child(7) { left: 49%; top: 39%; }
+.kh-firstlight-stars i:nth-child(1) {
+  left: 10%;
+  top: 14%;
+}
+.kh-firstlight-stars i:nth-child(2) {
+  left: 25%;
+  top: 28%;
+}
+.kh-firstlight-stars i:nth-child(3) {
+  left: 39%;
+  top: 12%;
+}
+.kh-firstlight-stars i:nth-child(4) {
+  left: 58%;
+  top: 25%;
+}
+.kh-firstlight-stars i:nth-child(5) {
+  left: 72%;
+  top: 11%;
+}
+.kh-firstlight-stars i:nth-child(6) {
+  left: 86%;
+  top: 31%;
+}
+.kh-firstlight-stars i:nth-child(7) {
+  left: 49%;
+  top: 39%;
+}
 
 .kh-firstlight-visual-label {
   position: relative;
   z-index: 1;
   margin: 0 0 1rem;
-  color: #8FA3A0;
+  color: #8fa3a0;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 700;
@@ -175,7 +201,7 @@
   border: 1px solid rgba(240, 230, 216, 0.15);
   border-radius: 12px;
   background: rgba(240, 230, 216, 0.055);
-  color: #F0E6D8;
+  color: #f0e6d8;
   font-family: var(--font-mono);
   font-size: 0.6rem;
   font-weight: 700;
@@ -187,7 +213,7 @@
   height: 0.52rem;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: #F2C879;
+  background: #f2c879;
   box-shadow: 0 0 0 0.28rem rgba(242, 200, 121, 0.07);
 }
 

@@ -26,9 +26,16 @@ const works = (await getCollection('works'))
     <div class="kh-work-index-grid">
       {
         works.map((work, index) => (
-          <article class:list={['kh-work-index-card', work.id === 'first-light' && 'kh-work-index-card-firstlight']}>
+          <article
+            class:list={[
+              'kh-work-index-card',
+              work.id === 'first-light' && 'kh-work-index-card-firstlight',
+            ]}
+          >
             <div class="kh-work-index-topline">
-              <span>{String(index + 1).padStart(2, '0')} / {work.data.title}</span>
+              <span>
+                {String(index + 1).padStart(2, '0')} / {work.data.title}
+              </span>
               <span>{work.data.tech.join(' / ')}</span>
             </div>
 
@@ -36,23 +43,45 @@ const works = (await getCollection('works'))
               <h2 class:list={[work.id === 'first-light' && 'kh-work-index-firstlight-title']}>
                 <a href={withBase(`/works/${work.id}/`)}>
                   {work.id === 'first-light' ? (
-                    <><span class="kh-flight-f">F</span><span class="kh-flight-irst">irst</span> <span class="kh-flight-light">LIGHT</span></>
-                  ) : work.data.title}
+                    <>
+                      <span class="kh-flight-f">F</span>
+                      <span class="kh-flight-irst">irst</span>{' '}
+                      <span class="kh-flight-light">LIGHT</span>
+                    </>
+                  ) : (
+                    work.data.title
+                  )}
                 </a>
               </h2>
-              {work.id === 'first-light' && <p class="kh-flight-equation" aria-hidden="true">F + LIGHT = FLIGHT</p>}
+              {work.id === 'first-light' && (
+                <p class="kh-flight-equation" aria-hidden="true">
+                  F + LIGHT = FLIGHT
+                </p>
+              )}
               <p>{work.data.description}</p>
             </div>
 
             <div class="kh-work-index-actions">
-              <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>Case study →</a>
+              <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
+                Case study →
+              </a>
               {work.data.link && (
-                <a class="kh-text-link" href={work.data.link} target="_blank" rel="noopener noreferrer">
+                <a
+                  class="kh-text-link"
+                  href={work.data.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Open app ↗
                 </a>
               )}
               {work.id === 'first-light' && work.data.repo && (
-                <a class="kh-text-link" href={work.data.repo} target="_blank" rel="noopener noreferrer">
+                <a
+                  class="kh-text-link"
+                  href={work.data.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   GitHub ↗
                 </a>
               )}
@@ -72,7 +101,7 @@ const works = (await getCollection('works'))
   .kh-work-index-head h1 {
     max-width: 10ch;
     margin: 0.6rem 0 1.5rem;
-    color: #5A1F4F;
+    color: #5a1f4f;
     font-family: var(--font-display);
     font-size: clamp(4.5rem, 10vw, 10rem);
     font-style: italic;
@@ -84,7 +113,7 @@ const works = (await getCollection('works'))
   .kh-work-index-head > p:last-child {
     max-width: 42rem;
     margin: 0;
-    color: #5A1F4F;
+    color: #5a1f4f;
     font-size: clamp(1.05rem, 1.45vw, 1.25rem);
     line-height: 1.6;
     opacity: 0.82;
@@ -109,20 +138,20 @@ const works = (await getCollection('works'))
     padding: clamp(1.5rem, 3vw, 2.75rem);
     border: 1.5px solid rgba(90, 31, 79, 0.55);
     border-radius: 22px;
-    color: #5A1F4F;
+    color: #5a1f4f;
   }
 
   .kh-work-index-card:nth-child(1),
   .kh-work-index-card:nth-child(4) {
-    background: #D7CAF5;
+    background: #d7caf5;
   }
 
   .kh-work-index-card:nth-child(2) {
-    background: #F7E8EA;
+    background: #f7e8ea;
   }
 
   .kh-work-index-card:nth-child(3) {
-    background: #B39FEF;
+    background: #b39fef;
   }
 
   .kh-work-index-card-firstlight {
@@ -130,27 +159,32 @@ const works = (await getCollection('works'))
     min-height: 28rem;
     border-color: rgba(240, 230, 216, 0.35);
     background:
-      radial-gradient(circle at 80% 115%, rgba(242, 200, 121, 0.95) 0, rgba(232, 147, 95, 0.72) 22%, transparent 48%),
-      linear-gradient(155deg, #1B2140 12%, #4A3B63 58%, #A65E62 100%);
-    color: #F0E6D8;
+      radial-gradient(
+        circle at 80% 115%,
+        rgba(242, 200, 121, 0.95) 0,
+        rgba(232, 147, 95, 0.72) 22%,
+        transparent 48%
+      ),
+      linear-gradient(155deg, #1b2140 12%, #4a3b63 58%, #a65e62 100%);
+    color: #f0e6d8;
   }
 
   .kh-work-index-card-firstlight .kh-work-index-topline,
   .kh-work-index-card-firstlight .kh-work-index-copy p,
   .kh-work-index-card-firstlight .kh-text-link {
-    color: #F0E6D8;
+    color: #f0e6d8;
   }
 
   .kh-work-index-card-firstlight .kh-pill {
-    border-color: #F0E6D8;
-    background: #F0E6D8;
-    color: #1B2140 !important;
+    border-color: #f0e6d8;
+    background: #f0e6d8;
+    color: #1b2140 !important;
   }
 
   .kh-work-index-card-firstlight .kh-pill:hover,
   .kh-work-index-card-firstlight .kh-pill:focus-visible {
-    border-color: #F2C879;
-    background: #F2C879;
+    border-color: #f2c879;
+    background: #f2c879;
   }
 
   .kh-work-index-topline {
@@ -188,12 +222,12 @@ const works = (await getCollection('works'))
 
   .kh-work-index-copy h2 a:hover,
   .kh-work-index-copy h2 a:focus-visible {
-    color: #A23D3D;
+    color: #a23d3d;
   }
 
   .kh-work-index-card-firstlight .kh-work-index-copy h2 a:hover,
   .kh-work-index-card-firstlight .kh-work-index-copy h2 a:focus-visible {
-    color: #F2C879;
+    color: #f2c879;
   }
 
   .kh-work-index-firstlight-title {
@@ -214,7 +248,7 @@ const works = (await getCollection('works'))
   }
 
   .kh-flight-irst {
-    color: #8FA3A0;
+    color: #8fa3a0;
     font-size: 0.47em;
     font-style: italic;
     font-weight: 300;
@@ -224,7 +258,7 @@ const works = (await getCollection('works'))
 
   .kh-flight-equation {
     margin: 0 0 1.4rem !important;
-    color: #F2C879 !important;
+    color: #f2c879 !important;
     font-family: var(--font-mono);
     font-size: 0.68rem !important;
     font-weight: 700;

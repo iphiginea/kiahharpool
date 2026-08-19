@@ -2,9 +2,9 @@
 .kh-work .kh-project-blush {
   position: relative;
   overflow: hidden;
-  border-color: #3D3155 !important;
-  background: #1A1425 !important;
-  color: #F6F1E7 !important;
+  border-color: #3d3155 !important;
+  background: #1a1425 !important;
+  color: #f6f1e7 !important;
   box-shadow: 0 24px 60px -42px rgba(26, 20, 37, 0.9);
 }
 
@@ -15,7 +15,7 @@
   right: 0;
   left: 0;
   height: 0.34rem;
-  background: linear-gradient(90deg, #FF2E88 0 46%, #FFB800 46% 72%, #4ECDC4 72% 100%);
+  background: linear-gradient(90deg, #ff2e88 0 46%, #ffb800 46% 72%, #4ecdc4 72% 100%);
   pointer-events: none;
 }
 
@@ -30,26 +30,26 @@
 .kh-work .kh-project-blush .kh-project-deck,
 .kh-work .kh-project-blush .kh-project-why,
 .kh-work .kh-project-blush .kh-project-why p {
-  color: #F6F1E7 !important;
+  color: #f6f1e7 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-topline span:first-child {
-  color: #FFB800 !important;
+  color: #ffb800 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-topline span:last-child {
-  color: #A99BC4 !important;
+  color: #a99bc4 !important;
   opacity: 1 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-role {
-  color: #4ECDC4 !important;
+  color: #4ecdc4 !important;
 }
 
 .kh-work .kh-project-blush h3 {
   max-width: none !important;
   margin-bottom: 0.55rem !important;
-  color: #F6F1E7 !important;
+  color: #f6f1e7 !important;
   font-family: var(--font-body) !important;
   font-size: clamp(5rem, 11vw, 10.5rem) !important;
   font-style: normal !important;
@@ -63,7 +63,7 @@
   content: 'YOUR CONCERTS / HEAD TO HEAD';
   display: block;
   margin-top: 1rem;
-  color: #FF2E88;
+  color: #ff2e88;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-style: normal;
@@ -75,62 +75,61 @@
 .kh-work .kh-project-blush .kh-project-title-link,
 .kh-work .kh-project-blush .kh-project-title-link:hover,
 .kh-work .kh-project-blush .kh-project-title-link:focus-visible {
-  color: #F6F1E7 !important;
+  color: #f6f1e7 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-deck {
-  color: #F6F1E7 !important;
+  color: #f6f1e7 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-description {
-  color: #D7CEE5 !important;
+  color: #d7cee5 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-why {
-  border-top-color: #3D3155 !important;
+  border-top-color: #3d3155 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-why strong {
-  color: #4ECDC4 !important;
+  color: #4ecdc4 !important;
 }
 
 .kh-work .kh-project-blush .kh-project-why p {
-  color: #A99BC4 !important;
+  color: #a99bc4 !important;
 }
 
 .kh-work .kh-project-blush .kh-chip-row span {
-  border-color: #3D3155 !important;
-  background: #241C33 !important;
-  color: #FFB800 !important;
+  border-color: #3d3155 !important;
+  background: #241c33 !important;
+  color: #ffb800 !important;
 }
 
 .kh-work .kh-project-blush .kh-pill {
-  border-color: #FF2E88 !important;
-  background: #FF2E88 !important;
-  color: #F6F1E7 !important;
+  border-color: #ff2e88 !important;
+  background: #ff2e88 !important;
+  color: #f6f1e7 !important;
   box-shadow: 0 12px 28px -18px rgba(255, 46, 136, 0.8);
 }
 
 .kh-work .kh-project-blush .kh-pill:hover,
 .kh-work .kh-project-blush .kh-pill:focus-visible {
-  border-color: #FFB800 !important;
-  background: #FFB800 !important;
-  color: #1A1425 !important;
+  border-color: #ffb800 !important;
+  background: #ffb800 !important;
+  color: #1a1425 !important;
   transform: translateY(-1px);
 }
 
 .kh-work .kh-project-blush .kh-text-link {
-  color: #4ECDC4 !important;
+  color: #4ecdc4 !important;
 }
 
 .kh-work .kh-project-blush .kh-product-visual-encore {
   position: relative;
   overflow: hidden;
-  border: 1px solid #3D3155;
+  border: 1px solid #3d3155;
   border-radius: 18px;
   background:
-    linear-gradient(180deg, rgba(255, 46, 136, 0.035), transparent 38%),
-    #241C33 !important;
+    linear-gradient(180deg, rgba(255, 46, 136, 0.035), transparent 38%), #241c33 !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
 }
 
@@ -140,7 +139,7 @@
   top: 1rem;
   left: 1.1rem;
   z-index: 2;
-  color: #A99BC4;
+  color: #a99bc4;
   font-family: var(--font-mono);
   font-size: 0.58rem;
   font-weight: 700;
@@ -148,8 +147,8 @@
 }
 
 .kh-work .kh-project-blush .kh-product-shot {
-  border-color: #3D3155 !important;
-  background: #2F2543 !important;
+  border-color: #3d3155 !important;
+  background: #2f2543 !important;
   box-shadow: 0 16px 34px -20px rgba(0, 0, 0, 0.72) !important;
 }
 

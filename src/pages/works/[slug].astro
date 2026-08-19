@@ -27,14 +27,21 @@ const role = 'Concept / Product Design / Development';
   ogType="article"
   image={withBase(`/og/works/${entry.id}.png`)}
 >
-  <article class:list={['kh-case', entry.id === 'first-light' && 'kh-case-firstlight']} data-pagefind-body>
+  <article
+    class:list={['kh-case', entry.id === 'first-light' && 'kh-case-firstlight']}
+    data-pagefind-body
+  >
     <header class="kh-case-head section">
       <div>
         <p class="kh-case-kicker">PROJECT / BUILT 2026</p>
         {
           entry.id === 'first-light' ? (
             <h1 class="kh-case-title kh-case-title-firstlight" aria-label="First Light">
-              <span class="kh-flight-f">F</span><span class="kh-flight-irst">irst</span> <span class="kh-flight-light">LIGHT</span>
+              <>
+                <span class="kh-flight-f">F</span>
+                <span class="kh-flight-irst">irst</span>
+              </>{' '}
+              <span class="kh-flight-light">LIGHT</span>
             </h1>
           ) : (
             <h1 class="kh-case-title">{entry.data.title}</h1>
@@ -52,7 +59,12 @@ const role = 'Concept / Product Design / Development';
           }
           {
             entry.data.repo && (
-              <a class="kh-text-link" href={entry.data.repo} target="_blank" rel="noopener noreferrer">
+              <a
+                class="kh-text-link"
+                href={entry.data.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub ↗
               </a>
             )
@@ -78,7 +90,10 @@ const role = 'Concept / Product Design / Development';
 
     {
       entry.id === 'duel-cut' && (
-        <section class="kh-case-gallery kh-case-gallery-duel section" aria-label="Duel Cut interface">
+        <section
+          class="kh-case-gallery kh-case-gallery-duel section"
+          aria-label="Duel Cut interface"
+        >
           <img
             src={withBase('/images/duelcut-duel-hd.webp')}
             alt="Duel Cut interface showing a head-to-head movie ranking choice"
@@ -92,7 +107,10 @@ const role = 'Concept / Product Design / Development';
 
     {
       entry.id === 'encore' && (
-        <section class="kh-case-gallery kh-case-gallery-encore section" aria-label="Encore interface">
+        <section
+          class="kh-case-gallery kh-case-gallery-encore section"
+          aria-label="Encore interface"
+        >
           <img
             src={withBase('/images/encore-duel-hd.webp')}
             alt="Encore interface showing a head-to-head concert ranking choice"
@@ -115,19 +133,51 @@ const role = 'Concept / Product Design / Development';
       entry.id === 'first-light' && (
         <section class="kh-firstlight-case-visual section" aria-label="First Light concept preview">
           <div class="kh-firstlight-stars" aria-hidden="true">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <>
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+            </>
           </div>
           <div class="kh-firstlight-preview-copy">
             <p>YOUR LOCAL DAWN CHORUS</p>
-            <h2><span>F</span><em>irst</em> <span>LIGHT</span></h2>
-            <p class="kh-firstlight-preview-tagline">five birds, wherever you are, whatever the season</p>
+            <h2>
+              <>
+                <span>F</span>
+                <em>irst</em>
+              </>{' '}
+              <span>LIGHT</span>
+            </h2>
+            <p class="kh-firstlight-preview-tagline">
+              five birds, wherever you are, whatever the season
+            </p>
           </div>
           <div class="kh-firstlight-birds" aria-hidden="true">
-            <span><i></i>01 / RECENT + LOCAL</span>
-            <span><i></i>02 / RECENT + LOCAL</span>
-            <span><i></i>03 / RECENT + LOCAL</span>
-            <span><i></i>04 / RECENT + LOCAL</span>
-            <span><i></i>05 / RECENT + LOCAL</span>
+            <span>
+              <i />
+              01 / RECENT + LOCAL
+            </span>
+            <span>
+              <i />
+              02 / RECENT + LOCAL
+            </span>
+            <span>
+              <i />
+              03 / RECENT + LOCAL
+            </span>
+            <span>
+              <i />
+              04 / RECENT + LOCAL
+            </span>
+            <span>
+              <i />
+              05 / RECENT + LOCAL
+            </span>
           </div>
         </section>
       )
@@ -157,8 +207,8 @@ const role = 'Concept / Product Design / Development';
 
 <style>
   .kh-case-firstlight .kh-case-meta {
-    background: #1B2140;
-    color: #F0E6D8;
+    background: #1b2140;
+    color: #f0e6d8;
     border-color: rgba(240, 230, 216, 0.25);
   }
 
@@ -177,7 +227,7 @@ const role = 'Concept / Product Design / Development';
   }
 
   .kh-flight-irst {
-    color: #8FA3A0;
+    color: #8fa3a0;
     font-size: 0.43em;
     font-style: italic;
     font-weight: 300;
@@ -187,7 +237,7 @@ const role = 'Concept / Product Design / Development';
 
   .kh-flight-equation {
     margin: -0.25rem 0 1.4rem;
-    color: #A23D3D;
+    color: #a23d3d;
     font-family: var(--font-mono);
     font-size: 0.68rem;
     font-weight: 700;
@@ -206,9 +256,14 @@ const role = 'Concept / Product Design / Development';
     padding: clamp(2rem, 6vw, 6rem);
     border-radius: 22px;
     background:
-      radial-gradient(circle at 75% 110%, rgba(242, 200, 121, 0.96) 0, rgba(232, 147, 95, 0.76) 22%, transparent 48%),
-      linear-gradient(165deg, #1B2140 10%, #4A3B63 58%, #A65E62 100%);
-    color: #F0E6D8;
+      radial-gradient(
+        circle at 75% 110%,
+        rgba(242, 200, 121, 0.96) 0,
+        rgba(232, 147, 95, 0.76) 22%,
+        transparent 48%
+      ),
+      linear-gradient(165deg, #1b2140 10%, #4a3b63 58%, #a65e62 100%);
+    color: #f0e6d8;
   }
 
   .kh-firstlight-stars {
@@ -222,18 +277,42 @@ const role = 'Concept / Product Design / Development';
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    background: #F0E6D8;
+    background: #f0e6d8;
     opacity: 0.55;
   }
 
-  .kh-firstlight-stars i:nth-child(1) { left: 8%; top: 16%; }
-  .kh-firstlight-stars i:nth-child(2) { left: 18%; top: 30%; }
-  .kh-firstlight-stars i:nth-child(3) { left: 31%; top: 12%; }
-  .kh-firstlight-stars i:nth-child(4) { left: 47%; top: 26%; }
-  .kh-firstlight-stars i:nth-child(5) { left: 63%; top: 14%; }
-  .kh-firstlight-stars i:nth-child(6) { left: 76%; top: 33%; }
-  .kh-firstlight-stars i:nth-child(7) { left: 87%; top: 18%; }
-  .kh-firstlight-stars i:nth-child(8) { left: 55%; top: 42%; }
+  .kh-firstlight-stars i:nth-child(1) {
+    left: 8%;
+    top: 16%;
+  }
+  .kh-firstlight-stars i:nth-child(2) {
+    left: 18%;
+    top: 30%;
+  }
+  .kh-firstlight-stars i:nth-child(3) {
+    left: 31%;
+    top: 12%;
+  }
+  .kh-firstlight-stars i:nth-child(4) {
+    left: 47%;
+    top: 26%;
+  }
+  .kh-firstlight-stars i:nth-child(5) {
+    left: 63%;
+    top: 14%;
+  }
+  .kh-firstlight-stars i:nth-child(6) {
+    left: 76%;
+    top: 33%;
+  }
+  .kh-firstlight-stars i:nth-child(7) {
+    left: 87%;
+    top: 18%;
+  }
+  .kh-firstlight-stars i:nth-child(8) {
+    left: 55%;
+    top: 42%;
+  }
 
   .kh-firstlight-preview-copy,
   .kh-firstlight-birds {
@@ -266,7 +345,7 @@ const role = 'Concept / Product Design / Development';
   }
 
   .kh-firstlight-preview-copy h2 em {
-    color: #8FA3A0;
+    color: #8fa3a0;
     font-size: 0.43em;
     font-weight: 300;
     vertical-align: 0.2em;
@@ -275,7 +354,7 @@ const role = 'Concept / Product Design / Development';
   .kh-firstlight-preview-tagline {
     max-width: 28rem;
     margin: 1.5rem 0 0;
-    color: #8FA3A0;
+    color: #8fa3a0;
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.5;
   }
@@ -304,7 +383,7 @@ const role = 'Concept / Product Design / Development';
     height: 0.55rem;
     flex: 0 0 auto;
     border-radius: 50%;
-    background: #F2C879;
+    background: #f2c879;
     box-shadow: 0 0 0 0.3rem rgba(242, 200, 121, 0.08);
   }
 

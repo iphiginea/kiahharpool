@@ -2,9 +2,9 @@
 .kh-mini-project-points {
   position: relative;
   overflow: hidden;
-  border-color: #4E5D4B;
-  background: #F6F3EC !important;
-  color: #2B2A26;
+  border-color: #4e5d4b;
+  background: #f6f3ec !important;
+  color: #2b2a26;
   box-shadow: 0 18px 48px -38px rgba(58, 70, 56, 0.38);
 }
 
@@ -16,8 +16,8 @@
   width: 0.72rem;
   height: 0.72rem;
   border-radius: 50%;
-  background: #A9884F;
-  box-shadow: 0 0 0 0.7rem rgba(169, 136, 79, 0.10);
+  background: #a9884f;
+  box-shadow: 0 0 0 0.7rem rgba(169, 136, 79, 0.1);
   pointer-events: none;
 }
 
@@ -43,23 +43,23 @@
 .kh-mini-project-points .kh-mini-project-topline,
 .kh-mini-project-points .kh-mini-project-description,
 .kh-mini-project-points .kh-mini-project-deck {
-  color: #2B2A26;
+  color: #2b2a26;
 }
 
 .kh-mini-project-points .kh-mini-project-topline span:last-child,
 .kh-mini-project-points .kh-project-role,
 .kh-mini-project-points .kh-mini-project-why {
-  color: #6B675F;
+  color: #6b675f;
   opacity: 1;
 }
 
 .kh-mini-project-points .kh-project-role {
-  color: #A9884F;
+  color: #a9884f;
 }
 
 .kh-mini-project-points .kh-mini-project-body h3 {
   margin: 0.65rem 0 0;
-  color: #3A4638;
+  color: #3a4638;
   font-family: var(--font-display) !important;
   font-size: clamp(4.5rem, 10vw, 10rem) !important;
   font-style: normal !important;
@@ -73,7 +73,7 @@
   content: '●  GUIDED SESSIONS';
   display: block;
   margin-top: 0.8rem;
-  color: #A9884F;
+  color: #a9884f;
   font-family: var(--font-mono);
   font-size: 0.61rem;
   font-style: normal;
@@ -84,7 +84,7 @@
 }
 
 .kh-mini-project-points .kh-mini-project-deck {
-  color: #3A4638;
+  color: #3a4638;
   font-weight: 600;
 }
 
@@ -94,28 +94,28 @@
 }
 
 .kh-mini-project-points .kh-mini-tags span {
-  border-color: #E4DFD3;
-  background: #FFFFFF;
-  color: #4E5D4B;
+  border-color: #e4dfd3;
+  background: #ffffff;
+  color: #4e5d4b;
   box-shadow: 0 6px 18px -16px rgba(43, 42, 38, 0.42);
 }
 
 .kh-mini-project-points .kh-pill {
-  border-color: #3A4638;
-  background: #3A4638;
-  color: #FFFFFF !important;
+  border-color: #3a4638;
+  background: #3a4638;
+  color: #ffffff !important;
   box-shadow: 0 10px 24px -18px rgba(58, 70, 56, 0.8);
 }
 
 .kh-mini-project-points .kh-pill:hover,
 .kh-mini-project-points .kh-pill:focus-visible {
-  border-color: #4E5D4B;
-  background: #4E5D4B;
+  border-color: #4e5d4b;
+  background: #4e5d4b;
   transform: translateY(-1px);
 }
 
 .kh-mini-project-points .kh-text-link {
-  color: #4E5D4B;
+  color: #4e5d4b;
 }
 
 @media (max-width: 760px) {

@@ -2,9 +2,9 @@
 .kh-mini-project-dueldraw {
   position: relative;
   overflow: hidden;
-  border-color: #241B33;
-  background: #ECE7F8 !important;
-  color: #241B33;
+  border-color: #241b33;
+  background: #ece7f8 !important;
+  color: #241b33;
   box-shadow: 0 18px 48px -34px rgba(109, 40, 217, 0.45);
 }
 
@@ -21,13 +21,13 @@
 
 .kh-mini-project-dueldraw .kh-mini-project-topline,
 .kh-mini-project-dueldraw .kh-mini-project-description {
-  color: #241B33;
+  color: #241b33;
 }
 
 .kh-mini-project-dueldraw .kh-mini-project-topline span:last-child,
 .kh-mini-project-dueldraw .kh-project-role,
 .kh-mini-project-dueldraw .kh-mini-project-why {
-  color: #8B83A0;
+  color: #8b83a0;
   opacity: 1;
 }
 
@@ -43,7 +43,7 @@
 
 .kh-mini-project-dueldraw .kh-mini-project-body h3 {
   margin: 0.65rem 0 0;
-  color: #241B33;
+  color: #241b33;
   font-family: var(--font-display) !important;
   font-size: clamp(4.5rem, 10vw, 10rem) !important;
   font-style: normal !important;
@@ -62,7 +62,7 @@
   content: '●  A TWO-PLAYER SKETCH & GUESS';
   display: block;
   margin-top: 0.8rem;
-  color: #6D28D9;
+  color: #6d28d9;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-style: normal;
@@ -72,21 +72,21 @@
 }
 
 .kh-mini-project-dueldraw .kh-mini-project-deck {
-  color: #241B33;
+  color: #241b33;
   font-weight: 700;
 }
 
 .kh-mini-project-dueldraw .kh-mini-tags span {
-  border-color: #E6E0F5;
-  background: #FFFFFF;
-  color: #6D28D9;
+  border-color: #e6e0f5;
+  background: #ffffff;
+  color: #6d28d9;
   box-shadow: 0 5px 18px -15px rgba(36, 27, 51, 0.45);
 }
 
 .kh-mini-project-dueldraw .kh-pill {
   border: 0;
-  background: linear-gradient(135deg, #8B5CF6, #3B82F6);
-  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: #ffffff !important;
   box-shadow: 0 10px 24px -16px rgba(109, 40, 217, 0.8);
 }
 
@@ -97,7 +97,7 @@
 }
 
 .kh-mini-project-dueldraw .kh-text-link {
-  color: #6D28D9;
+  color: #6d28d9;
 }
 
 @media (max-width: 760px) {

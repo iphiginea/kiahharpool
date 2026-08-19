@@ -78,7 +78,7 @@
 
 .kh-project-title-link:hover,
 .kh-project-title-link:focus-visible {
-  color: #A23D3D;
+  color: #a23d3d;
 }
 
 /* Dedicated project pages */
@@ -132,7 +132,7 @@
   padding: 1.4rem;
   border: var(--kh-border);
   border-radius: var(--kh-radius-card);
-  background: #D7CAF5;
+  background: #d7caf5;
 }
 
 .kh-case-meta div {
@@ -171,7 +171,7 @@
 .kh-case-gallery-duel {
   grid-template-columns: minmax(0, 1fr);
   justify-items: center;
-  background: #D7CAF5;
+  background: #d7caf5;
   border-radius: var(--kh-radius-card);
 }
 
@@ -179,7 +179,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   padding-inline: clamp(1rem, 3vw, 3rem);
-  background: #D7CAF5;
+  background: #d7caf5;
   border-radius: var(--kh-radius-card);
 }
 
@@ -224,7 +224,7 @@
   margin-bottom: clamp(4rem, 7vw, 7rem);
   padding: clamp(1.5rem, 3vw, 2.5rem);
   border-radius: var(--kh-radius-card);
-  background: #B39FEF;
+  background: #b39fef;
 }
 
 .kh-case-next a {
@@ -232,7 +232,7 @@
   justify-content: space-between;
   gap: 1rem;
   align-items: end;
-  color: #5A1F4F;
+  color: #5a1f4f;
   text-decoration: none;
   background: none;
 }
