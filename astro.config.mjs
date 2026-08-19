@@ -5,9 +5,8 @@ import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import { remarkReadingTime } from './remark-reading-time.mjs';
 
-// These defaults are for the production GitHub Pages site. Preview workflows
-// override BASE_PATH so a branch can live under its own subdirectory without
-// replacing the production homepage.
+// Production defaults for this GitHub Pages project site. Preview workflows can
+// override these values to publish a branch under its own subdirectory.
 const site = process.env.SITE_URL ?? 'https://iphiginea.github.io';
 const base = process.env.BASE_PATH ?? '/kiahharpool';
 
