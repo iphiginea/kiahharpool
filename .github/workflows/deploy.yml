@@ -1,5 +1,6 @@
 name: Deploy to GitHub Pages
 
+# Combined deployment: production main + soft-brutalist editorial preview.
 on:
   push:
     branches: [main]
