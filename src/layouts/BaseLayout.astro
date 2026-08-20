@@ -137,6 +137,36 @@ const isActive = (href: string) => {
         }
       };
 
+      const enhanceRecognition = () => {
+        const recognition = document.querySelector('.kh-recognition-editorial');
+        if (!(recognition instanceof HTMLElement) || recognition.dataset.tvbEnhanced === 'true')
+          return;
+
+        const firstRow = recognition.querySelector('.kh-recognition-row');
+        if (!(firstRow instanceof HTMLElement)) return;
+
+        const heading = firstRow.querySelector('.kh-recognition-copy h3');
+        const description = firstRow.querySelector('.kh-recognition-copy p');
+
+        if (heading instanceof HTMLHeadingElement) {
+          const link = document.createElement('a');
+          link.href = 'https://www.tvb.org/events/executive-summit/';
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'TVB NEXT Media Buyer Honoree';
+          link.style.color = 'inherit';
+          link.style.textDecoration = 'none';
+          heading.replaceChildren(link);
+        }
+
+        if (description instanceof HTMLParagraphElement) {
+          description.textContent =
+            'Recognized as the next generation of leadership in advertising sales, buying, planning, and operations in the media industry.';
+        }
+
+        recognition.dataset.tvbEnhanced = 'true';
+      };
+
       const enhanceContactFinale = () => {
         const contact = document.querySelector('.kh-contact');
         document.body.classList.toggle('has-contact-finale', contact instanceof HTMLElement);
@@ -188,6 +218,7 @@ const isActive = (href: string) => {
 
       const enhanceHomepage = () => {
         arrangeHomepage();
+        enhanceRecognition();
         enhanceContactFinale();
       };
 
