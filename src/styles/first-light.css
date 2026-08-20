@@ -243,3 +243,72 @@
     padding: 1rem;
   }
 }
+
+/* Specific birds shown in the homepage First Light preview. */
+.kh-firstlight-visual-label {
+  font-size: 0;
+}
+
+.kh-firstlight-visual-label::before {
+  content: 'Five birds, wherever you are, whatever the season.';
+  font-size: 0.62rem;
+}
+
+.kh-firstlight-bird-list span {
+  flex-wrap: wrap;
+  font-size: 0;
+}
+
+.kh-firstlight-bird-list span::before,
+.kh-firstlight-bird-list span::after {
+  font-size: 0.6rem;
+}
+
+.kh-firstlight-bird-list span::before {
+  font-weight: 700;
+  letter-spacing: 0.075em;
+}
+
+.kh-firstlight-bird-list span::after {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0.78;
+}
+
+.kh-firstlight-bird-list span:nth-child(1)::before {
+  content: '01 / Eastern Kingbird';
+}
+.kh-firstlight-bird-list span:nth-child(1)::after {
+  content: 'Tyrannus tyrannus';
+}
+
+.kh-firstlight-bird-list span:nth-child(2)::before {
+  content: '02 / Piping Plover';
+}
+.kh-firstlight-bird-list span:nth-child(2)::after {
+  content: 'Charadrius melodus';
+}
+
+.kh-firstlight-bird-list span:nth-child(3)::before {
+  content: '03 / Eastern Wood-Pewee';
+}
+.kh-firstlight-bird-list span:nth-child(3)::after {
+  content: 'Contopus virens';
+}
+
+.kh-firstlight-bird-list span:nth-child(4)::before {
+  content: '04 / Double-crested Cormorant';
+}
+.kh-firstlight-bird-list span:nth-child(4)::after {
+  content: 'Nannopterum auritum';
+}
+
+.kh-firstlight-bird-list span:nth-child(5)::before {
+  content: '05 / Black-and-white Warbler';
+}
+.kh-firstlight-bird-list span:nth-child(5)::after {
+  content: 'Mniotilta varia';
+}
