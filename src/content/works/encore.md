@@ -1,6 +1,6 @@
 ---
 title: 'Encore'
-description: 'A concert-ranking app that compares shows head-to-head to build a personal list of the performances that mattered most.'
+description: 'A concert ranking app that compares shows head to head to build a personal list of the performances that mattered most.'
 tech:
   - Product Design
   - Personal Data
@@ -13,7 +13,7 @@ publishDate: 2026-08-17
 
 ## Who plays again?
 
-Encore applies the same comparison-first idea to live music. Log a show, then pit concerts against one another until the rankings reflect the performances you would actually choose again.
+Encore applies the same comparison first idea to live music. Log a show, then pit concerts against one another until the rankings reflect the performances you would actually choose again.
 
 The rankings keep artist, city, venue, date, and score together so a growing concert history becomes something you can actually explore.
 
