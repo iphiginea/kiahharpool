@@ -1,6 +1,6 @@
 ---
 title: 'First Light'
-description: 'A location-aware dawn chorus that turns five recently reported birds near you into an ambient soundscape — wherever you are, whatever the season.'
+description: 'A location aware dawn chorus that turns five recently reported birds near you into an ambient soundscape, wherever you are, whatever the season.'
 tech:
   - eBird API
   - Xeno-canto API
@@ -21,7 +21,7 @@ The name is part of the idea: **First Light** is the moment the day begins, whil
 
 Instead of browsing a bird library, you begin with a place. First Light checks recent eBird observations within the surrounding area, favors birds reported more recently, and then pairs the selected species with recordings from Xeno-canto contributors.
 
-The result is specific without being fixed. Run it again and you can get a new five-bird chorus from the same place; change location and the whole soundscape changes with you.
+The result is specific without being fixed. Run it again and you can get a new five bird chorus from the same place; change location and the whole soundscape changes with you.
 
 ## Built to disappear into the background
 
