@@ -5,16 +5,14 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout preview branch
+      - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
       - name: Set up Node
         uses: actions/setup-node@v7
         with:
@@ -22,56 +20,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Apply final preview cleanup
-        if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'soft-brutalist-editorial'
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          layout = Path('src/layouts/BaseLayout.astro')
-          text = layout.read_text()
-          text = text.replace("    <link rel=\"icon\" href={withBase('/favicon.ico')} />\n", '')
-          layout.write_text(text)
-
-          work_index = Path('src/pages/works/index.astro')
-          text = work_index.read_text()
-          text = text.replace('REAL-TIME', 'REAL TIME')
-          text = text.replace('location-aware audio', 'location aware audio')
-          work_index.write_text(text)
-
-          duel_draw = Path('src/styles/duel-draw.css')
-          text = duel_draw.read_text().replace('TWO-PLAYER', 'TWO PLAYER')
-          duel_draw.write_text(text)
-          PY
-
-          npx prettier --write \
-            src/layouts/BaseLayout.astro \
-            src/pages/about/index.astro \
-            src/pages/works/index.astro \
-            src/pages/og/site.png.ts \
-            'src/pages/og/[collection]/[slug].png.ts' \
-            src/styles/encore.css \
-            src/styles/duel-draw.css \
-            src/consts.ts
-      - name: Commit formatted cleanup
-        if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'soft-brutalist-editorial'
-        run: |
-          git config user.name "iphiginea"
-          git config user.email "kiah.harpool@gmail.com"
-          git add -- \
-            src/layouts/BaseLayout.astro \
-            src/pages/about/index.astro \
-            src/pages/works/index.astro \
-            src/pages/og/site.png.ts \
-            'src/pages/og/[collection]/[slug].png.ts' \
-            src/styles/encore.css \
-            src/styles/duel-draw.css \
-            src/consts.ts
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "Format final preview cleanup"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
       - name: Build site
         env:
           SITE_URL: https://iphiginea.github.io
