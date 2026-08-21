@@ -18,6 +18,7 @@ import '../styles/duel-draw.css';
 import '../styles/points.css';
 import '../styles/encore.css';
 import '../styles/duel-cut.css';
+import '../styles/final-polish.css';
 import { ClientRouter } from 'astro:transitions';
 import { withBase } from '../lib/url';
 import { SITE, NAV_ITEMS } from '../consts';
@@ -111,31 +112,6 @@ const isActive = (href: string) => {
 
     <script>
       import '../scripts/project-journeys';
-
-      const screenshotFallbacks = new Map([
-        ['duelcut-duel-hd.webp', 'duelcut-duel.webp'],
-        ['encore-duel-hd.webp', 'encore-duel.webp'],
-        ['encore-rankings-hd.webp', 'encore-rankings.webp'],
-      ]);
-
-      document.addEventListener(
-        'error',
-        (event) => {
-          const image = event.target;
-          if (!(image instanceof HTMLImageElement) || image.dataset.fallbackApplied === 'true')
-            return;
-
-          const failedName = image.currentSrc.split('/').pop();
-          if (!failedName) return;
-
-          const fallbackName = screenshotFallbacks.get(failedName);
-          if (!fallbackName) return;
-
-          image.dataset.fallbackApplied = 'true';
-          image.src = image.src.replace(failedName, fallbackName);
-        },
-        true,
-      );
     </script>
   </body>
 </html>
