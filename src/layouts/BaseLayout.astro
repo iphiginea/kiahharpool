@@ -289,6 +289,19 @@ const isActive = (href: string) => {
             'Recognized as the next generation of leadership in advertising sales, buying, planning, and operations in the media industry.';
         }
 
+        const leadershipRow = recognition.querySelector('.kh-recognition-row-leadership');
+        const clubName = leadershipRow?.querySelector('.kh-recognition-meta strong');
+        if (clubName instanceof HTMLElement) {
+          const link = document.createElement('a');
+          link.href = 'https://www.macchicago.com';
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'MEDIA ADVERTISING CLUB OF CHICAGO';
+          link.style.color = 'inherit';
+          link.style.textDecoration = 'none';
+          clubName.replaceChildren(link);
+        }
+
         recognition.dataset.tvbEnhanced = 'true';
       };
 
