@@ -184,16 +184,15 @@ const isActive = (href: string) => {
         const currentCard = hero.querySelector('.kh-current-card');
         if (currentCard instanceof HTMLElement) {
           const currentCopy = currentCard.querySelector(':scope > p');
-          if (currentCopy instanceof HTMLParagraphElement) {
-            currentCopy.textContent =
-              'Turning unwritten rules, complicated decisions, and repeatable friction into clearer systems people can actually use.';
-          }
+          if (currentCopy instanceof HTMLParagraphElement) currentCopy.remove();
 
+          const currentLabels = currentCard.querySelectorAll('.kh-current-meta dt');
           const currentMeta = currentCard.querySelectorAll('.kh-current-meta dd');
+          if (currentLabels[1]) currentLabels[1].textContent = 'Exploring';
           if (currentMeta[0])
             currentMeta[0].textContent = 'Media investment / leadership / systems';
           if (currentMeta[1])
-            currentMeta[1].textContent = 'Making the implicit explicit / personal experiments';
+            currentMeta[1].textContent = 'AI workflows / personal experiments / culture';
         }
 
         const systemArticles = Array.from(
@@ -230,22 +229,14 @@ const isActive = (href: string) => {
 
         const aboutBody = aboutSection.querySelector('.kh-about-body');
         if (aboutBody instanceof HTMLElement && aboutBody.dataset.threadEnhanced !== 'true') {
-          aboutBody.querySelectorAll(':scope > p').forEach((paragraph) => paragraph.remove());
-
-          const aboutCopy = document.createElement('p');
-          aboutCopy.className = 'kh-about-lead';
-          aboutCopy.textContent =
-            'A lot of how I work comes from needing to understand the rules beneath a system. What does it expect? Where does it break? What has everyone else simply learned to work around? That instinct shows up in my media work, my approach to AI and workflows, and the little experiments I build for myself.';
-
-          const notes = aboutBody.querySelector('.kh-about-notes');
-          aboutBody.insertBefore(aboutCopy, notes ?? null);
+          aboutBody.replaceChildren();
 
           const sourceLink = professionalSection.querySelector('.kh-system-footer a');
           if (sourceLink instanceof HTMLAnchorElement) {
             const aboutLink = sourceLink.cloneNode(true);
             if (aboutLink instanceof HTMLAnchorElement) {
               aboutLink.classList.add('kh-home-about-link');
-              aboutBody.insertBefore(aboutLink, notes ?? null);
+              aboutBody.appendChild(aboutLink);
             }
           }
 
