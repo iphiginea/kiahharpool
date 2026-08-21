@@ -5,7 +5,7 @@ import { withBase } from '../../lib/url';
 
 <BaseLayout
   title="About"
-  description="About Kiah Harpool — a Chicago media leader and systems thinker working across media investment, strategy, AI workflows, and culture."
+  description="About Kiah Harpool. A Chicago media leader and systems thinker working across media investment, strategy, AI workflows, and culture."
 >
   <section class="kh-about-hero section">
     <div class="kh-about-meta">
@@ -14,9 +14,9 @@ import { withBase } from '../../lib/url';
     </div>
 
     <h1>
-      <span>I like to make a</span>
-      <span>neurotypical world work</span>
-      <span>for a neurodivergent brain.</span>
+      <span>I like making a</span>
+      <span>neurotypical world more legible</span>
+      <span>to a neurodivergent brain.</span>
     </h1>
 
     <div class="kh-about-intro-grid">
@@ -59,6 +59,11 @@ import { withBase } from '../../lib/url';
         decisions, process, and execution, into work that feels understandable and manageable.
       </p>
       <p>
+        A lot of that instinct comes from needing to make implicit rules explicit. I want to
+        understand what a system expects, where it breaks down, and how to make it easier to
+        navigate.
+      </p>
+      <p>
         Over time, I became just as interested in <em>how</em> the work happens as the work itself.
         Where does a decision stall? What gets repeated manually? What knowledge lives in one
         person’s head? What would make the right next step obvious to someone else?
@@ -70,13 +75,17 @@ import { withBase } from '../../lib/url';
       </p>
       <p>
         Outside my day job, that same curiosity tends to turn into small experiments:
-        <strong>Duel Cut</strong> for ranking movies through head-to-head choices,
+        <strong>Duel Cut</strong> for ranking movies through head to head choices,
         <strong>Encore</strong> for figuring out which concerts really were the best,
         <strong>Duel Draw</strong> for playing a drawing game directly with one other person, and
-        <strong>Points</strong> for exploring a more focused, ritual-driven guided practice.
+        <strong>Points</strong> for exploring a more focused, ritual driven guided practice.
       </p>
     </div>
   </section>
+
+  <aside class="kh-about-neuro-line section" aria-label="A note on systems">
+    <p>I tend to notice the parts of a system everyone else has learned to work around.</p>
+  </aside>
 
   <section class="kh-about-ledger section" aria-labelledby="about-now">
     <div class="kh-about-section-label">
@@ -102,7 +111,8 @@ import { withBase } from '../../lib/url';
           <span class="kh-about-fact-label">SYSTEMS</span>
           <h3>AI workflows + decision logic</h3>
           <p>
-            Finding repeatable friction and turning it into workflows, tools, and clearer choices.
+            Turning unwritten rules, repeated friction, and complicated decision logic into
+            workflows, tools, and clearer choices.
           </p>
         </div>
       </article>
@@ -155,9 +165,9 @@ import { withBase } from '../../lib/url';
       </article>
       <article>
         <span>03</span>
-        <h3>Make it tangible.</h3>
+        <h3>Make the invisible visible.</h3>
         <p>
-          A prototype answers questions that another meeting, deck, or abstract discussion cannot.
+          A prototype can make an abstract process visible in a way another meeting or deck cannot.
         </p>
       </article>
       <article>
@@ -171,9 +181,23 @@ import { withBase } from '../../lib/url';
     </div>
   </section>
 
+  <section class="kh-about-accessibility section" aria-labelledby="about-accessibility">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">04 / ACCESSIBILITY</p>
+      <h2 id="about-accessibility">Clear systems should not require intuition.</h2>
+    </div>
+
+    <div class="kh-about-accessibility-copy">
+      <p>
+        I’m interested in systems that do not require people to intuit the rules. Clear language,
+        visible logic, and thoughtful defaults make work better for everyone.
+      </p>
+    </div>
+  </section>
+
   <section class="kh-about-interests section" aria-labelledby="about-interests">
     <div>
-      <p class="kh-kicker">04 / OFF THE CLOCK</p>
+      <p class="kh-kicker">05 / OFF THE CLOCK</p>
       <h2 id="about-interests">Culture is part of the operating system.</h2>
     </div>
 
@@ -192,7 +216,9 @@ import { withBase } from '../../lib/url';
   .kh-about-story,
   .kh-about-ledger,
   .kh-about-method,
-  .kh-about-interests {
+  .kh-about-accessibility,
+  .kh-about-interests,
+  .kh-about-neuro-line {
     color: #5a1f4f;
   }
 
@@ -293,6 +319,7 @@ import { withBase } from '../../lib/url';
   .kh-about-story,
   .kh-about-ledger,
   .kh-about-method,
+  .kh-about-accessibility,
   .kh-about-interests {
     display: grid;
     grid-template-columns: minmax(14rem, 0.42fr) minmax(0, 1fr);
@@ -325,6 +352,24 @@ import { withBase } from '../../lib/url';
   .kh-about-story-copy p:first-child {
     font-size: clamp(1.35rem, 2.2vw, 1.9rem);
     line-height: 1.45;
+  }
+
+  .kh-about-neuro-line {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid rgba(90, 31, 79, 0.25);
+    border-bottom: 1px solid rgba(90, 31, 79, 0.25);
+  }
+
+  .kh-about-neuro-line p {
+    max-width: 18ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 6.5rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
   }
 
   .kh-about-facts {
@@ -416,14 +461,21 @@ import { withBase } from '../../lib/url';
     line-height: 1.5;
   }
 
+  .kh-about-accessibility-copy,
   .kh-about-interests-copy {
     max-width: 44rem;
   }
 
+  .kh-about-accessibility-copy p,
   .kh-about-interests-copy p {
     margin: 0 0 1.4rem;
     font-size: clamp(1.05rem, 1.4vw, 1.25rem);
     line-height: 1.65;
+  }
+
+  .kh-about-accessibility-copy p {
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    line-height: 1.5;
   }
 
   .kh-about-interests-copy .kh-pill {
@@ -450,6 +502,7 @@ import { withBase } from '../../lib/url';
     .kh-about-story,
     .kh-about-ledger,
     .kh-about-method,
+    .kh-about-accessibility,
     .kh-about-interests {
       grid-template-columns: 1fr;
       gap: 2rem;
