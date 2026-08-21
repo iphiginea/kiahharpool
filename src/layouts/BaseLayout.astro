@@ -12,7 +12,6 @@ import '../styles/product-alignment.css';
 import '../styles/design-system.css';
 import '../styles/projects.css';
 import '../styles/what-i-do.css';
-import '../styles/contact-finale.css';
 import '../styles/responsive-pass.css';
 import '../styles/first-light.css';
 import '../styles/duel-draw.css';
@@ -37,7 +36,7 @@ const { title = siteName, description = SITE.description, ogType = 'website', im
 const siteBase = Astro.site ?? new URL(Astro.url.origin);
 const canonicalURL = new URL(Astro.url.pathname, siteBase);
 const imageURL = image ? new URL(image, siteBase) : new URL(withBase(SITE.ogImage), siteBase);
-const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => {
@@ -57,7 +56,6 @@ const isActive = (href: string) => {
     <link rel="icon" href={withBase('/favicon.ico')} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
-    <link rel="alternate" type="application/rss+xml" title={siteName} href={withBase('/rss.xml')} />
     <title>{fullTitle}</title>
 
     <meta property="og:type" content={ogType} />
@@ -247,6 +245,21 @@ const isActive = (href: string) => {
 
           aboutBody.dataset.threadEnhanced = 'true';
         }
+
+        const contact = document.querySelector('.kh-contact');
+        if (contact instanceof HTMLElement) contact.hidden = true;
+        document.body.classList.remove('has-contact-finale');
+      };
+
+      const enhanceWorksIndex = () => {
+        const workIndexHead = document.querySelector('.kh-work-index-head');
+        if (!(workIndexHead instanceof HTMLElement)) return;
+
+        const intro = workIndexHead.querySelector(':scope > p:last-child');
+        if (intro instanceof HTMLParagraphElement) {
+          intro.textContent =
+            'Small experiments that usually start with friction, curiosity, or a question I cannot stop trying to answer. I build them to make something fuzzy, subjective, or complicated a little more legible.';
+        }
       };
 
       const enhanceRecognition = () => {
@@ -279,64 +292,51 @@ const isActive = (href: string) => {
         recognition.dataset.tvbEnhanced = 'true';
       };
 
-      const enhanceContactFinale = () => {
-        const contact = document.querySelector('.kh-contact');
-        document.body.classList.toggle('has-contact-finale', contact instanceof HTMLElement);
+      const normalizeVisibleCopy = () => {
+        const root = document.querySelector('main');
+        if (!(root instanceof HTMLElement)) return;
 
-        if (!(contact instanceof HTMLElement) || contact.dataset.finaleEnhanced === 'true') return;
+        const replacements: Array<[string, string]> = [
+          ['head-to-head', 'head to head'],
+          ['two-player', 'two player'],
+          ['sketch-and-guess', 'sketch and guess'],
+          ['real-time', 'real time'],
+          ['body-point-based', 'body point based'],
+          ['self-hypnosis', 'self hypnosis'],
+          ['at-home', 'at home'],
+          ['location-aware', 'location aware'],
+          ['five-bird', 'five bird'],
+          ['repertory-cinema', 'repertory cinema'],
+          ['poster-led', 'poster led'],
+          ['five-star', 'five star'],
+          ['ticket-like', 'ticket like'],
+          ['point-by-point', 'point by point'],
+          ['ritual-driven', 'ritual driven'],
+          ['community-building', 'community building'],
+          ['2025–26', '2025 / 2026'],
+          [' — ', ', '],
+        ];
 
-        const heading = contact.querySelector('h2');
-        const actions = contact.querySelector('.kh-contact-row');
-        const body = Array.from(contact.children).find(
-          (element) =>
-            element instanceof HTMLParagraphElement && !element.classList.contains('kh-kicker'),
-        );
-
-        if (
-          !(heading instanceof HTMLHeadingElement) ||
-          !(actions instanceof HTMLElement) ||
-          !(body instanceof HTMLParagraphElement)
-        )
-          return;
-
-        heading.textContent = 'Let’s talk';
-        body.textContent =
-          'Media, workflows, automation, industry ideas, little questions — if there’s something worth figuring out, I’m your girl.';
-        body.classList.add('kh-contact-lead');
-
-        const emailLink = actions.querySelector('a[href^="mailto:"]');
-        if (emailLink) emailLink.textContent = 'Email me →';
-
-        const finale = document.createElement('div');
-        finale.className = 'kh-contact-finale';
-
-        const details = document.createElement('div');
-        details.className = 'kh-contact-details';
-
-        heading.insertAdjacentElement('beforebegin', finale);
-        finale.appendChild(heading);
-        details.appendChild(body);
-        details.appendChild(actions);
-        finale.appendChild(details);
-
-        const signoff = document.createElement('div');
-        signoff.className = 'kh-contact-signoff';
-        signoff.setAttribute('aria-label', 'Kiah Harpool, Chicago, 2026');
-        signoff.innerHTML = '<span>KIAH HARPOOL</span><span>CHICAGO</span><span>2026</span>';
-        contact.appendChild(signoff);
-
-        contact.dataset.finaleEnhanced = 'true';
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        let node = walker.nextNode();
+        while (node) {
+          let value = node.textContent ?? '';
+          for (const [from, to] of replacements) value = value.replaceAll(from, to);
+          if (node.textContent !== value) node.textContent = value;
+          node = walker.nextNode();
+        }
       };
 
-      const enhanceHomepage = () => {
+      const enhanceSite = () => {
         arrangeHomepage();
         enhanceHomepageThread();
+        enhanceWorksIndex();
         enhanceRecognition();
-        enhanceContactFinale();
+        normalizeVisibleCopy();
       };
 
-      document.addEventListener('astro:page-load', enhanceHomepage);
-      enhanceHomepage();
+      document.addEventListener('astro:page-load', enhanceSite);
+      enhanceSite();
 
       document.addEventListener(
         'error',
