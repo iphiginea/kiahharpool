@@ -74,11 +74,8 @@ import { withBase } from '../../lib/url';
         AI.” The goal is usually to make complicated work clearer, faster, or easier to trust.
       </p>
       <p>
-        Outside my day job, that same curiosity tends to turn into small experiments:
-        <strong>Duel Cut</strong> for ranking movies through head to head choices,
-        <strong>Encore</strong> for figuring out which concerts really were the best,
-        <strong>Duel Draw</strong> for playing a drawing game directly with one other person, and
-        <strong>Points</strong> for exploring a more focused, ritual driven guided practice.
+        Outside my day job, that same curiosity tends to turn into small experiments in movies,
+        music, games, and whatever question I cannot stop trying to answer.
       </p>
     </div>
   </section>
@@ -87,63 +84,9 @@ import { withBase } from '../../lib/url';
     <p>I tend to notice the parts of a system everyone else has learned to work around.</p>
   </aside>
 
-  <section class="kh-about-ledger section" aria-labelledby="about-now">
-    <div class="kh-about-section-label">
-      <p class="kh-kicker">02 / CURRENTLY</p>
-      <h2 id="about-now">A few useful coordinates.</h2>
-    </div>
-
-    <div class="kh-about-facts">
-      <article>
-        <span class="kh-about-fact-number">01</span>
-        <div>
-          <span class="kh-about-fact-label">WORK</span>
-          <h3>Media investment + team leadership</h3>
-          <p>
-            Publicis Media Groupe with a focus on investment, execution, people, and better systems.
-          </p>
-        </div>
-      </article>
-
-      <article>
-        <span class="kh-about-fact-number">02</span>
-        <div>
-          <span class="kh-about-fact-label">SYSTEMS</span>
-          <h3>AI workflows + decision logic</h3>
-          <p>
-            Turning unwritten rules, repeated friction, and complicated decision logic into
-            workflows, tools, and clearer choices.
-          </p>
-        </div>
-      </article>
-
-      <article>
-        <span class="kh-about-fact-number">03</span>
-        <div>
-          <span class="kh-about-fact-label">EXPERIMENTS</span>
-          <h3>Duel Cut / Encore / Duel Draw / Points</h3>
-          <p>
-            Personal experiments in movies, music, games, and other questions I wanted to explore.
-          </p>
-        </div>
-      </article>
-
-      <article>
-        <span class="kh-about-fact-number">04</span>
-        <div>
-          <span class="kh-about-fact-label">COMMUNITY</span>
-          <h3>Media Advertising Club of Chicago</h3>
-          <p>
-            Industry programming, leadership, mentorship, and giving people a reason to show up.
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section class="kh-about-method section" aria-labelledby="about-method">
     <div class="kh-about-section-label">
-      <p class="kh-kicker">03 / HOW I WORK</p>
+      <p class="kh-kicker">02 / HOW I WORK</p>
       <h2 id="about-method">The method is usually the same.</h2>
     </div>
 
@@ -183,7 +126,7 @@ import { withBase } from '../../lib/url';
 
   <section class="kh-about-accessibility section" aria-labelledby="about-accessibility">
     <div class="kh-about-section-label">
-      <p class="kh-kicker">04 / ACCESSIBILITY</p>
+      <p class="kh-kicker">03 / ACCESSIBILITY</p>
       <h2 id="about-accessibility">Clear systems should not require intuition.</h2>
     </div>
 
@@ -197,7 +140,7 @@ import { withBase } from '../../lib/url';
 
   <section class="kh-about-interests section" aria-labelledby="about-interests">
     <div>
-      <p class="kh-kicker">05 / OFF THE CLOCK</p>
+      <p class="kh-kicker">04 / OFF THE CLOCK</p>
       <h2 id="about-interests">Culture is part of the operating system.</h2>
     </div>
 
@@ -214,7 +157,6 @@ import { withBase } from '../../lib/url';
 <style>
   .kh-about-hero,
   .kh-about-story,
-  .kh-about-ledger,
   .kh-about-method,
   .kh-about-accessibility,
   .kh-about-interests,
@@ -317,7 +259,6 @@ import { withBase } from '../../lib/url';
   }
 
   .kh-about-story,
-  .kh-about-ledger,
   .kh-about-method,
   .kh-about-accessibility,
   .kh-about-interests {
@@ -372,52 +313,6 @@ import { withBase } from '../../lib/url';
     line-height: 0.9;
   }
 
-  .kh-about-facts {
-    border-top: 1px solid rgba(90, 31, 79, 0.2);
-  }
-
-  .kh-about-facts article {
-    display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
-    gap: 1.25rem;
-    padding: 1.8rem 0;
-    border-bottom: 1px solid rgba(90, 31, 79, 0.2);
-  }
-
-  .kh-about-fact-number,
-  .kh-about-fact-label,
-  .kh-about-principles article > span {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.075em;
-    text-transform: uppercase;
-  }
-
-  .kh-about-fact-number {
-    opacity: 0.55;
-  }
-
-  .kh-about-fact-label {
-    color: #a23d3d;
-  }
-
-  .kh-about-facts h3 {
-    margin: 0.4rem 0 0;
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 3.2rem);
-    font-style: italic;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    line-height: 0.98;
-  }
-
-  .kh-about-facts p {
-    max-width: 42rem;
-    margin: 0.7rem 0 0;
-    line-height: 1.55;
-  }
-
   .kh-about-principles {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -431,6 +326,14 @@ import { withBase } from '../../lib/url';
     border-radius: 22px;
     display: flex;
     flex-direction: column;
+  }
+
+  .kh-about-principles article > span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
   }
 
   .kh-about-principles article:nth-child(1),
@@ -500,7 +403,6 @@ import { withBase } from '../../lib/url';
 
     .kh-about-intro-grid,
     .kh-about-story,
-    .kh-about-ledger,
     .kh-about-method,
     .kh-about-accessibility,
     .kh-about-interests {
@@ -538,12 +440,6 @@ import { withBase } from '../../lib/url';
 
     .kh-about-deck {
       font-size: clamp(1.8rem, 9vw, 2.7rem);
-    }
-
-    .kh-about-facts article {
-      grid-template-columns: 2.25rem minmax(0, 1fr);
-      gap: 0.85rem;
-      padding: 1.5rem 0;
     }
   }
 </style>
