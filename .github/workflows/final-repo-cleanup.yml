@@ -1,0 +1,146 @@
+name: Final repository cleanup
+
+on:
+  push:
+    branches: [soft-brutalist-editorial]
+    paths:
+      - .github/workflows/final-repo-cleanup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clean site configuration and copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          about = Path('src/pages/about/index.astro')
+          text = about.read_text().replace('Publicis Media Groupe', 'Publicis Media')
+          about.write_text(text)
+
+          Path('src/content.config.ts').write_text("""import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+const works = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/works' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      tech: z.array(z.string()),
+      link: z.string().url().optional(),
+      repo: z.string().url().optional(),
+      thumbnail: image().optional(),
+      order: z.number().optional(),
+      publishDate: z.coerce.date(),
+    }),
+});
+
+export const collections = { works };
+""")
+          PY
+
+      - name: Remove unused template dependencies
+        run: |
+          npm uninstall @astrojs/rss mdast-util-to-string reading-time pagefind @fontsource/fraunces
+          npm pkg set name=kiah-harpool-portfolio
+          npm pkg delete scripts.postbuild
+          npm audit fix
+
+      - name: Replace README
+        run: |
+          cat > README.md <<'EOF'
+          # Kiah Harpool
+
+          Personal portfolio for Kiah Harpool, a Chicago media leader and systems thinker working across media investment, strategy, AI workflows, and culture.
+
+          ## Site
+
+          The portfolio uses an editorial visual system built around oversized typography, soft brutalist structure, and a plum, lavender, and blush palette. The site includes professional work and recognition, an About page focused on systems and accessibility, and five personal experiments.
+
+          ## Experiments
+
+          **Duel Cut** ranks movies through head to head choices.
+
+          **Encore** ranks concerts through pairwise comparisons.
+
+          **Duel Draw** is a two player sketch and guess game.
+
+          **Points** is a guided body point and audio experiment.
+
+          **First Light** creates a location aware dawn chorus from recently reported nearby birds.
+
+          ## Stack
+
+          Astro 7, TypeScript, Astro Content Collections, MDX, Satori, Sharp, and GitHub Pages.
+
+          Fonts are self hosted with Fontsource using Fraunces, Public Sans, and JetBrains Mono.
+
+          ## Development
+
+          ```sh
+          npm install
+          npm run dev
+          ```
+
+          Production checks:
+
+          ```sh
+          npm run format:check
+          npm run check
+          npm run build
+          ```
+
+          ## Deployment
+
+          `main` is the production source for GitHub Pages.
+
+          The `soft-brutalist-editorial` branch is built into a separate preview path so redesign work can be reviewed without changing production.
+
+          The redesign remains in a draft pull request until it is explicitly approved for merge.
+          EOF
+
+      - name: Format
+        run: npx prettier --write src/pages/about/index.astro src/content.config.ts package.json README.md
+
+      - name: Verify dependency audit
+        run: npm audit --audit-level=high
+
+      - name: Verify formatting
+        run: npm run format:check
+
+      - name: Verify types
+        run: npm run check
+
+      - name: Verify build
+        env:
+          SITE_URL: https://iphiginea.github.io
+          BASE_PATH: /kiahharpool/preview/soft-brutalist-editorial
+        run: npm run build
+
+      - name: Commit cleanup
+        run: |
+          git config user.name "iphiginea"
+          git config user.email "kiah.harpool@gmail.com"
+          git add -- src/pages/about/index.astro src/content.config.ts package.json package-lock.json README.md
+          git commit -m "Finish portfolio repository cleanup"
+          git push origin HEAD:soft-brutalist-editorial
