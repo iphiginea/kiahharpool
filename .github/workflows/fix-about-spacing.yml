@@ -1,0 +1,44 @@
+name: Fix About spacing
+
+on:
+  push:
+    branches: [soft-brutalist-editorial]
+    paths:
+      - .github/workflows/fix-about-spacing.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+
+      - name: Fix inline project spacing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/pages/about/index.astro')
+          text = path.read_text()
+          old = '''      <p>\n        Outside my day job, that same curiosity tends to turn into small experiments:\n        <strong>Duel Cut</strong> for ranking movies through head to head choices,\n        <strong>Encore</strong> for figuring out which concerts really were the best,\n        <strong>Duel Draw</strong> for playing a drawing game directly with one other person, and\n        <strong>Points</strong> for exploring a more focused, ritual driven guided practice.\n      </p>'''
+          new = '''      <p>\n        Outside my day job, that same curiosity tends to turn into small experiments:{' '}\n        <strong>Duel Cut</strong> for ranking movies through head to head choices,{' '}\n        <strong>Encore</strong> for figuring out which concerts really were the best,{' '}\n        <strong>Duel Draw</strong> for playing a drawing game directly with one other person, and{' '}\n        <strong>Points</strong> for exploring a more focused, ritual driven guided practice.\n      </p>'''
+          if old not in text:
+              raise SystemExit('Expected About paragraph not found')
+          path.write_text(text.replace(old, new))
+          PY
+
+      - name: Format About page
+        run: npx prettier --write src/pages/about/index.astro
+
+      - name: Commit fix
+        run: |
+          git config user.name "iphiginea"
+          git config user.email "kiah.harpool@gmail.com"
+          git add -- src/pages/about/index.astro
+          git commit -m "Fix spacing around About project names"
+          git push origin HEAD:soft-brutalist-editorial
