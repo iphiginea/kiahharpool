@@ -133,7 +133,9 @@ const isActive = (href: string) => {
           const marker = row.querySelector('i');
           row.replaceChildren();
           if (marker) row.appendChild(marker);
-          row.appendChild(document.createTextNode(`${String(index + 1).padStart(2, '0')} / ${bird}`));
+          row.appendChild(
+            document.createTextNode(`${String(index + 1).padStart(2, '0')} / ${bird}`),
+          );
         });
       };
 
@@ -219,7 +221,9 @@ const isActive = (href: string) => {
 
         const firstLightCase = document.querySelector('.kh-case-firstlight');
         if (firstLightCase instanceof HTMLElement) {
-          const previewLabel = firstLightCase.querySelector('.kh-firstlight-preview-copy > p:first-child');
+          const previewLabel = firstLightCase.querySelector(
+            '.kh-firstlight-preview-copy > p:first-child',
+          );
           if (previewLabel) previewLabel.textContent = 'SAMPLE CHICAGO DAWN CHORUS';
 
           const birdList = firstLightCase.querySelector('.kh-firstlight-birds');
