@@ -6,8 +6,8 @@ export const SITE = {
   locale: 'en',
   title: 'Kiah Harpool',
   description:
-    'Media leader working across strategy, investment, AI, and the systems behind better decisions.',
-  rssDescription: 'Notes and experiments from Kiah Harpool.',
+    'I work across media, strategy, and technology, making hidden logic visible and complicated systems easier to navigate.',
+  rssDescription: 'Experiments and work from Kiah Harpool.',
   ogImage: '/og.jpg',
   author: 'Kiah Harpool',
   footerText: 'Kiah Harpool / Chicago / 2026',
