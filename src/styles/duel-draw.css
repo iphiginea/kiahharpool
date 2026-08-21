@@ -62,7 +62,7 @@
 
 .kh-mini-project-dueldraw .kh-mini-project-body h2::after,
 .kh-mini-project-dueldraw .kh-mini-project-body h3::after {
-  content: '●  A TWO-PLAYER SKETCH & GUESS';
+  content: '●  A TWO PLAYER SKETCH & GUESS';
   display: block;
   margin-top: 0.8rem;
   color: #6d28d9;

@@ -226,9 +226,7 @@
   padding: 1rem 1rem 1.2rem;
   border: 1px solid rgba(246, 241, 231, 0.2);
   border-radius: 12px 12px 5px 5px;
-  background:
-    linear-gradient(180deg, rgba(255, 46, 136, 0.12), transparent 70%),
-    #2f2543;
+  background: linear-gradient(180deg, rgba(255, 46, 136, 0.12), transparent 70%), #2f2543;
   color: #f6f1e7;
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -267,9 +265,7 @@
   padding: 1rem 1rem 1.2rem;
   border: 1px solid rgba(246, 241, 231, 0.2);
   border-radius: 5px 5px 12px 12px;
-  background:
-    linear-gradient(180deg, rgba(255, 184, 0, 0.08), transparent 70%),
-    #21182e;
+  background: linear-gradient(180deg, rgba(255, 184, 0, 0.08), transparent 70%), #21182e;
   color: #f6f1e7;
   font-family: var(--font-mono);
   font-size: 0.62rem;

@@ -53,7 +53,6 @@ const isActive = (href: string) => {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
-    <link rel="icon" href={withBase('/favicon.ico')} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
     <title>{fullTitle}</title>
@@ -99,7 +98,9 @@ const isActive = (href: string) => {
       <nav class="footer-links" aria-label="Footer">
         <a href={withBase('/works/')}>Work</a>
         <a href="mailto:kiah.harpool@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/kiahharpool" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://www.linkedin.com/in/kiahharpool" target="_blank" rel="noopener noreferrer"
+          >LinkedIn ↗</a
+        >
         <a href="https://github.com/iphiginea" target="_blank" rel="noopener noreferrer">GitHub ↗</a
         >
         <a href="#top">Back to top ↑</a>
@@ -189,14 +190,18 @@ const isActive = (href: string) => {
           }
 
           const currentMeta = currentCard.querySelectorAll('.kh-current-meta dd');
-          if (currentMeta[0]) currentMeta[0].textContent = 'Media investment / leadership / systems';
+          if (currentMeta[0])
+            currentMeta[0].textContent = 'Media investment / leadership / systems';
           if (currentMeta[1])
             currentMeta[1].textContent = 'Making the implicit explicit / personal experiments';
         }
 
-        const systemArticles = Array.from(professionalSection.querySelectorAll('.kh-system-list article'));
+        const systemArticles = Array.from(
+          professionalSection.querySelectorAll('.kh-system-list article'),
+        );
         const systemsArticle = systemArticles.find(
-          (article) => article.querySelector('.kh-card-label')?.textContent?.trim() === 'AI + SYSTEMS',
+          (article) =>
+            article.querySelector('.kh-card-label')?.textContent?.trim() === 'AI + SYSTEMS',
         );
         const systemsCopy = systemsArticle?.querySelector('.kh-system-copy > p');
         if (systemsCopy instanceof HTMLParagraphElement) {
