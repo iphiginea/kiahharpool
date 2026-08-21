@@ -183,3 +183,136 @@
     font-size: 0.52rem;
   }
 }
+
+/* Homepage editorial visual. The product idea replaces the low resolution screenshot. */
+.kh-work .kh-project-lavender .kh-product-visual-duelcut {
+  min-height: 33rem;
+  padding: clamp(1rem, 2vw, 1.4rem) !important;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(186, 1, 1, 0.14), transparent 30%),
+    linear-gradient(150deg, #090316 0%, #120b1e 55%, #1b1023 100%) !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut::before {
+  content: 'DUEL / 041';
+  top: 1.35rem;
+  left: 1.45rem;
+  color: #e99d25;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut::after {
+  content: 'VS';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  display: grid;
+  width: 3.65rem;
+  height: 3.65rem;
+  place-items: center;
+  border: 1px solid rgba(243, 236, 221, 0.22);
+  border-radius: 50%;
+  background: #ba0101;
+  color: #f3ecdd;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0.65rem rgba(186, 1, 1, 0.08);
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single {
+  position: absolute;
+  inset: clamp(3.8rem, 8vw, 5.2rem) clamp(1rem, 2vw, 1.4rem) clamp(1rem, 2vw, 1.4rem);
+  width: auto;
+  min-height: 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single > a {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single img {
+  display: none;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single::before,
+.kh-work .kh-project-lavender .kh-product-shot-single::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: calc(50% - 0.75rem);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border: 1px solid #2a2035;
+  border-radius: 16px;
+  color: #f3ecdd;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 5.25rem);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.88;
+  white-space: pre-line;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single::before {
+  content: 'BUGONIA\A2025';
+  left: 0;
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(4, 0, 17, 0.82) 100%),
+    radial-gradient(circle at 65% 20%, rgba(233, 157, 37, 0.5), transparent 28%),
+    linear-gradient(145deg, #5a160f 0%, #ba0101 42%, #23071e 100%);
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single::after {
+  content: 'HAROLD +\A MAUDE\A1971';
+  right: 0;
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(4, 0, 17, 0.84) 100%),
+    radial-gradient(circle at 30% 22%, rgba(173, 215, 148, 0.42), transparent 25%),
+    linear-gradient(145deg, #31412e 0%, #617b50 42%, #1a1528 100%);
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single > a::after {
+  content: 'CHOOSE ONE / RANKING UPDATES';
+  position: absolute;
+  right: 0;
+  bottom: -0.1rem;
+  left: 0;
+  z-index: 3;
+  color: #9ca88c;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  transform: translateY(1.7rem);
+}
+
+@media (max-width: 640px) {
+  .kh-work .kh-project-lavender .kh-product-visual-duelcut {
+    min-height: 28rem;
+  }
+
+  .kh-work .kh-project-lavender .kh-product-shot-single::before,
+  .kh-work .kh-project-lavender .kh-product-shot-single::after {
+    width: calc(50% - 0.45rem);
+    padding: 0.9rem;
+    font-size: clamp(1.65rem, 9vw, 2.8rem);
+  }
+
+  .kh-work .kh-project-lavender .kh-product-visual-duelcut::after {
+    width: 3rem;
+    height: 3rem;
+  }
+}
