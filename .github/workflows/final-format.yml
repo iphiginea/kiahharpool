@@ -1,3 +1,4 @@
+# Formatting pass for the finalized preview source.
 name: Final source formatting
 
 on:
