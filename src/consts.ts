@@ -8,7 +8,7 @@ export const SITE = {
   description:
     'I work across media, strategy, and technology, making hidden logic visible and complicated systems easier to navigate.',
   rssDescription: 'Experiments and work from Kiah Harpool.',
-  ogImage: '/og.jpg',
+  ogImage: '/og/site.png',
   author: 'Kiah Harpool',
   footerText: 'Kiah Harpool / Chicago / 2026',
 } as const;
@@ -22,7 +22,9 @@ export interface SocialLink {
 }
 
 export const SOCIAL_LINKS: readonly SocialLink[] = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kiahharpool', icon: 'linkedin' },
   { label: 'GitHub', href: 'https://github.com/iphiginea', icon: 'github' },
+  { label: 'Email', href: 'mailto:kiah.harpool@gmail.com', icon: 'email' },
 ];
 
 export interface GiscusConfig {
