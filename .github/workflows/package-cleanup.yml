@@ -1,0 +1,47 @@
+name: Package cleanup
+
+on:
+  push:
+    branches: [soft-brutalist-editorial]
+    paths:
+      - .github/workflows/package-cleanup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Remove unused template dependencies
+        run: |
+          npm uninstall @astrojs/rss @astrojs/markdown-remark mdast-util-to-string reading-time pagefind
+          npm pkg set name=kiah-harpool-portfolio
+          npm pkg delete scripts.postbuild
+      - name: Apply compatible security fixes
+        run: npm audit fix
+      - name: Verify clean audit
+        run: npm audit --audit-level=high
+      - name: Validate package cleanup
+        run: |
+          npm run format:check
+          npm run check
+          npm run build
+      - name: Commit package cleanup
+        run: |
+          git config user.name "iphiginea"
+          git config user.email "kiah.harpool@gmail.com"
+          git add -- package.json package-lock.json
+          git commit -m "Remove unused template dependencies"
+          git push origin HEAD:soft-brutalist-editorial
