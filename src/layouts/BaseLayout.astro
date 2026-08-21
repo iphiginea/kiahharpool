@@ -120,7 +120,8 @@ const isActive = (href: string) => {
         'error',
         (event) => {
           const image = event.target;
-          if (!(image instanceof HTMLImageElement) || image.dataset.fallbackApplied === 'true') return;
+          if (!(image instanceof HTMLImageElement) || image.dataset.fallbackApplied === 'true')
+            return;
 
           const failedName = image.currentSrc.split('/').pop();
           if (!failedName) return;
