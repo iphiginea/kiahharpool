@@ -1,0 +1,38 @@
+name: Format project journey enhancer
+
+on:
+  push:
+    branches: [soft-brutalist-editorial]
+    paths:
+      - .github/workflows/format-project-journey.yml
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v7
+        with:
+          ref: soft-brutalist-editorial
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Format layout
+        run: npx prettier --write src/layouts/BaseLayout.astro
+      - name: Commit formatting
+        run: |
+          git config user.name "iphiginea"
+          git config user.email "kiah.harpool@gmail.com"
+          git add -- src/layouts/BaseLayout.astro
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Format project journey enhancer"
+          git push origin HEAD:soft-brutalist-editorial
