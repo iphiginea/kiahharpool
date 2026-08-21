@@ -4,6 +4,10 @@
   padding-block: var(--kh-section-space);
 }
 
+.kh-about-story-copy p:last-child strong {
+  margin-left: 0.25em;
+}
+
 /* Keep the final contact beat visually distinct after the design-system layer. */
 .kh-contact {
   margin-bottom: clamp(1rem, 2vw, 1.5rem);
