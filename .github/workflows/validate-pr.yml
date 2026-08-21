@@ -52,8 +52,7 @@ jobs:
             'src/pages/og/[collection]/[slug].png.ts' \
             src/styles/encore.css \
             src/styles/duel-draw.css \
-            src/consts.ts \
-            public/favicon.svg
+            src/consts.ts
       - name: Commit formatted cleanup
         if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'soft-brutalist-editorial'
         run: |
@@ -67,8 +66,7 @@ jobs:
             'src/pages/og/[collection]/[slug].png.ts' \
             src/styles/encore.css \
             src/styles/duel-draw.css \
-            src/consts.ts \
-            public/favicon.svg
+            src/consts.ts
           if git diff --cached --quiet; then
             exit 0
           fi
