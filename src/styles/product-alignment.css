@@ -108,3 +108,20 @@
     margin: 0;
   }
 }
+
+/* Homepage project cards read as editorial features, without visual panels. */
+.kh-work .kh-project-lavender,
+.kh-work .kh-project-blush {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual,
+.kh-work .kh-project-blush .kh-product-visual {
+  display: none !important;
+}
+
+.kh-work .kh-project-lavender .kh-project-copy,
+.kh-work .kh-project-blush .kh-project-copy {
+  width: 100%;
+  max-width: 58rem;
+}
