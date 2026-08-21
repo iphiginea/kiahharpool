@@ -109,6 +109,32 @@ const isActive = (href: string) => {
 
     <CodeCopy />
 
+    <style is:global>
+      .kh-home-thread {
+        margin-top: clamp(2.5rem, 6vw, 5.5rem);
+        padding: clamp(2rem, 4vw, 3.5rem) 0;
+        border-top: 1px solid rgba(90, 31, 79, 0.25);
+        border-bottom: 1px solid rgba(90, 31, 79, 0.25);
+        color: #5a1f4f;
+      }
+
+      .kh-home-thread p {
+        max-width: 18ch;
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 6vw, 6.5rem);
+        font-style: italic;
+        font-weight: 900;
+        letter-spacing: -0.055em;
+        line-height: 0.9;
+      }
+
+      .kh-about-body .kh-home-about-link {
+        display: inline-block;
+        margin-top: 0.6rem;
+      }
+    </style>
+
     <script>
       const screenshotFallbacks = new Map([
         ['duelcut-duel-hd.webp', 'duelcut-duel.webp'],
@@ -134,6 +160,92 @@ const isActive = (href: string) => {
           if (professionalKicker) professionalKicker.textContent = '01 / WHAT I DO';
           if (experimentsKicker) experimentsKicker.textContent = '02 / PERSONAL EXPERIMENTS';
           if (heroCta instanceof HTMLAnchorElement) heroCta.href = '#what-i-do';
+        }
+      };
+
+      const enhanceHomepageThread = () => {
+        const hero = document.querySelector('.kh-hero');
+        const professionalSection = document.querySelector('.kh-system');
+        const aboutSection = document.querySelector('.kh-about');
+
+        if (
+          !(hero instanceof HTMLElement) ||
+          !(professionalSection instanceof HTMLElement) ||
+          !(aboutSection instanceof HTMLElement)
+        )
+          return;
+
+        const heroPositioning = hero.querySelector('.kh-hero-positioning');
+        if (heroPositioning instanceof HTMLParagraphElement) {
+          heroPositioning.textContent =
+            'I work across media, strategy, and technology, making hidden logic visible and complicated systems easier to navigate.';
+        }
+
+        const currentCard = hero.querySelector('.kh-current-card');
+        if (currentCard instanceof HTMLElement) {
+          const currentCopy = currentCard.querySelector(':scope > p');
+          if (currentCopy instanceof HTMLParagraphElement) {
+            currentCopy.textContent =
+              'Turning unwritten rules, complicated decisions, and repeatable friction into clearer systems people can actually use.';
+          }
+
+          const currentMeta = currentCard.querySelectorAll('.kh-current-meta dd');
+          if (currentMeta[0]) currentMeta[0].textContent = 'Media investment / leadership / systems';
+          if (currentMeta[1])
+            currentMeta[1].textContent = 'Making the implicit explicit / personal experiments';
+        }
+
+        const systemArticles = Array.from(professionalSection.querySelectorAll('.kh-system-list article'));
+        const systemsArticle = systemArticles.find(
+          (article) => article.querySelector('.kh-card-label')?.textContent?.trim() === 'AI + SYSTEMS',
+        );
+        const systemsCopy = systemsArticle?.querySelector('.kh-system-copy > p');
+        if (systemsCopy instanceof HTMLParagraphElement) {
+          systemsCopy.textContent =
+            'I tend to notice the parts of a system everyone else has learned to work around. I make the rules visible, map the decision logic, and build something easier to use.';
+        }
+
+        if (!professionalSection.querySelector('.kh-home-thread')) {
+          const thread = document.createElement('aside');
+          thread.className = 'kh-home-thread';
+          thread.setAttribute('aria-label', 'A note on clear systems');
+
+          const threadCopy = document.createElement('p');
+          threadCopy.textContent = 'Clear systems should not require intuition.';
+          thread.appendChild(threadCopy);
+
+          const systemFooter = professionalSection.querySelector('.kh-system-footer');
+          professionalSection.insertBefore(thread, systemFooter ?? null);
+        }
+
+        const aboutHeading = aboutSection.querySelector('.kh-about-heading h2');
+        if (aboutHeading instanceof HTMLHeadingElement) {
+          aboutHeading.textContent =
+            'I like making a neurotypical world more legible to a neurodivergent brain.';
+        }
+
+        const aboutBody = aboutSection.querySelector('.kh-about-body');
+        if (aboutBody instanceof HTMLElement && aboutBody.dataset.threadEnhanced !== 'true') {
+          aboutBody.querySelectorAll(':scope > p').forEach((paragraph) => paragraph.remove());
+
+          const aboutCopy = document.createElement('p');
+          aboutCopy.className = 'kh-about-lead';
+          aboutCopy.textContent =
+            'A lot of how I work comes from needing to understand the rules beneath a system. What does it expect? Where does it break? What has everyone else simply learned to work around? That instinct shows up in my media work, my approach to AI and workflows, and the little experiments I build for myself.';
+
+          const notes = aboutBody.querySelector('.kh-about-notes');
+          aboutBody.insertBefore(aboutCopy, notes ?? null);
+
+          const sourceLink = professionalSection.querySelector('.kh-system-footer a');
+          if (sourceLink instanceof HTMLAnchorElement) {
+            const aboutLink = sourceLink.cloneNode(true);
+            if (aboutLink instanceof HTMLAnchorElement) {
+              aboutLink.classList.add('kh-home-about-link');
+              aboutBody.insertBefore(aboutLink, notes ?? null);
+            }
+          }
+
+          aboutBody.dataset.threadEnhanced = 'true';
         }
       };
 
@@ -218,6 +330,7 @@ const isActive = (href: string) => {
 
       const enhanceHomepage = () => {
         arrangeHomepage();
+        enhanceHomepageThread();
         enhanceRecognition();
         enhanceContactFinale();
       };
