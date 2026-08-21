@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -49,13 +49,25 @@ jobs:
           ref: soft-brutalist-editorial
           path: preview-src
 
+      - name: Format preview layout
+        working-directory: preview-src
+        run: |
+          npm ci
+          npx prettier --write src/layouts/BaseLayout.astro
+          git config user.name "iphiginea"
+          git config user.email "kiah.harpool@gmail.com"
+          git add -- src/layouts/BaseLayout.astro
+          if ! git diff --cached --quiet; then
+            git commit -m "Format project journey enhancer"
+            git push origin HEAD:soft-brutalist-editorial
+          fi
+
       - name: Build preview site
         working-directory: preview-src
         env:
           SITE_URL: https://iphiginea.github.io
           BASE_PATH: /kiahharpool/preview/soft-brutalist-editorial
         run: |
-          npm ci
           npm run build
 
       - name: Combine production and preview
