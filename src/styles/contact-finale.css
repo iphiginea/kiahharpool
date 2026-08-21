@@ -106,3 +106,12 @@ body.has-contact-finale .site-footer {
     margin: 0 0.4rem;
   }
 }
+
+/* The homepage ends more cleanly without a second oversized call to action. */
+.kh-contact {
+  display: none;
+}
+
+body.has-contact-finale .site-footer {
+  display: grid;
+}
