@@ -1,0 +1,4 @@
+.kh-recognition-row.kh-recognition-row-leadership::after {
+  content: none;
+  display: none;
+}
