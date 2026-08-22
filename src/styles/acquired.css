@@ -78,15 +78,25 @@
   white-space: nowrap;
 }
 
-.acq-home-title a {
+.acq-home-title a,
+.kh-firstlight-title-link {
   color: inherit;
-  background: none;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
   text-decoration: none;
+  transition:
+    background-size 180ms ease,
+    color 180ms ease;
 }
 
 .acq-home-title a:hover,
-.acq-home-title a:focus-visible {
-  color: #5c0f18;
+.acq-home-title a:focus-visible,
+.kh-firstlight-title-link:hover,
+.kh-firstlight-title-link:focus-visible {
+  color: var(--color-accent-hover);
+  background-size: 100% 1px;
 }
 
 .acq-home-deck {
@@ -306,7 +316,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .acq-home-primary {
+  .acq-home-primary,
+  .acq-home-title a,
+  .kh-firstlight-title-link {
     transition: none;
   }
 }
