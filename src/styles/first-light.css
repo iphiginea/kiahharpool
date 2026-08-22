@@ -1,10 +1,10 @@
 /* First Light / FLIGHT project treatment */
 .kh-mini-project-firstlight {
   position: relative;
-  min-height: 34rem;
+  min-height: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.95fr);
-  gap: clamp(2rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+  gap: clamp(1.75rem, 4.5vw, 4.5rem);
   align-items: stretch;
   margin-top: 1.25rem;
   overflow: hidden;
@@ -100,7 +100,7 @@
 
 .kh-mini-project-firstlight .kh-mini-project-footer {
   margin-top: auto;
-  padding-top: 2rem;
+  padding-top: 1.4rem;
 }
 
 .kh-mini-project-firstlight .kh-pill {
@@ -118,7 +118,7 @@
 
 .kh-firstlight-visual {
   position: relative;
-  min-height: 27rem;
+  min-height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
