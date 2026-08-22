@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
 
-const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points', 'first-light']);
+const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points', 'first-light', 'acquired']);
 const works = (await getCollection('works'))
   .filter((work) => featuredIds.has(work.id))
   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
@@ -13,6 +13,7 @@ const cardDecks: Record<string, string> = {
   encore: 'Every concert you have seen. Head to head.',
   'duel-draw': 'Draw it. Clue it. See if they get it.',
   points: 'A guided practice, one point at a time.',
+  acquired: 'A personal museum for the things you keep — and why you kept them.',
 };
 
 const featureTags: Record<string, string[]> = {
@@ -20,6 +21,7 @@ const featureTags: Record<string, string[]> = {
   encore: ['SHOWS', 'DUELS', 'RANKINGS'],
   'duel-draw': ['REAL TIME', 'DRAWING', 'GAME DESIGN'],
   points: ['GUIDED AUDIO', 'BODY MAP', 'INTERACTION DESIGN'],
+  acquired: ['ACCESSIONING', 'PROVENANCE', 'PERSONAL ARCHIVE'],
 };
 
 const usesHomepageProjectCard = (id: string) => id === 'duel-cut' || id === 'encore';
@@ -28,7 +30,7 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
 
 <BaseLayout
   title="Work"
-  description="Personal experiments by Kiah Harpool across film, music, games, personal data, guided interaction, and location aware audio."
+  description="Personal experiments by Kiah Harpool across film, music, games, personal data, guided interaction, location aware audio, and personal archives."
 >
   <section class="kh-work-index-head section">
     <p class="kh-kicker">EXPERIMENTS / 2026</p>
@@ -52,6 +54,7 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
               work.id === 'duel-draw' && 'kh-work-index-card-dueldraw',
               work.id === 'points' && 'kh-work-index-card-points',
               work.id === 'first-light' && 'kh-work-index-card-firstlight',
+              work.id === 'acquired' && 'kh-work-index-card-acquired',
               work.id === 'duel-cut' && 'kh-project-lavender',
               work.id === 'encore' && 'kh-project-blush',
               usesHomepageMiniCard(work.id) && 'kh-mini-project',
@@ -83,7 +86,16 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
                 <span class="kh-project-role">Personal experiment / Concept + Build</span>
               )}
 
-              <h2 class:list={[work.id === 'first-light' && 'kh-work-index-firstlight-title']}>
+              {work.id === 'acquired' && (
+                <span class="kh-acquired-accession">KH.2026.0006 / PERMANENT COLLECTION</span>
+              )}
+
+              <h2
+                class:list={[
+                  work.id === 'first-light' && 'kh-work-index-firstlight-title',
+                  work.id === 'acquired' && 'kh-work-index-acquired-title',
+                ]}
+              >
                 <a
                   class:list={[usesHomepageProjectCard(work.id) && 'kh-project-title-link']}
                   href={withBase(`/works/${work.id}/`)}
@@ -170,7 +182,7 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
                     Open app ↗
                   </a>
                 )}
-                {work.id === 'first-light' && work.data.repo && (
+                {(work.id === 'first-light' || work.id === 'acquired') && work.data.repo && (
                   <a
                     class="kh-text-link"
                     href={work.data.repo}
@@ -250,9 +262,13 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
     border: 2px solid #5a1f4f;
   }
 
-  .kh-work-index-card-firstlight {
+  .kh-work-index-card-firstlight,
+  .kh-work-index-card-acquired {
     grid-column: 1 / -1;
     min-height: 28rem;
+  }
+
+  .kh-work-index-card-firstlight {
     border-color: rgba(240, 230, 216, 0.35);
     background:
       radial-gradient(
@@ -281,6 +297,79 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
   .kh-work-index-card-firstlight .kh-pill:focus-visible {
     border-color: #f2c879;
     background: #f2c879;
+  }
+
+  .kh-work-index-card-acquired {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(23, 23, 23, 0.5);
+    background: #f4f1e9;
+    color: #171717;
+    box-shadow:
+      inset 0 0 0 7px #f4f1e9,
+      inset 0 0 0 8px rgba(123, 20, 32, 0.2);
+  }
+
+  .kh-work-index-card-acquired::after {
+    content: 'ACQ.';
+    position: absolute;
+    right: clamp(1.4rem, 3vw, 2.75rem);
+    bottom: clamp(1rem, 2vw, 1.8rem);
+    color: rgba(123, 20, 32, 0.07);
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 16rem);
+    font-weight: 800;
+    letter-spacing: -0.08em;
+    line-height: 0.7;
+    pointer-events: none;
+  }
+
+  .kh-work-index-card-acquired > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-topline,
+  .kh-work-index-card-acquired .kh-text-link {
+    color: #171717;
+  }
+
+  .kh-work-index-card-acquired .kh-pill {
+    border-color: #171717;
+    background: #171717;
+    color: #f4f1e9 !important;
+  }
+
+  .kh-work-index-card-acquired .kh-pill:hover,
+  .kh-work-index-card-acquired .kh-pill:focus-visible {
+    border-color: #7b1420;
+    background: #7b1420;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-tags span {
+    border-color: rgba(123, 20, 32, 0.32);
+    color: #7b1420;
+  }
+
+  .kh-acquired-accession {
+    display: block;
+    margin-bottom: 0.9rem;
+    color: #a8874b;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-acquired-title {
+    margin-bottom: 0.9rem !important;
+    color: #7b1420;
+    font-size: clamp(4.5rem, 11vw, 10rem) !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.055em !important;
+    text-transform: uppercase;
   }
 
   .kh-work-index-topline {
@@ -334,6 +423,11 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
     color: #f2c879;
   }
 
+  .kh-work-index-card-acquired .kh-work-index-copy h2 a:hover,
+  .kh-work-index-card-acquired .kh-work-index-copy h2 a:focus-visible {
+    color: #5c0f18;
+  }
+
   .kh-work-index-firstlight-title {
     max-width: none;
     margin-bottom: 0.5rem !important;
@@ -378,6 +472,15 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
     line-height: 1.15;
   }
 
+  .kh-work-index-card-acquired .kh-work-index-deck {
+    max-width: 30ch;
+    color: #7b1420;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+    font-style: italic;
+    font-weight: 500;
+  }
+
   .kh-work-index-description {
     max-width: 35rem;
     margin: 0;
@@ -391,6 +494,11 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
   .kh-work-index-card-points .kh-work-index-description {
     margin-top: 1rem;
     font-size: 0.98rem;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-description {
+    max-width: 42rem;
+    margin-top: 1rem;
   }
 
   .kh-work-index-card-duelcut .kh-project-copy,
@@ -450,7 +558,8 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
     }
 
     .kh-work-index-card,
-    .kh-work-index-card-firstlight {
+    .kh-work-index-card-firstlight,
+    .kh-work-index-card-acquired {
       grid-column: auto;
       min-height: 0;
       gap: 2rem;
@@ -486,7 +595,8 @@ const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'point
       font-size: clamp(3rem, 15vw, 4.8rem);
     }
 
-    .kh-work-index-firstlight-title {
+    .kh-work-index-firstlight-title,
+    .kh-work-index-acquired-title {
       font-size: clamp(3.4rem, 17vw, 5rem) !important;
     }
   }
