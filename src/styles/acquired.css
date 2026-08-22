@@ -1,0 +1,241 @@
+/* Acquired / personal museum project treatment */
+.kh-mini-project-acquired {
+  position: relative;
+  min-height: 34rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.95fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: stretch;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(23, 23, 23, 0.5);
+  background: #f4f1e9;
+  color: #171717;
+  box-shadow:
+    inset 0 0 0 7px #f4f1e9,
+    inset 0 0 0 8px rgba(123, 20, 32, 0.18);
+}
+
+.kh-acquired-home-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.kh-mini-project-acquired .kh-mini-project-topline,
+.kh-mini-project-acquired .kh-project-role,
+.kh-mini-project-acquired .kh-mini-project-description,
+.kh-mini-project-acquired .kh-mini-project-why,
+.kh-mini-project-acquired .kh-text-link {
+  color: #171717;
+}
+
+.kh-mini-project-acquired .kh-mini-project-topline span:last-child {
+  opacity: 0.62;
+}
+
+.kh-acquired-home-number {
+  display: block;
+  margin: 0.8rem 0 0;
+  color: #a8874b;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.kh-acquired-wordmark {
+  max-width: none !important;
+  margin: 0.45rem 0 0 !important;
+  color: #7b1420;
+  font-family: var(--font-display) !important;
+  font-size: clamp(4.5rem, 10vw, 10rem) !important;
+  font-style: normal !important;
+  font-weight: 750 !important;
+  letter-spacing: -0.065em !important;
+  line-height: 0.78 !important;
+  text-transform: uppercase;
+}
+
+.kh-acquired-wordmark a {
+  color: inherit;
+  text-decoration: none;
+  background: none;
+}
+
+.kh-acquired-wordmark a:hover,
+.kh-acquired-wordmark a:focus-visible {
+  color: #5c0f18;
+}
+
+.kh-mini-project-acquired .kh-mini-project-deck {
+  max-width: 30ch;
+  margin-top: 1.5rem;
+  color: #7b1420;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.kh-mini-project-acquired .kh-mini-project-description,
+.kh-mini-project-acquired .kh-mini-project-why {
+  max-width: 40rem;
+}
+
+.kh-mini-project-acquired .kh-mini-project-why {
+  opacity: 0.78;
+}
+
+.kh-mini-project-acquired .kh-mini-tags span {
+  border-color: rgba(123, 20, 32, 0.32);
+  color: #7b1420;
+}
+
+.kh-mini-project-acquired .kh-mini-project-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.kh-mini-project-acquired .kh-pill {
+  border-color: #171717;
+  background: #171717;
+  color: #f4f1e9 !important;
+}
+
+.kh-mini-project-acquired .kh-pill:hover,
+.kh-mini-project-acquired .kh-pill:focus-visible {
+  border-color: #7b1420;
+  background: #7b1420;
+  color: #f4f1e9 !important;
+}
+
+.kh-acquired-home-visual {
+  position: relative;
+  min-height: 27rem;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  background: #ebe6da;
+}
+
+.kh-acquired-home-visual::before {
+  content: 'ACQUIRED.';
+  position: absolute;
+  right: 1rem;
+  bottom: 0.45rem;
+  color: rgba(123, 20, 32, 0.06);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 11vw, 10rem);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.kh-acquired-home-visual-head,
+.kh-acquired-home-record {
+  position: relative;
+  z-index: 1;
+}
+
+.kh-acquired-home-visual-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.18);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+}
+
+.kh-acquired-home-visual-head span:first-child {
+  color: #7b1420;
+}
+
+.kh-acquired-home-record {
+  display: grid;
+  gap: 0;
+  margin-top: 1.1rem;
+}
+
+.kh-acquired-home-record strong {
+  margin-bottom: 0.7rem;
+  color: #a8874b;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.kh-acquired-home-field {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.14);
+}
+
+.kh-acquired-home-field span:first-child {
+  color: #7b1420;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.kh-acquired-home-field span:last-child {
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.kh-acquired-home-field-significance {
+  margin-top: 0.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid #7b1420;
+  border-bottom: 0;
+}
+
+.kh-acquired-home-field-significance span:last-child {
+  color: #5c0f18;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .kh-mini-project-acquired {
+    grid-template-columns: 1fr;
+  }
+
+  .kh-acquired-home-visual {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .kh-mini-project-acquired {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .kh-acquired-wordmark {
+    font-size: clamp(3.5rem, 18vw, 5.2rem) !important;
+  }
+
+  .kh-acquired-home-visual {
+    min-height: 19rem;
+    padding: 1rem;
+  }
+
+  .kh-acquired-home-field {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}
