@@ -1,0 +1,419 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/url';
+---
+
+<BaseLayout
+  title="Acquired"
+  description="A personal museum for accessioning meaningful objects with photographs, provenance, catalog records, and the story of why each thing matters."
+  ogType="article"
+  image={withBase('/og/works/acquired.png')}
+>
+  <article class="kh-case kh-acquired-case" data-pagefind-body>
+    <header class="kh-case-head section kh-acquired-head">
+      <div>
+        <p class="kh-case-kicker">PROJECT / BUILT 2026</p>
+        <p class="kh-acquired-number">KH.2026.0006 / PERMANENT COLLECTION</p>
+        <h1 class="kh-case-title kh-acquired-title">ACQUIRED</h1>
+        <p class="kh-case-deck kh-acquired-deck">
+          A personal museum for the things you keep — and why you kept them.
+        </p>
+        <div class="kh-case-actions">
+          <a
+            class="kh-pill kh-acquired-primary"
+            href="https://iphiginea.github.io/acquired/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open app ↗
+          </a>
+          <a
+            class="kh-text-link kh-acquired-link"
+            href="https://github.com/iphiginea/acquired"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub ↗
+          </a>
+        </div>
+      </div>
+
+      <dl class="kh-case-meta kh-acquired-meta">
+        <div>
+          <dt>Role</dt>
+          <dd>Concept / Product Design / Development</dd>
+        </div>
+        <div>
+          <dt>Focus</dt>
+          <dd>Collection systems / Personal archives / Supabase</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>2026</dd>
+        </div>
+      </dl>
+    </header>
+
+    <section class="kh-acquired-visual section" aria-label="Acquired collection record concept">
+      <div class="kh-acquired-plate">
+        <div class="kh-acquired-plate-top">
+          <span>ACQUIRED.</span>
+          <span>OBJECT RECORD</span>
+        </div>
+
+        <div class="kh-acquired-record-head">
+          <div>
+            <span class="kh-acquired-label">ACCESSION NUMBER</span>
+            <strong>KH.2026.0001</strong>
+          </div>
+          <span class="kh-acquired-status">PERMANENT COLLECTION</span>
+        </div>
+
+        <div class="kh-acquired-object-grid">
+          <div class="kh-acquired-object-image" aria-hidden="true">
+            <div class="kh-acquired-object-shape"></div>
+            <span>OBJECT PHOTOGRAPH</span>
+          </div>
+
+          <dl class="kh-acquired-object-fields">
+            <div>
+              <dt>Object title</dt>
+              <dd>The thing worth remembering</dd>
+            </div>
+            <div>
+              <dt>Date / period</dt>
+              <dd>Recorded as part of the object, not just the upload</dd>
+            </div>
+            <div>
+              <dt>Maker / materials</dt>
+              <dd>Structured details that make the record useful later</dd>
+            </div>
+            <div>
+              <dt>Provenance</dt>
+              <dd>Where it came from, how it arrived, who had it before</dd>
+            </div>
+            <div class="kh-acquired-significance-row">
+              <dt>Significance</dt>
+              <dd>The personal history that turns an object into part of a collection</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="kh-case-body section">
+      <aside>
+        <p class="kh-case-section-label">PROJECT NOTES</p>
+      </aside>
+      <div class="kh-case-prose kh-acquired-prose">
+        <h2>Your life, in objects</h2>
+        <p>
+          Acquired started with a museum idea: objects become more meaningful when the information
+          around them survives too. We save photographs by the thousands, but the context around a
+          physical thing — where it came from, who owned it, why we kept it — is much easier to lose.
+        </p>
+        <p>
+          I wanted a personal collection system that treated those stories with the same seriousness
+          a museum gives an accession record, without making the experience feel academic or heavy.
+        </p>
+
+        <h2>Accession first, organize second</h2>
+        <p>
+          Each object receives a collection-specific accession number and a structured record for
+          title, date, maker, classification, materials, place, acquisition history, provenance, and
+          significance. That gives the collection a durable internal logic instead of depending on
+          filenames, folders, or memory.
+        </p>
+        <p>
+          Photographs can be uploaded, cropped for the collection grid, and processed to remove their
+          background. Objects can stay private or be made public individually, so the same collection
+          can hold both intimate records and things worth sharing.
+        </p>
+
+        <h2>A museum language for personal history</h2>
+        <p>
+          The visual system deliberately borrows from collection catalogs rather than social feeds:
+          cream paper tones, archival red, brass accession numbers, serif display type, fine rules,
+          and quiet object cards. The interface is meant to make documenting an object feel like an
+          act of preservation, not another post.
+        </p>
+
+        <h2>Built to keep growing</h2>
+        <p>
+          Supabase handles account authentication, structured object records, and image storage. The
+          collection view is searchable and designed to scale as more objects are accessioned, while
+          individual object pages preserve the complete record behind each thumbnail.
+        </p>
+        <p>
+          The point is not to document everything you own. It is to preserve the things whose stories
+          would otherwise disappear.
+        </p>
+      </div>
+    </section>
+
+    <section class="kh-case-next section kh-acquired-next">
+      <a href={withBase('/works/')}>
+        <span class="kh-case-section-label">ALL EXPERIMENTS</span>
+        <strong>Back to the collection →</strong>
+      </a>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .kh-acquired-case {
+    --acq-red: #7b1420;
+    --acq-red-deep: #5c0f18;
+    --acq-cream: #f4f1e9;
+    --acq-ink: #171717;
+    --acq-brass: #a8874b;
+    color: var(--acq-ink);
+  }
+
+  .kh-acquired-head {
+    position: relative;
+  }
+
+  .kh-acquired-number {
+    margin: 1.15rem 0 0;
+    color: var(--acq-brass);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .kh-acquired-title {
+    margin-top: 0.7rem;
+    color: var(--acq-red);
+    font-style: normal;
+    font-weight: 750;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+  }
+
+  .kh-acquired-deck {
+    max-width: 22ch;
+    color: var(--acq-red-deep);
+    font-weight: 520;
+  }
+
+  .kh-acquired-meta {
+    border: 1px solid rgba(23, 23, 23, 0.35);
+    background: var(--acq-cream);
+    box-shadow:
+      inset 0 0 0 7px var(--acq-cream),
+      inset 0 0 0 8px rgba(123, 20, 32, 0.16);
+  }
+
+  .kh-acquired-meta dt {
+    color: var(--acq-red);
+  }
+
+  .kh-acquired-primary {
+    border-color: var(--acq-ink);
+    background: var(--acq-ink);
+    color: var(--acq-cream) !important;
+  }
+
+  .kh-acquired-primary:hover,
+  .kh-acquired-primary:focus-visible {
+    border-color: var(--acq-red);
+    background: var(--acq-red);
+  }
+
+  .kh-acquired-link {
+    color: var(--acq-ink);
+  }
+
+  .kh-acquired-visual {
+    padding-block: clamp(2rem, 5vw, 5rem);
+  }
+
+  .kh-acquired-plate {
+    overflow: hidden;
+    border: 1px solid rgba(23, 23, 23, 0.45);
+    background: var(--acq-cream);
+    box-shadow:
+      inset 0 0 0 8px var(--acq-cream),
+      inset 0 0 0 9px rgba(123, 20, 32, 0.18);
+  }
+
+  .kh-acquired-plate-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem clamp(1.4rem, 3vw, 2.5rem);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.18);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .kh-acquired-plate-top span:first-child {
+    color: var(--acq-red);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .kh-acquired-record-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.18);
+  }
+
+  .kh-acquired-label,
+  .kh-acquired-status {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kh-acquired-record-head strong {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--acq-brass);
+    font-family: var(--font-mono);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    letter-spacing: 0.03em;
+  }
+
+  .kh-acquired-status {
+    color: var(--acq-red);
+  }
+
+  .kh-acquired-object-grid {
+    display: grid;
+    grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr);
+    gap: 0;
+  }
+
+  .kh-acquired-object-image {
+    min-height: clamp(24rem, 46vw, 38rem);
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    border-right: 1px solid rgba(23, 23, 23, 0.18);
+    background: #e7e2d5;
+  }
+
+  .kh-acquired-object-shape {
+    width: min(55%, 14rem);
+    aspect-ratio: 0.72;
+    border: 1px solid rgba(23, 23, 23, 0.28);
+    border-radius: 48% 52% 35% 42% / 28% 30% 70% 72%;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.78), rgba(168,135,75,0.18)),
+      #d3c8ad;
+    box-shadow: 1.1rem 1.4rem 0 rgba(123, 20, 32, 0.08);
+    transform: rotate(-4deg);
+  }
+
+  .kh-acquired-object-image span {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  .kh-acquired-object-fields {
+    margin: 0;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .kh-acquired-object-fields div {
+    display: grid;
+    grid-template-columns: minmax(8rem, 0.42fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.14);
+  }
+
+  .kh-acquired-object-fields dt,
+  .kh-acquired-object-fields dd {
+    margin: 0;
+  }
+
+  .kh-acquired-object-fields dt {
+    color: var(--acq-red);
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .kh-acquired-object-fields dd {
+    font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+    line-height: 1.5;
+  }
+
+  .kh-acquired-object-fields .kh-acquired-significance-row {
+    margin-top: 0.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--acq-red);
+    border-bottom: 0;
+  }
+
+  .kh-acquired-significance-row dd {
+    color: var(--acq-red-deep);
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    font-style: italic;
+    line-height: 1.25;
+  }
+
+  .kh-acquired-prose h2 {
+    color: var(--acq-red);
+  }
+
+  .kh-acquired-next {
+    border: 1px solid rgba(23, 23, 23, 0.38);
+    background: var(--acq-cream);
+  }
+
+  .kh-acquired-next a {
+    color: var(--acq-red);
+  }
+
+  @media (max-width: 760px) {
+    .kh-acquired-object-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-acquired-object-image {
+      min-height: 22rem;
+      border-right: 0;
+      border-bottom: 1px solid rgba(23, 23, 23, 0.18);
+    }
+
+    .kh-acquired-object-fields div {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .kh-acquired-record-head,
+    .kh-acquired-plate-top {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .kh-acquired-title {
+      font-size: clamp(4rem, 20vw, 6rem);
+    }
+  }
+</style>
