@@ -1,0 +1,322 @@
+/* First Light / FLIGHT project treatment */
+.kh-mini-project.kh-mini-project-firstlight {
+  position: relative;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+  gap: clamp(1.5rem, 3.5vw, 3.5rem) !important;
+  align-items: stretch;
+  justify-content: initial !important;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  border-color: rgba(240, 230, 216, 0.32);
+  background:
+    radial-gradient(
+      circle at 78% 112%,
+      rgba(242, 200, 121, 0.98) 0,
+      rgba(232, 147, 95, 0.72) 22%,
+      transparent 48%
+    ),
+    linear-gradient(155deg, #1b2140 8%, #4a3b63 58%, #a65e62 100%);
+  color: #f0e6d8;
+}
+
+.kh-firstlight-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.kh-mini-project-firstlight .kh-mini-project-topline,
+.kh-mini-project-firstlight .kh-project-role,
+.kh-mini-project-firstlight .kh-mini-project-description,
+.kh-mini-project-firstlight .kh-mini-project-why,
+.kh-mini-project-firstlight .kh-text-link {
+  color: #f0e6d8;
+}
+
+.kh-mini-project-firstlight .kh-mini-project-topline span:last-child {
+  opacity: 0.68;
+}
+
+.kh-mini-project-firstlight .kh-project-role {
+  margin-bottom: 0.65rem;
+}
+
+.kh-firstlight-wordmark {
+  max-width: none !important;
+  margin: 0.45rem 0 0 !important;
+  color: #f0e6d8;
+  font-family: var(--font-display) !important;
+  font-size: clamp(4.5rem, 7vw, 7rem) !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.07em !important;
+  line-height: 0.78 !important;
+  white-space: nowrap;
+}
+
+.kh-firstlight-wordmark .kh-flight-f,
+.kh-firstlight-wordmark .kh-flight-light {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.kh-firstlight-wordmark .kh-flight-irst {
+  color: #8fa3a0;
+  font-size: 0.43em;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  vertical-align: 0.2em;
+}
+
+.kh-firstlight-equation {
+  margin: 0.35rem 0 0;
+  color: #f2c879;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.kh-mini-project-firstlight .kh-mini-project-deck {
+  max-width: 28ch;
+  margin-top: 1.05rem;
+  color: #f0e6d8;
+}
+
+.kh-mini-project-firstlight .kh-mini-project-description {
+  max-width: 40rem;
+  margin-top: 0.85rem;
+}
+
+.kh-mini-project-firstlight .kh-mini-project-why {
+  max-width: 40rem;
+  margin-top: 0.85rem;
+  opacity: 0.78;
+}
+
+.kh-mini-project-firstlight .kh-mini-tags span {
+  border-color: rgba(240, 230, 216, 0.36);
+  color: #f0e6d8;
+}
+
+.kh-mini-project-firstlight .kh-mini-project-footer {
+  margin-top: auto;
+  padding-top: 1.2rem;
+}
+
+.kh-mini-project-firstlight .kh-pill {
+  border-color: #f0e6d8;
+  background: #f0e6d8;
+  color: #1b2140 !important;
+}
+
+.kh-mini-project-firstlight .kh-pill:hover,
+.kh-mini-project-firstlight .kh-pill:focus-visible {
+  border-color: #f2c879;
+  background: #f2c879;
+  color: #1b2140 !important;
+}
+
+.kh-firstlight-visual {
+  position: relative;
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  overflow: hidden;
+  border: 1px solid rgba(240, 230, 216, 0.18);
+  border-radius: 18px;
+  background: rgba(27, 33, 64, 0.28);
+  backdrop-filter: blur(2px);
+}
+
+.kh-firstlight-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.kh-firstlight-stars i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #f0e6d8;
+  opacity: 0.5;
+}
+
+.kh-firstlight-stars i:nth-child(1) {
+  left: 10%;
+  top: 14%;
+}
+.kh-firstlight-stars i:nth-child(2) {
+  left: 25%;
+  top: 28%;
+}
+.kh-firstlight-stars i:nth-child(3) {
+  left: 39%;
+  top: 12%;
+}
+.kh-firstlight-stars i:nth-child(4) {
+  left: 58%;
+  top: 25%;
+}
+.kh-firstlight-stars i:nth-child(5) {
+  left: 72%;
+  top: 11%;
+}
+.kh-firstlight-stars i:nth-child(6) {
+  left: 86%;
+  top: 31%;
+}
+.kh-firstlight-stars i:nth-child(7) {
+  left: 49%;
+  top: 39%;
+}
+
+.kh-firstlight-visual-label {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.7rem;
+  color: #8fa3a0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.kh-firstlight-bird-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.kh-firstlight-bird-list span {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.62rem 0.8rem;
+  border: 1px solid rgba(240, 230, 216, 0.15);
+  border-radius: 12px;
+  background: rgba(240, 230, 216, 0.055);
+  color: #f0e6d8;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+}
+
+.kh-firstlight-bird-list i {
+  width: 0.52rem;
+  height: 0.52rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #f2c879;
+  box-shadow: 0 0 0 0.28rem rgba(242, 200, 121, 0.07);
+}
+
+@media (max-width: 900px) {
+  .kh-mini-project.kh-mini-project-firstlight {
+    grid-template-columns: 1fr;
+    gap: 1.5rem !important;
+  }
+
+  .kh-firstlight-visual {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .kh-mini-project-firstlight {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .kh-firstlight-wordmark {
+    font-size: clamp(3.5rem, 18vw, 5.2rem) !important;
+    white-space: normal;
+  }
+
+  .kh-firstlight-visual {
+    min-height: 19rem;
+    padding: 1rem;
+  }
+}
+
+/* Specific birds shown in the homepage First Light preview. */
+.kh-firstlight-visual-label {
+  font-size: 0;
+}
+
+.kh-firstlight-visual-label::before {
+  content: 'Five birds, wherever you are, whatever the season.';
+  font-size: 0.62rem;
+}
+
+.kh-firstlight-bird-list span {
+  flex-wrap: wrap;
+  font-size: 0;
+}
+
+.kh-firstlight-bird-list span::before,
+.kh-firstlight-bird-list span::after {
+  font-size: 0.6rem;
+}
+
+.kh-firstlight-bird-list span::before {
+  font-weight: 700;
+  letter-spacing: 0.075em;
+}
+
+.kh-firstlight-bird-list span::after {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0.78;
+}
+
+.kh-firstlight-bird-list span:nth-child(1)::before {
+  content: '01 / Eastern Kingbird';
+}
+.kh-firstlight-bird-list span:nth-child(1)::after {
+  content: 'Tyrannus tyrannus';
+}
+
+.kh-firstlight-bird-list span:nth-child(2)::before {
+  content: '02 / Piping Plover';
+}
+.kh-firstlight-bird-list span:nth-child(2)::after {
+  content: 'Charadrius melodus';
+}
+
+.kh-firstlight-bird-list span:nth-child(3)::before {
+  content: '03 / Eastern Wood-Pewee';
+}
+.kh-firstlight-bird-list span:nth-child(3)::after {
+  content: 'Contopus virens';
+}
+
+.kh-firstlight-bird-list span:nth-child(4)::before {
+  content: '04 / Double-crested Cormorant';
+}
+.kh-firstlight-bird-list span:nth-child(4)::after {
+  content: 'Nannopterum auritum';
+}
+
+.kh-firstlight-bird-list span:nth-child(5)::before {
+  content: '05 / Black-and-white Warbler';
+}
+.kh-firstlight-bird-list span:nth-child(5)::after {
+  content: 'Mniotilta varia';
+}

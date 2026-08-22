@@ -1,0 +1,117 @@
+.kh-contact {
+  padding-top: clamp(5rem, 10vw, 10rem);
+  padding-bottom: 2rem;
+}
+
+.kh-contact-finale {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: end;
+  margin-top: clamp(2rem, 4vw, 4rem);
+}
+
+.kh-contact-finale > h2 {
+  max-width: 7ch;
+  margin: 0;
+  color: #f7e8ea;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.78;
+}
+
+.kh-contact-details {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(247, 232, 234, 0.34);
+  color: #f7e8ea;
+}
+
+.kh-contact-lead {
+  max-width: 34rem;
+  margin: 0;
+  color: #f7e8ea;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.kh-contact-details .kh-contact-row {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.kh-contact-signoff {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(247, 232, 234, 0.34);
+  color: #f7e8ea;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+}
+
+.kh-contact-signoff span + span::before {
+  content: '/';
+  margin: 0 0.55rem;
+  opacity: 0.55;
+}
+
+body.has-contact-finale .site-footer {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .kh-contact {
+    padding-top: 4.5rem;
+  }
+
+  .kh-contact-finale {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .kh-contact-finale > h2 {
+    font-size: clamp(4.5rem, 23vw, 7rem);
+    line-height: 0.8;
+  }
+
+  .kh-contact-details {
+    padding-top: 1rem;
+  }
+
+  .kh-contact-lead {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .kh-contact-details .kh-contact-row {
+    margin-top: 1.5rem;
+  }
+
+  .kh-contact-signoff {
+    margin-top: 3rem;
+    font-size: 0.58rem;
+  }
+
+  .kh-contact-signoff span + span::before {
+    margin: 0 0.4rem;
+  }
+}
+
+/* The homepage ends more cleanly without a second oversized call to action. */
+.kh-contact {
+  display: none;
+}
+
+body.has-contact-finale .site-footer {
+  display: grid;
+}

@@ -1,80 +1,445 @@
 ---
-// The prose on this page is placeholder copy — rewrite it as your own. It is
-// intentionally *not* in `src/i18n/`: the dictionary holds UI chrome, so a
-// translator isn't handed someone else's biography, and you don't have to open
-// a dictionary file to edit your own about page.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE } from '../../consts';
-import { t } from '../../i18n';
+import { withBase } from '../../lib/url';
 ---
 
 <BaseLayout
-  title={t('about.title')}
-  description={`About the author behind this ${SITE.title} site.`}
+  title="About"
+  description="About Kiah Harpool. A Chicago media leader and systems thinker working across media investment, strategy, AI workflows, and culture."
 >
-  <section class="page-head section">
-    <p class="eyebrow">{t('about.eyebrow')}</p>
-    <h1>A measured profile for the person behind the work.</h1>
-    <p class="lead">
-      This page is shaped for a concise biography, a working philosophy, and the handful of details
-      that help readers understand how you think.
-    </p>
+  <section class="kh-about-hero section">
+    <div class="kh-about-meta">
+      <span>ABOUT / KIAH HARPOOL</span>
+      <span>CHICAGO, IL</span>
+    </div>
+
+    <h1>
+      <span>I like making a</span>
+      <span>neurotypical world more legible</span>
+      <span>to a neurodivergent brain.</span>
+    </h1>
+
+    <div class="kh-about-intro-grid">
+      <p class="kh-about-deck">My work sits between media, operations, strategy, and technology.</p>
+
+      <div class="kh-about-intro-copy">
+        <p>
+          I like finding the hidden logic inside complicated ideas, making it clearer, and helping
+          people move through it.
+        </p>
+
+        <dl class="kh-about-coordinates">
+          <div>
+            <dt>Based</dt>
+            <dd>Chicago, IL</dd>
+          </div>
+          <div>
+            <dt>Working across</dt>
+            <dd>Media / Strategy / AI</dd>
+          </div>
+          <div>
+            <dt>Always circling</dt>
+            <dd>Movies / Music / Culture</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
   </section>
 
-  <section class="section prose-grid">
-    <div>
-      <p class="eyebrow">Profile</p>
-      <h2>Quiet systems, clear writing, durable interfaces.</h2>
+  <section class="kh-about-story section" aria-labelledby="about-story">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">01 / THE THREAD</p>
+      <h2 id="about-story">Media led me to systems. Curiosity led me everywhere else.</h2>
     </div>
-    <div class="prose-stack">
+
+    <div class="kh-about-story-copy">
       <p>
-        I work across product strategy, interface systems, and technical writing. The common thread
-        is structure: making complex material easier to scan, trust, and maintain.
+        I work in media investment and operations at <strong>Publicis Media</strong>, where I lead
+        people and help turn a lot of moving pieces, like audiences, markets, investment decisions,
+        process, and execution, into work that feels understandable and manageable.
       </p>
       <p>
-        Astro Keel leaves room for this kind of context without forcing a loud personal brand.
-        Replace this placeholder with a specific background, current role, and the constraints that
-        shape your work.
+        A lot of that instinct comes from needing to make implicit rules explicit. I want to
+        understand what a system expects, where it breaks down, and how to make it easier to
+        navigate.
+      </p>
+      <p>
+        Over time, I became just as interested in <em>how</em> the work happens as the work itself. Where
+        does a decision stall? What gets repeated manually? What knowledge lives in one person’s head?
+        What would make the right next step obvious to someone else?
+      </p>
+      <p>
+        That naturally pulled me toward workflow design. I map decision logic, prototype tools, and
+        think about adoption as part of the system, not as an afterthought. The goal is rarely “use
+        AI.” The goal is usually to make complicated work clearer, faster, or easier to trust.
+      </p>
+      <p>
+        Outside my day job, that same curiosity tends to turn into small experiments in movies,
+        music, games, and whatever question I cannot stop trying to answer.
       </p>
     </div>
   </section>
 
-  <section class="section" aria-label={t('about.ledgerLabel')}>
-    <div class="about-ledger">
+  <aside class="kh-about-neuro-line section" aria-label="A note on systems">
+    <p>I tend to notice the parts of a system everyone else has learned to work around.</p>
+  </aside>
+
+  <section class="kh-about-method section" aria-labelledby="about-method">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">02 / HOW I WORK</p>
+      <h2 id="about-method">The method is usually the same.</h2>
+    </div>
+
+    <div class="kh-about-principles">
       <article>
         <span>01</span>
-        <h3>Current focus</h3>
-        <p>Designing lean content systems, portfolio surfaces, and editorial product pages.</p>
+        <h3>Find the friction.</h3>
+        <p>
+          The workaround, repeated question, confusing handoff, or tiny annoyance is usually the
+          clue.
+        </p>
       </article>
       <article>
         <span>02</span>
-        <h3>Background</h3>
+        <h3>Map the logic.</h3>
         <p>
-          Experience spanning frontend implementation, design systems, and writing for technical
-          audiences.
+          Before automating anything, I want to know what decision is actually being made and why.
         </p>
       </article>
       <article>
         <span>03</span>
-        <h3>Contact</h3>
+        <h3>Make the invisible visible.</h3>
         <p>
-          Use this section for availability, collaboration preferences, or a direct contact route.
+          A prototype can make an abstract process visible in a way another meeting or deck cannot.
+        </p>
+      </article>
+      <article>
+        <span>04</span>
+        <h3>Make it usable by someone else.</h3>
+        <p>
+          A clever system is not finished until another person can understand it, trust it, and use
+          it.
         </p>
       </article>
     </div>
   </section>
 
-  <section class="section prose-grid about-closing">
-    <div>
-      <p class="eyebrow">Method</p>
-      <h2>Structure before surface.</h2>
+  <section class="kh-about-accessibility section" aria-labelledby="about-accessibility">
+    <div class="kh-about-section-label">
+      <p class="kh-kicker">03 / ACCESSIBILITY</p>
+      <h2 id="about-accessibility">Clear systems should not require intuition.</h2>
     </div>
-    <div class="prose-stack">
+
+    <div class="kh-about-accessibility-copy">
       <p>
-        The theme treats the page like a working document: hierarchy first, rhythm second, visual
-        signature third. Fine rules, generous spacing, and type contrast carry the identity without
-        competing with the content.
+        I’m interested in systems that do not require people to intuit the rules. Clear language,
+        visible logic, and thoughtful defaults make work better for everyone.
       </p>
     </div>
   </section>
+
+  <section class="kh-about-interests section" aria-labelledby="about-interests">
+    <div>
+      <p class="kh-kicker">04 / OFF THE CLOCK</p>
+      <h2 id="about-interests">Culture is part of the operating system.</h2>
+    </div>
+
+    <div class="kh-about-interests-copy">
+      <p>
+        My interests turn into little experiments, usually starting with curiosity, taste, and a
+        question I cannot stop trying to answer.
+      </p>
+      <a class="kh-pill" href={withBase('/works/')}>See the experiments →</a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .kh-about-hero,
+  .kh-about-story,
+  .kh-about-method,
+  .kh-about-accessibility,
+  .kh-about-interests,
+  .kh-about-neuro-line {
+    color: #5a1f4f;
+  }
+
+  .kh-about-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kh-about-hero h1 {
+    max-width: 15ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10.8vw, 11rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.78;
+  }
+
+  .kh-about-hero h1 span {
+    display: block;
+  }
+
+  .kh-about-hero h1 span:nth-child(2) {
+    margin-left: clamp(0rem, 6vw, 7rem);
+  }
+
+  .kh-about-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.72fr);
+    gap: clamp(2.5rem, 8vw, 8rem);
+    align-items: start;
+    margin-top: clamp(3rem, 8vw, 7rem);
+  }
+
+  .kh-about-deck {
+    max-width: 23ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 4.25rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+  }
+
+  .kh-about-intro-copy {
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(90, 31, 79, 0.24);
+  }
+
+  .kh-about-intro-copy > p {
+    max-width: 35rem;
+    margin: 0;
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.6;
+  }
+
+  .kh-about-coordinates {
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    border-top: 1px solid rgba(90, 31, 79, 0.2);
+  }
+
+  .kh-about-coordinates div {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 0.45fr) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid rgba(90, 31, 79, 0.18);
+  }
+
+  .kh-about-coordinates dt,
+  .kh-about-coordinates dd {
+    margin: 0;
+  }
+
+  .kh-about-coordinates dt {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    opacity: 0.62;
+  }
+
+  .kh-about-coordinates dd {
+    font-size: 0.95rem;
+    font-weight: 650;
+  }
+
+  .kh-about-story,
+  .kh-about-method,
+  .kh-about-accessibility,
+  .kh-about-interests {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.42fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 8vw, 9rem);
+    border-top: 1px solid rgba(90, 31, 79, 0.25);
+  }
+
+  .kh-about-section-label h2,
+  .kh-about-interests h2 {
+    max-width: 12ch;
+    margin: 0.85rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 5.5rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
+  }
+
+  .kh-about-story-copy {
+    max-width: 48rem;
+  }
+
+  .kh-about-story-copy p {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+    line-height: 1.65;
+  }
+
+  .kh-about-story-copy p:first-child {
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    line-height: 1.45;
+  }
+
+  .kh-about-neuro-line {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid rgba(90, 31, 79, 0.25);
+    border-bottom: 1px solid rgba(90, 31, 79, 0.25);
+  }
+
+  .kh-about-neuro-line p {
+    max-width: 18ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 6.5rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
+  }
+
+  .kh-about-principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .kh-about-principles article {
+    min-height: 15rem;
+    padding: 1.5rem;
+    border: 1.5px solid #5a1f4f;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kh-about-principles article > span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+
+  .kh-about-principles article:nth-child(1),
+  .kh-about-principles article:nth-child(4) {
+    background: #d7caf5;
+  }
+
+  .kh-about-principles article:nth-child(2) {
+    background: #f7e8ea;
+  }
+
+  .kh-about-principles article:nth-child(3) {
+    background: #b39fef;
+  }
+
+  .kh-about-principles h3 {
+    margin: auto 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3.6rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+
+  .kh-about-principles p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .kh-about-accessibility-copy,
+  .kh-about-interests-copy {
+    max-width: 44rem;
+  }
+
+  .kh-about-accessibility-copy p,
+  .kh-about-interests-copy p {
+    margin: 0 0 1.4rem;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .kh-about-accessibility-copy p {
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    line-height: 1.5;
+  }
+
+  .kh-about-interests-copy .kh-pill {
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 760px) {
+    .kh-about-meta {
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .kh-about-hero h1 {
+      font-size: clamp(3.55rem, 16vw, 5.8rem);
+      line-height: 0.82;
+    }
+
+    .kh-about-hero h1 span:nth-child(2) {
+      margin-left: 0;
+    }
+
+    .kh-about-intro-grid,
+    .kh-about-story,
+    .kh-about-method,
+    .kh-about-accessibility,
+    .kh-about-interests {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .kh-about-intro-grid {
+      margin-top: 3rem;
+    }
+
+    .kh-about-coordinates div {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+
+    .kh-about-section-label h2,
+    .kh-about-interests h2 {
+      font-size: clamp(2.7rem, 12vw, 4.6rem);
+    }
+
+    .kh-about-principles {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-about-principles article {
+      min-height: 11rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .kh-about-hero h1 {
+      font-size: clamp(3.2rem, 15vw, 4.75rem);
+    }
+
+    .kh-about-deck {
+      font-size: clamp(1.8rem, 9vw, 2.7rem);
+    }
+  }
+</style>

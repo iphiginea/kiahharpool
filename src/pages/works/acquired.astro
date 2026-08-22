@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/url';
+---
+
+<BaseLayout
+  title="Acquired"
+  description="A personal museum for accessioning meaningful objects with photographs, provenance, catalog records, and the story of why each thing matters."
+  ogType="article"
+>
+  <article class="kh-case section kh-case-acquired" data-pagefind-body>
+    <header class="kh-case-head">
+      <div>
+        <p class="kh-case-kicker">06 / PRODUCT / ARCHIVE / COLLECTION SYSTEMS</p>
+        <h1 class="kh-case-title kh-acquired-case-title">ACQUIRED</h1>
+        <p class="kh-case-deck">A personal museum for the things you keep — and why you kept them.</p>
+      </div>
+
+      <div>
+        <dl class="kh-case-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Concept / Product Design / Development</dd>
+          </div>
+          <div>
+            <dt>Built</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Core idea</dt>
+            <dd>Give meaningful objects a durable record for provenance and personal significance.</dd>
+          </div>
+        </dl>
+        <div class="kh-case-actions">
+          <a
+            class="kh-pill"
+            href="https://iphiginea.github.io/acquired/"
+            target="_blank"
+            rel="noopener noreferrer">Open app ↗</a
+          >
+          <a
+            class="kh-text-link"
+            href="https://github.com/iphiginea/acquired"
+            target="_blank"
+            rel="noopener noreferrer">GitHub ↗</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div class="kh-case-body">
+      <p class="kh-case-section-label">THE PROJECT</p>
+      <div class="kh-case-prose">
+        <h2>Why I made it</h2>
+        <p>
+          We save photographs by the thousands, but the context around a physical object is much
+          easier to lose: where it came from, who owned it, how it was acquired, and why anyone cared
+          enough to keep it. Acquired is where that context gets to survive.
+        </p>
+
+        <h2>What I built</h2>
+        <p>
+          Acquired treats everyday objects like museum holdings. Each object receives a permanent
+          accession number and a structured record, like title, date, maker, classification,
+          materials, place, acquisition history, and provenance, alongside its personal significance.
+          Photographs document each piece, and every record can stay private or be made public
+          individually.
+        </p>
+
+        <h2>The product logic</h2>
+        <p>
+          The system starts with accessioning rather than organizing. A collection code, year, and
+          sequence number give every object a stable identity; the collection view makes those
+          records searchable; and the individual object page keeps the full history behind the
+          thumbnail. The structure is meant to remain useful as a collection grows instead of
+          depending on folders, filenames, or memory.
+        </p>
+
+        <h2>Design direction</h2>
+        <p>
+          The product itself borrows from museum collection catalogs rather than social feeds:
+          accession numbers, structured records, restrained typography, and object-focused layouts.
+          The portfolio page stays within the same visual system as the rest of my work so the project
+          feels like part of one body of experiments rather than a separate microsite.
+        </p>
+
+        <h2>Built to keep growing</h2>
+        <p>
+          Supabase handles authentication, structured object records, and image storage. The app also
+          supports image cropping and browser-based background removal, so object photography can stay
+          visually consistent without changing the underlying record. This isn't about owning more.
+          It's about remembering why any of it mattered.
+        </p>
+      </div>
+    </div>
+
+    <div class="kh-case-next">
+      <a href={withBase('/works/first-light/')}>
+        <span class="kh-case-section-label">PREVIOUS PROJECT</span>
+        <strong>← First Light</strong>
+      </a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  @media (min-width: 981px) {
+    .kh-case-acquired .kh-case-head {
+      grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.7fr);
+      gap: clamp(3rem, 5vw, 6rem);
+    }
+
+    .kh-acquired-case-title {
+      max-width: 100%;
+      font-size: clamp(5rem, 9.2vw, 10rem);
+      white-space: nowrap;
+    }
+  }
+</style>

@@ -1,10 +1,9 @@
 ---
 title: 'Encore'
-description: 'A concert-ranking app that compares shows head-to-head to build a personal list of the performances that mattered most.'
-thumbnail: ./encore-showcase.webp
+description: 'A concert ranking app that compares shows head to head to build a personal list of the performances that mattered most.'
 tech:
-  - HTML
-  - CSS
+  - Product Design
+  - Personal Data
   - JavaScript
 link: 'https://iphiginea.github.io/encore/'
 repo: 'https://github.com/iphiginea/encore'
@@ -14,10 +13,10 @@ publishDate: 2026-08-17
 
 ## Who plays again?
 
-Encore applies the same comparison-first idea to live music. Log a show, then pit concerts against one another until the rankings reflect the performances you would actually choose again.
+Encore applies the same comparison first idea to live music. Log a show, then pit concerts against one another until the rankings reflect the performances you would actually choose again.
 
-The rankings view keeps artist, city, venue, date, and score together, while filters make a growing concert history easier to explore.
+The rankings keep artist, city, venue, date, and score together so a growing concert history becomes something you can actually explore.
 
-## Screens
+## Why I made it
 
-The two views above show both sides of the experience: a sortable concert ranking and the head-to-head duel used to place a new show.
+I kept coming back to an impossible question: what was the best concert I had ever seen? Comparing two nights at a time felt more honest than trying to score a lifetime of shows.

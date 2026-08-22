@@ -2,43 +2,602 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
-import { SITE } from '../../consts';
-import { t } from '../../i18n';
 
-const works = (await getCollection('works')).sort((a, b) => {
-  const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
-  const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
-  if (orderA !== orderB) return orderA - orderB;
-  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
-});
+const featuredIds = new Set(['duel-cut', 'encore', 'duel-draw', 'points', 'first-light', 'acquired']);
+const works = (await getCollection('works'))
+  .filter((work) => featuredIds.has(work.id))
+  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+
+const cardDecks: Record<string, string> = {
+  'duel-cut': 'Your movie taste, directed by choices instead of star ratings.',
+  encore: 'Every concert you have seen. Head to head.',
+  'duel-draw': 'Draw it. Clue it. See if they get it.',
+  points: 'A guided practice, one point at a time.',
+  acquired: 'A personal museum for the things you keep — and why you kept them.',
+};
+
+const featureTags: Record<string, string[]> = {
+  'duel-cut': ['DUELS', 'RANKINGS', 'INSIGHTS'],
+  encore: ['SHOWS', 'DUELS', 'RANKINGS'],
+  'duel-draw': ['REAL TIME', 'DRAWING', 'GAME DESIGN'],
+  points: ['GUIDED AUDIO', 'BODY MAP', 'INTERACTION DESIGN'],
+  acquired: ['ACCESSIONING', 'PROVENANCE', 'PERSONAL ARCHIVE'],
+};
+
+const usesHomepageProjectCard = (id: string) => id === 'duel-cut' || id === 'encore';
+const usesHomepageMiniCard = (id: string) => id === 'duel-draw' || id === 'points';
 ---
 
 <BaseLayout
-  title={t('works.title')}
-  description={`Selected projects and case studies — ${SITE.title}.`}
+  title="Work"
+  description="Personal experiments by Kiah Harpool across film, music, games, personal data, guided interaction, location aware audio, and personal archives."
 >
-  <section class="page-head section">
-    <p class="eyebrow">{t('works.eyebrow')}</p>
-    <h1>Selected projects and case studies.</h1>
-    <p class="lead">
-      The works collection is typed for descriptions, technology lists, external links,
-      repositories, thumbnails, ordering, and publish dates.
+  <section class="kh-work-index-head section">
+    <p class="kh-kicker">EXPERIMENTS / 2026</p>
+    <h1>Experiments in things I’m curious about.</h1>
+    <p>
+      Small experiments that usually start with friction, curiosity, or a question I cannot stop
+      trying to answer. I build them to make something fuzzy, subjective, or complicated a little
+      more legible.
     </p>
   </section>
 
-  <section class="section" aria-label={t('works.listLabel')}>
-    <div class="work-list">
+  <section class="kh-work-index section" aria-label="Personal experiments">
+    <div class="kh-work-index-grid">
       {
-        works.map((work) => (
-          <article class="work-card">
-            <p class="entry-meta">{work.data.tech.join(' / ')}</p>
-            <h2>
-              <a href={withBase(`/works/${work.id}/`)}>{work.data.title}</a>
-            </h2>
-            <p>{work.data.description}</p>
+        works.map((work, index) => (
+          <article
+            class:list={[
+              'kh-work-index-card',
+              work.id === 'duel-cut' && 'kh-work-index-card-duelcut',
+              work.id === 'encore' && 'kh-work-index-card-encore',
+              work.id === 'duel-draw' && 'kh-work-index-card-dueldraw',
+              work.id === 'points' && 'kh-work-index-card-points',
+              work.id === 'first-light' && 'kh-work-index-card-firstlight',
+              work.id === 'acquired' && 'kh-work-index-card-acquired',
+              work.id === 'duel-cut' && 'kh-project-lavender',
+              work.id === 'encore' && 'kh-project-blush',
+              usesHomepageMiniCard(work.id) && 'kh-mini-project',
+              work.id === 'duel-draw' && 'kh-mini-project-dueldraw',
+              work.id === 'points' && 'kh-mini-project-points',
+            ]}
+          >
+            <div
+              class:list={[
+                'kh-work-index-topline',
+                usesHomepageProjectCard(work.id) && 'kh-project-topline',
+                usesHomepageMiniCard(work.id) && 'kh-mini-project-topline',
+              ]}
+            >
+              <span>
+                {String(index + 1).padStart(2, '0')} / {work.data.title}
+              </span>
+              <span>{work.data.tech.join(' / ')}</span>
+            </div>
+
+            <div
+              class:list={[
+                'kh-work-index-copy',
+                usesHomepageProjectCard(work.id) && 'kh-project-copy',
+                usesHomepageMiniCard(work.id) && 'kh-mini-project-body',
+              ]}
+            >
+              {(usesHomepageProjectCard(work.id) || usesHomepageMiniCard(work.id)) && (
+                <span class="kh-project-role">Personal experiment / Concept + Build</span>
+              )}
+
+              {work.id === 'acquired' && (
+                <span class="kh-acquired-accession">KH.2026.0006 / PERMANENT COLLECTION</span>
+              )}
+
+              <h2
+                class:list={[
+                  work.id === 'first-light' && 'kh-work-index-firstlight-title',
+                  work.id === 'acquired' && 'kh-work-index-acquired-title',
+                ]}
+              >
+                <a
+                  class:list={[usesHomepageProjectCard(work.id) && 'kh-project-title-link']}
+                  href={withBase(`/works/${work.id}/`)}
+                >
+                  {work.id === 'first-light' ? (
+                    <>
+                      <span class="kh-flight-f">F</span>
+                      <span class="kh-flight-irst">irst</span>{' '}
+                      <span class="kh-flight-light">LIGHT</span>
+                    </>
+                  ) : (
+                    work.data.title
+                  )}
+                </a>
+              </h2>
+
+              {work.id === 'first-light' && (
+                <p class="kh-flight-equation" aria-hidden="true">
+                  F + LIGHT = FLIGHT
+                </p>
+              )}
+
+              {cardDecks[work.id] && (
+                <p
+                  class:list={[
+                    'kh-work-index-deck',
+                    usesHomepageProjectCard(work.id) && 'kh-project-deck',
+                    usesHomepageMiniCard(work.id) && 'kh-mini-project-deck',
+                  ]}
+                >
+                  {cardDecks[work.id]}
+                </p>
+              )}
+
+              <p
+                class:list={[
+                  'kh-work-index-description',
+                  usesHomepageProjectCard(work.id) && 'kh-project-description',
+                  usesHomepageMiniCard(work.id) && 'kh-mini-project-description',
+                ]}
+              >
+                {work.data.description}
+              </p>
+            </div>
+
+            <div
+              class:list={[
+                'kh-work-index-footer',
+                usesHomepageMiniCard(work.id) && 'kh-mini-project-footer',
+              ]}
+            >
+              {featureTags[work.id] && (
+                <div
+                  class:list={[
+                    'kh-work-index-tags',
+                    usesHomepageProjectCard(work.id) && 'kh-chip-row',
+                    usesHomepageMiniCard(work.id) && 'kh-mini-tags',
+                  ]}
+                  aria-label={`${work.data.title} features`}
+                >
+                  {featureTags[work.id].map((item) => (
+                    <span>{item}</span>
+                  ))}
+                </div>
+              )}
+
+              <div
+                class:list={[
+                  'kh-work-index-actions',
+                  usesHomepageProjectCard(work.id) && 'kh-project-actions',
+                  usesHomepageMiniCard(work.id) && 'kh-mini-actions',
+                ]}
+              >
+                <a class="kh-pill" href={withBase(`/works/${work.id}/`)}>
+                  See experiment →
+                </a>
+                {work.data.link && (
+                  <a
+                    class="kh-text-link"
+                    href={work.data.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open app ↗
+                  </a>
+                )}
+                {(work.id === 'first-light' || work.id === 'acquired') && work.data.repo && (
+                  <a
+                    class="kh-text-link"
+                    href={work.data.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
+            </div>
           </article>
         ))
       }
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .kh-work-index-head {
+    padding-top: clamp(3rem, 7vw, 6rem);
+  }
+
+  .kh-work-index-head h1 {
+    max-width: 10ch;
+    margin: 0.6rem 0 1.5rem;
+    color: #5a1f4f;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10vw, 10rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.8;
+  }
+
+  .kh-work-index-head > p:last-child {
+    max-width: 42rem;
+    margin: 0;
+    color: #5a1f4f;
+    font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+    line-height: 1.6;
+    opacity: 0.82;
+  }
+
+  .kh-work-index {
+    padding-top: 1rem;
+  }
+
+  .kh-work-index-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .kh-work-index-card {
+    min-height: 33rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: clamp(1.5rem, 3vw, 2.75rem);
+    border: 1.5px solid rgba(90, 31, 79, 0.55);
+    border-radius: 22px;
+    color: #5a1f4f;
+  }
+
+  .kh-work-index-card-duelcut,
+  .kh-work-index-card-encore,
+  .kh-work-index-card-dueldraw,
+  .kh-work-index-card-points {
+    min-height: 31rem;
+    padding: clamp(1.4rem, 2.5vw, 2.25rem);
+  }
+
+  .kh-work-index-card-dueldraw,
+  .kh-work-index-card-points {
+    border: 2px solid #5a1f4f;
+  }
+
+  .kh-work-index-card-firstlight,
+  .kh-work-index-card-acquired {
+    grid-column: 1 / -1;
+    min-height: 28rem;
+  }
+
+  .kh-work-index-card-firstlight {
+    border-color: rgba(240, 230, 216, 0.35);
+    background:
+      radial-gradient(
+        circle at 80% 115%,
+        rgba(242, 200, 121, 0.95) 0,
+        rgba(232, 147, 95, 0.72) 22%,
+        transparent 48%
+      ),
+      linear-gradient(155deg, #1b2140 12%, #4a3b63 58%, #a65e62 100%);
+    color: #f0e6d8;
+  }
+
+  .kh-work-index-card-firstlight .kh-work-index-topline,
+  .kh-work-index-card-firstlight .kh-work-index-copy p,
+  .kh-work-index-card-firstlight .kh-text-link {
+    color: #f0e6d8;
+  }
+
+  .kh-work-index-card-firstlight .kh-pill {
+    border-color: #f0e6d8;
+    background: #f0e6d8;
+    color: #1b2140 !important;
+  }
+
+  .kh-work-index-card-firstlight .kh-pill:hover,
+  .kh-work-index-card-firstlight .kh-pill:focus-visible {
+    border-color: #f2c879;
+    background: #f2c879;
+  }
+
+  .kh-work-index-card-acquired {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(23, 23, 23, 0.5);
+    background: #f4f1e9;
+    color: #171717;
+    box-shadow:
+      inset 0 0 0 7px #f4f1e9,
+      inset 0 0 0 8px rgba(123, 20, 32, 0.2);
+  }
+
+  .kh-work-index-card-acquired::after {
+    content: 'ACQ.';
+    position: absolute;
+    right: clamp(1.4rem, 3vw, 2.75rem);
+    bottom: clamp(1rem, 2vw, 1.8rem);
+    color: rgba(123, 20, 32, 0.07);
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 16rem);
+    font-weight: 800;
+    letter-spacing: -0.08em;
+    line-height: 0.7;
+    pointer-events: none;
+  }
+
+  .kh-work-index-card-acquired > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-topline,
+  .kh-work-index-card-acquired .kh-text-link {
+    color: #171717;
+  }
+
+  .kh-work-index-card-acquired .kh-pill {
+    border-color: #171717;
+    background: #171717;
+    color: #f4f1e9 !important;
+  }
+
+  .kh-work-index-card-acquired .kh-pill:hover,
+  .kh-work-index-card-acquired .kh-pill:focus-visible {
+    border-color: #7b1420;
+    background: #7b1420;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-tags span {
+    border-color: rgba(123, 20, 32, 0.32);
+    color: #7b1420;
+  }
+
+  .kh-acquired-accession {
+    display: block;
+    margin-bottom: 0.9rem;
+    color: #a8874b;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-acquired-title {
+    margin-bottom: 0.9rem !important;
+    color: #7b1420;
+    font-size: clamp(4.5rem, 11vw, 10rem) !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.055em !important;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-topline span:last-child {
+    max-width: 18rem;
+    text-align: right;
+    opacity: 0.65;
+  }
+
+  .kh-work-index-copy h2 {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(3.3rem, 7vw, 7rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .kh-work-index-card-dueldraw .kh-work-index-copy h2,
+  .kh-work-index-card-points .kh-work-index-copy h2 {
+    margin: 0.55rem 0 0;
+    font-size: clamp(3.2rem, 6vw, 6.4rem);
+    line-height: 0.84;
+  }
+
+  .kh-work-index-copy h2 a {
+    color: inherit;
+    background: none;
+  }
+
+  .kh-work-index-copy h2 a:hover,
+  .kh-work-index-copy h2 a:focus-visible {
+    color: #a23d3d;
+  }
+
+  .kh-work-index-card-firstlight .kh-work-index-copy h2 a:hover,
+  .kh-work-index-card-firstlight .kh-work-index-copy h2 a:focus-visible {
+    color: #f2c879;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-copy h2 a:hover,
+  .kh-work-index-card-acquired .kh-work-index-copy h2 a:focus-visible {
+    color: #5c0f18;
+  }
+
+  .kh-work-index-firstlight-title {
+    max-width: none;
+    margin-bottom: 0.5rem !important;
+    font-size: clamp(4.5rem, 11vw, 11rem) !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.06em !important;
+    line-height: 0.78 !important;
+  }
+
+  .kh-flight-f,
+  .kh-flight-light {
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .kh-flight-irst {
+    color: #8fa3a0;
+    font-size: 0.47em;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    vertical-align: 0.18em;
+  }
+
+  .kh-flight-equation {
+    margin: 0 0 1.4rem !important;
+    color: #f2c879 !important;
+    font-family: var(--font-mono);
+    font-size: 0.68rem !important;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-deck {
+    max-width: 22ch;
+    margin: 1.1rem 0 0;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-deck {
+    max-width: 30ch;
+    color: #7b1420;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .kh-work-index-description {
+    max-width: 35rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .kh-work-index-card-duelcut .kh-work-index-description,
+  .kh-work-index-card-encore .kh-work-index-description,
+  .kh-work-index-card-dueldraw .kh-work-index-description,
+  .kh-work-index-card-points .kh-work-index-description {
+    margin-top: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .kh-work-index-card-acquired .kh-work-index-description {
+    max-width: 42rem;
+    margin-top: 1rem;
+  }
+
+  .kh-work-index-card-duelcut .kh-project-copy,
+  .kh-work-index-card-encore .kh-project-copy {
+    min-height: 0;
+  }
+
+  .kh-work-index-card-duelcut .kh-project-actions,
+  .kh-work-index-card-encore .kh-project-actions {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .kh-work-index-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .kh-work-index-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0;
+  }
+
+  .kh-work-index-tags span {
+    padding: 0.38rem 0.58rem;
+    border: 1px solid rgba(90, 31, 79, 0.34);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .kh-work-index-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.2rem;
+    align-items: center;
+  }
+
+  .kh-work-index-actions .kh-text-link {
+    margin-top: 0;
+  }
+
+  @media (max-width: 800px) {
+    .kh-work-index-head h1 {
+      font-size: clamp(3.75rem, 17vw, 6rem);
+      line-height: 0.83;
+    }
+
+    .kh-work-index-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-work-index-card,
+    .kh-work-index-card-firstlight,
+    .kh-work-index-card-acquired {
+      grid-column: auto;
+      min-height: 0;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .kh-work-index-head h1 {
+      font-size: clamp(3.3rem, 15vw, 4.8rem);
+    }
+
+    .kh-work-index-card {
+      padding: 1.25rem;
+      border-radius: 18px;
+    }
+
+    .kh-work-index-topline {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .kh-work-index-topline span:last-child {
+      max-width: none;
+      text-align: left;
+    }
+
+    .kh-work-index-copy h2 {
+      font-size: clamp(3rem, 15vw, 4.5rem);
+    }
+
+    .kh-work-index-card-dueldraw .kh-work-index-copy h2,
+    .kh-work-index-card-points .kh-work-index-copy h2 {
+      font-size: clamp(3rem, 15vw, 4.8rem);
+    }
+
+    .kh-work-index-firstlight-title,
+    .kh-work-index-acquired-title {
+      font-size: clamp(3.4rem, 17vw, 5rem) !important;
+    }
+  }
+</style>

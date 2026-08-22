@@ -1,0 +1,138 @@
+/* Points — app identity translated into the portfolio card */
+.kh-mini-project-points {
+  position: relative;
+  overflow: hidden;
+  border-color: #4e5d4b;
+  background: #f6f3ec !important;
+  color: #2b2a26;
+  box-shadow: 0 18px 48px -38px rgba(58, 70, 56, 0.38);
+}
+
+.kh-mini-project-points::before,
+.kh-mini-project-points::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: #a9884f;
+  box-shadow: 0 0 0 0.7rem rgba(169, 136, 79, 0.1);
+  pointer-events: none;
+}
+
+.kh-mini-project-points::before {
+  top: 18%;
+  right: 12%;
+}
+
+.kh-mini-project-points::after {
+  right: 24%;
+  bottom: 19%;
+  width: 0.55rem;
+  height: 0.55rem;
+  opacity: 0.72;
+  box-shadow: 0 0 0 0.55rem rgba(78, 93, 75, 0.08);
+}
+
+.kh-mini-project-points > * {
+  position: relative;
+  z-index: 1;
+}
+
+.kh-mini-project-points .kh-mini-project-topline,
+.kh-mini-project-points .kh-mini-project-description,
+.kh-mini-project-points .kh-mini-project-deck {
+  color: #2b2a26;
+}
+
+.kh-mini-project-points .kh-mini-project-topline span:last-child,
+.kh-mini-project-points .kh-project-role,
+.kh-mini-project-points .kh-mini-project-why {
+  color: #6b675f;
+  opacity: 1;
+}
+
+.kh-mini-project-points .kh-project-role {
+  color: #a9884f;
+}
+
+.kh-mini-project-points .kh-mini-project-body h2,
+.kh-mini-project-points .kh-mini-project-body h3 {
+  margin: 0.65rem 0 0;
+  color: #3a4638;
+  font-family: var(--font-display) !important;
+  font-size: clamp(4.5rem, 10vw, 10rem) !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.07em !important;
+  line-height: 0.78 !important;
+  text-transform: uppercase;
+}
+
+.kh-mini-project-points .kh-mini-project-body h2::after,
+.kh-mini-project-points .kh-mini-project-body h3::after {
+  content: '●  GUIDED SESSIONS';
+  display: block;
+  margin-top: 0.8rem;
+  color: #a9884f;
+  font-family: var(--font-mono);
+  font-size: 0.61rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.kh-mini-project-points .kh-mini-project-deck {
+  color: #3a4638;
+  font-weight: 600;
+}
+
+.kh-mini-project-points .kh-mini-project-description,
+.kh-mini-project-points .kh-mini-project-why {
+  max-width: 36rem;
+}
+
+.kh-mini-project-points .kh-mini-tags span {
+  border-color: #e4dfd3;
+  background: #ffffff;
+  color: #4e5d4b;
+  box-shadow: 0 6px 18px -16px rgba(43, 42, 38, 0.42);
+}
+
+.kh-mini-project-points .kh-pill {
+  border-color: #3a4638;
+  background: #3a4638;
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px -18px rgba(58, 70, 56, 0.8);
+}
+
+.kh-mini-project-points .kh-pill:hover,
+.kh-mini-project-points .kh-pill:focus-visible {
+  border-color: #4e5d4b;
+  background: #4e5d4b;
+  transform: translateY(-1px);
+}
+
+.kh-mini-project-points .kh-text-link {
+  color: #4e5d4b;
+}
+
+@media (max-width: 760px) {
+  .kh-mini-project-points::before {
+    top: 14%;
+    right: 9%;
+  }
+
+  .kh-mini-project-points::after {
+    right: 11%;
+    bottom: 16%;
+  }
+
+  .kh-mini-project-points .kh-mini-project-body h2,
+  .kh-mini-project-points .kh-mini-project-body h3 {
+    font-size: clamp(3.5rem, 18vw, 5.2rem) !important;
+  }
+}

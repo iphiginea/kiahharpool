@@ -1,0 +1,112 @@
+/* Duel Draw — app identity translated into the portfolio card */
+.kh-mini-project-dueldraw {
+  position: relative;
+  overflow: hidden;
+  border-color: #241b33;
+  background: #ece7f8 !important;
+  color: #241b33;
+  box-shadow: 0 18px 48px -34px rgba(109, 40, 217, 0.45);
+}
+
+.kh-mini-project-dueldraw::before,
+.kh-mini-project-dueldraw::after {
+  content: none;
+  display: none;
+}
+
+.kh-mini-project-dueldraw > * {
+  position: relative;
+  z-index: 1;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-topline,
+.kh-mini-project-dueldraw .kh-mini-project-description {
+  color: #241b33;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-topline span:last-child,
+.kh-mini-project-dueldraw .kh-project-role,
+.kh-mini-project-dueldraw .kh-mini-project-why {
+  color: #8b83a0;
+  opacity: 1;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-body {
+  padding-top: 0;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-body::before,
+.kh-mini-project-dueldraw .kh-mini-project-body::after {
+  content: none;
+  display: none;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-body h2,
+.kh-mini-project-dueldraw .kh-mini-project-body h3 {
+  margin: 0.65rem 0 0;
+  color: #241b33;
+  font-family: var(--font-body) !important;
+  font-size: clamp(4.2rem, 9.5vw, 9.4rem) !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.06em !important;
+  line-height: 0.82 !important;
+  text-transform: none;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-body h2::before,
+.kh-mini-project-dueldraw .kh-mini-project-body h3::before {
+  content: none;
+  display: none;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-body h2::after,
+.kh-mini-project-dueldraw .kh-mini-project-body h3::after {
+  content: '●  A TWO PLAYER SKETCH & GUESS';
+  display: block;
+  margin-top: 0.8rem;
+  color: #6d28d9;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.085em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.kh-mini-project-dueldraw .kh-mini-project-deck {
+  color: #241b33;
+  font-weight: 700;
+}
+
+.kh-mini-project-dueldraw .kh-mini-tags span {
+  border-color: #e6e0f5;
+  background: #ffffff;
+  color: #6d28d9;
+  box-shadow: 0 5px 18px -15px rgba(36, 27, 51, 0.45);
+}
+
+.kh-mini-project-dueldraw .kh-pill {
+  border: 0;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px -16px rgba(109, 40, 217, 0.8);
+}
+
+.kh-mini-project-dueldraw .kh-pill:hover,
+.kh-mini-project-dueldraw .kh-pill:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.kh-mini-project-dueldraw .kh-text-link {
+  color: #6d28d9;
+}
+
+@media (max-width: 760px) {
+  .kh-mini-project-dueldraw .kh-mini-project-body h2,
+  .kh-mini-project-dueldraw .kh-mini-project-body h3 {
+    font-size: clamp(3.3rem, 17vw, 5rem) !important;
+  }
+}

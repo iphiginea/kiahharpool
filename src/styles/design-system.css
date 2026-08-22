@@ -1,0 +1,422 @@
+:root {
+  /* Step 1: locked homepage design system */
+  --kh-radius-card: 22px;
+  --kh-radius-shot: 18px;
+  --kh-radius-control: 999px;
+  --kh-border: 1px solid rgba(90, 31, 79, 0.22);
+  --kh-border-strong: 1.5px solid rgba(90, 31, 79, 0.48);
+  --kh-section-space: clamp(4.5rem, 7vw, 7rem);
+  --kh-motion: 160ms ease;
+}
+
+/* Overall color balance: blush + lavender dominate; plum carries the UI. */
+html,
+body {
+  background: #f7e8ea;
+  color: #5a1f4f;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* Keep structural rules quiet. Borders belong to objects and controls. */
+.site-header,
+.site-footer {
+  border-color: rgba(90, 31, 79, 0.16);
+}
+
+.kh-work,
+.kh-system,
+.kh-recognition,
+.kh-contact {
+  padding-block: var(--kh-section-space);
+}
+
+/* Mono is metadata, not decoration. */
+.kh-meta-row,
+.kh-kicker,
+.kh-project-topline,
+.kh-card-label,
+.kh-chip-row,
+.kh-system-number,
+.site-nav a,
+.kh-text-link {
+  font-family: var(--font-mono);
+}
+
+/* Fraunces is reserved for the major editorial moments. */
+.kh-name,
+.kh-deck,
+.kh-section-head h2,
+.kh-project-copy h3,
+.kh-project-deck,
+.kh-lab h2,
+.kh-contact h2 {
+  font-family: var(--font-display);
+}
+
+/* Buttons: one primary and one secondary language. */
+.kh-pill {
+  min-height: 3.05rem;
+  padding: 0.8rem 1.45rem;
+  border: 1.5px solid #5a1f4f;
+  border-radius: var(--kh-radius-control);
+  background: #5a1f4f;
+  color: #f7e8ea !important;
+  box-shadow: none;
+  transition:
+    transform var(--kh-motion),
+    background-color var(--kh-motion),
+    color var(--kh-motion),
+    border-color var(--kh-motion);
+}
+
+.kh-pill:hover,
+.kh-pill:focus-visible {
+  transform: translateY(-1px);
+  border-color: #a23d3d;
+  background: #a23d3d;
+  color: #f7e8ea !important;
+}
+
+.kh-pill-secondary {
+  border-color: #5a1f4f;
+  background: transparent;
+  color: #5a1f4f !important;
+}
+
+.kh-pill-secondary:hover,
+.kh-pill-secondary:focus-visible {
+  border-color: #5a1f4f;
+  background: #d7caf5;
+  color: #5a1f4f !important;
+}
+
+/* Hero UI object: soft, chunky, but not bubbly. */
+.kh-theme-preview {
+  border: var(--kh-border);
+  border-radius: var(--kh-radius-card);
+  background: #d7caf5;
+}
+
+.kh-swatch-row {
+  border-radius: 12px;
+}
+
+/* Projects are real objects, so they can be cards. */
+.kh-project {
+  gap: clamp(2rem, 4.5vw, 4.75rem);
+  margin-bottom: clamp(1.25rem, 2vw, 2rem);
+  padding: clamp(1.5rem, 3.2vw, 3.25rem);
+  border: var(--kh-border);
+  border-radius: var(--kh-radius-card);
+  box-shadow: none;
+}
+
+.kh-project-lavender {
+  background: #d7caf5;
+}
+
+.kh-project-blush {
+  background: #f7e8ea;
+}
+
+.kh-chip-row span {
+  border: var(--kh-border-strong);
+  border-radius: var(--kh-radius-control);
+  background: transparent;
+}
+
+/* Screenshots: real, aligned, restrained. */
+.kh-product-shot {
+  border: var(--kh-border-strong);
+  border-radius: var(--kh-radius-shot);
+  box-shadow: none;
+  transform: none !important;
+  transition: transform var(--kh-motion);
+}
+
+.kh-project:hover .kh-product-shot {
+  transform: scale(1.006) !important;
+}
+
+.kh-product-visual::before,
+.kh-product-visual-encore::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* What I do is information, not a stack of cards. */
+.kh-system-list {
+  gap: 0;
+  border-top: 1px solid rgba(90, 31, 79, 0.2);
+}
+
+.kh-system-list article,
+.kh-system-list article:nth-child(1),
+.kh-system-list article:nth-child(2),
+.kh-system-list article:nth-child(3),
+.kh-system-list article:nth-child(4) {
+  min-height: 8.5rem;
+  padding: 1.5rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(90, 31, 79, 0.2);
+  border-radius: 0;
+  background: transparent;
+  color: #5a1f4f;
+}
+
+.kh-system-main h3 {
+  margin-top: 0.35rem;
+  color: #5a1f4f;
+  font-family: var(--font-body);
+  font-size: clamp(1.65rem, 3vw, 3rem);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.kh-system-list article > p,
+.kh-system-list article:nth-child(4) > p {
+  color: #5a1f4f;
+  opacity: 0.82;
+}
+
+.kh-system-arrow {
+  color: #a23d3d;
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-style: normal;
+  transition: transform var(--kh-motion);
+}
+
+.kh-system-list article:hover .kh-system-arrow {
+  transform: translateX(4px);
+}
+
+/* Recognition cards remain cards because each represents a real credential. */
+.kh-recognition-grid {
+  gap: clamp(0.85rem, 1.5vw, 1.25rem);
+}
+
+.kh-recognition-grid article,
+.kh-recognition-grid article:nth-child(1),
+.kh-recognition-grid article:nth-child(2),
+.kh-recognition-grid article:nth-child(3) {
+  min-height: 18rem;
+  padding: clamp(1.5rem, 2.6vw, 2.25rem);
+  border: var(--kh-border);
+  border-radius: var(--kh-radius-card);
+  box-shadow: none;
+}
+
+.kh-recognition-grid article:nth-child(1) {
+  background: #d7caf5;
+}
+
+.kh-recognition-grid article:nth-child(2) {
+  background: #f7e8ea;
+}
+
+.kh-recognition-grid article:nth-child(3) {
+  background: #b39fef;
+}
+
+.kh-recognition-grid h3 {
+  font-family: var(--font-body);
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.kh-arrow {
+  color: #a23d3d;
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-style: normal;
+  transition: transform var(--kh-motion);
+}
+
+.kh-recognition-grid article:hover .kh-arrow {
+  transform: translateX(4px);
+}
+
+/* One dramatic full-width field instead of alternating every section. */
+.kh-lab {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  padding-block: var(--kh-section-space);
+  padding-inline: max(var(--page-pad), calc((100vw - var(--content-width)) / 2 + var(--page-pad)));
+  border: 0;
+  background: #d7caf5;
+}
+
+.kh-lab-grid p {
+  color: #5a1f4f;
+  opacity: 0.86;
+}
+
+/* Contact returns to the blush field so the lavender moment stays special. */
+.kh-contact {
+  background: transparent;
+}
+
+/* Quiet interactive motion only. */
+.site-nav a,
+.kh-text-link {
+  transition:
+    color var(--kh-motion),
+    transform var(--kh-motion);
+}
+
+.site-nav a:hover,
+.kh-text-link:hover {
+  color: #a23d3d;
+}
+
+.kh-text-link:hover {
+  transform: translateX(2px);
+}
+
+/* Step 2: refined hero */
+.kh-meta-row {
+  grid-template-columns: 1fr auto;
+  align-items: start;
+}
+
+.kh-hero-bottom {
+  grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+  gap: clamp(2.5rem, 6vw, 7rem);
+  align-items: end;
+}
+
+.kh-hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kh-hero-positioning {
+  max-width: 34rem;
+  margin: 1.4rem 0 1.6rem;
+  color: #5a1f4f;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.kh-hero-cta {
+  margin-top: 0.15rem;
+}
+
+.kh-current-card {
+  align-self: end;
+  padding: clamp(1.35rem, 2.5vw, 1.9rem);
+}
+
+.kh-current-card p {
+  max-width: 32rem;
+  margin: 1.6rem 0 1.5rem;
+  color: #5a1f4f;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.kh-current-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(90, 31, 79, 0.2);
+}
+
+.kh-current-meta div {
+  min-width: 0;
+}
+
+.kh-current-meta dt {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.kh-current-meta dd {
+  margin: 0;
+  color: #5a1f4f;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .kh-project {
+    gap: 1.75rem;
+  }
+
+  .kh-system-list article {
+    min-height: 0;
+  }
+
+  .kh-hero-bottom {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kh-current-card {
+    width: min(100%, 42rem);
+    justify-self: end;
+  }
+}
+
+@media (max-width: 800px) {
+  .kh-project {
+    padding: 1.1rem;
+    border-radius: 18px;
+  }
+
+  .kh-theme-preview,
+  .kh-recognition-grid article {
+    border-radius: 18px;
+  }
+
+  .kh-lab {
+    padding-inline: var(--page-pad);
+  }
+
+  .kh-meta-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .kh-current-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .kh-current-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kh-pill,
+  .kh-product-shot,
+  .kh-system-arrow,
+  .kh-arrow,
+  .site-nav a,
+  .kh-text-link {
+    transition: none !important;
+  }
+}

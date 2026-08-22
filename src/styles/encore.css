@@ -1,0 +1,339 @@
+/* Encore — app identity translated into the portfolio card */
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) {
+  position: relative;
+  overflow: hidden;
+  border-color: #3d3155 !important;
+  background: #1a1425 !important;
+  color: #f6f1e7 !important;
+  box-shadow: 0 24px 60px -42px rgba(26, 20, 37, 0.9);
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.34rem;
+  background: linear-gradient(90deg, #ff2e88 0 46%, #ffb800 46% 72%, #4ecdc4 72% 100%);
+  pointer-events: none;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-copy,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-product-visual,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-work-index-topline,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-work-index-footer {
+  position: relative;
+  z-index: 1;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-topline,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-description,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-deck,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why p {
+  color: #f6f1e7 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-topline
+  span:first-child {
+  color: #ffb800 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-topline
+  span:last-child {
+  color: #a99bc4 !important;
+  opacity: 1 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-role {
+  color: #4ecdc4 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) :is(h2, h3) {
+  max-width: none !important;
+  margin-bottom: 0.55rem !important;
+  color: #f6f1e7 !important;
+  font-family: var(--font-body) !important;
+  font-size: clamp(5rem, 11vw, 10.5rem) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.075em !important;
+  line-height: 0.76 !important;
+  text-transform: uppercase;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) :is(h2, h3)::after {
+  content: 'YOUR CONCERTS / HEAD TO HEAD';
+  display: block;
+  margin-top: 1rem;
+  color: #ff2e88;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-title-link,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-title-link:hover,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore)
+  .kh-project-title-link:focus-visible {
+  color: #f6f1e7 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-deck {
+  color: #f6f1e7 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-description {
+  color: #d7cee5 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why {
+  border-top-color: #3d3155 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why strong {
+  color: #4ecdc4 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-project-why p {
+  color: #a99bc4 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-chip-row span {
+  border-color: #3d3155 !important;
+  background: #241c33 !important;
+  color: #ffb800 !important;
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-pill {
+  border-color: #ff2e88 !important;
+  background: #ff2e88 !important;
+  color: #f6f1e7 !important;
+  box-shadow: 0 12px 28px -18px rgba(255, 46, 136, 0.8);
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-pill:hover,
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-pill:focus-visible {
+  border-color: #ffb800 !important;
+  background: #ffb800 !important;
+  color: #1a1425 !important;
+  transform: translateY(-1px);
+}
+
+:is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) .kh-text-link {
+  color: #4ecdc4 !important;
+}
+
+.kh-work .kh-project-blush .kh-product-visual-encore {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #3d3155;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 46, 136, 0.035), transparent 38%), #241c33 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+}
+
+.kh-work .kh-project-blush .kh-product-visual-encore::before {
+  content: 'LIVE ARCHIVE  /  DUELS  /  RANKINGS';
+  position: absolute;
+  top: 1rem;
+  left: 1.1rem;
+  z-index: 2;
+  color: #a99bc4;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.kh-work .kh-project-blush .kh-product-shot {
+  border-color: #3d3155 !important;
+  background: #2f2543 !important;
+  box-shadow: 0 16px 34px -20px rgba(0, 0, 0, 0.72) !important;
+}
+
+.kh-work .kh-project-blush .kh-product-shot img {
+  border-radius: 10px !important;
+}
+
+@media (max-width: 760px) {
+  :is(.kh-work .kh-project-blush, .kh-work-index .kh-work-index-card-encore) :is(h2, h3) {
+    font-size: clamp(4rem, 20vw, 6rem) !important;
+  }
+
+  .kh-work .kh-project-blush .kh-product-visual-encore::before {
+    top: 0.75rem;
+    left: 0.8rem;
+    font-size: 0.52rem;
+  }
+}
+
+/* Homepage editorial visual. Ticket memory and ranking replace the screenshots. */
+.kh-work .kh-project-blush .kh-product-visual-encore {
+  min-height: 33rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 1rem;
+  padding: clamp(3.9rem, 7vw, 5rem) clamp(1rem, 2vw, 1.4rem) clamp(1rem, 2vw, 1.4rem) !important;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 46, 136, 0.16), transparent 28%),
+    radial-gradient(circle at 82% 84%, rgba(78, 205, 196, 0.09), transparent 28%),
+    linear-gradient(145deg, #1a1425 0%, #241c33 60%, #2f2543 100%) !important;
+}
+
+.kh-work .kh-project-blush .kh-product-visual-encore::before {
+  content: 'LIVE ARCHIVE / 126 SHOWS';
+  top: 1.35rem;
+  left: 1.45rem;
+  color: #ffb800;
+}
+
+.kh-work .kh-project-blush .kh-product-shot {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #3d3155 !important;
+  border-radius: 16px;
+  background: rgba(26, 20, 37, 0.74) !important;
+  box-shadow: none !important;
+}
+
+.kh-work .kh-project-blush .kh-product-shot img {
+  display: none;
+}
+
+.kh-work .kh-project-blush .kh-product-shot > a {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.kh-work .kh-project-blush .kh-product-shot-primary::before {
+  content: 'TONIGHT\AJOANNA NEWSOM\A\A2015 / CHICAGO\A6:30 PM';
+  position: absolute;
+  inset: 1rem 1rem auto;
+  z-index: 1;
+  padding: 1rem 1rem 1.2rem;
+  border: 1px solid rgba(246, 241, 231, 0.2);
+  border-radius: 12px 12px 5px 5px;
+  background: linear-gradient(180deg, rgba(255, 46, 136, 0.12), transparent 70%), #2f2543;
+  color: #f6f1e7;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.kh-work .kh-project-blush .kh-product-shot-primary::after {
+  content: 'VS';
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  z-index: 3;
+  display: grid;
+  width: 3.2rem;
+  height: 3.2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #ff2e88;
+  color: #f6f1e7;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  transform: translate(-50%, -50%);
+}
+
+.kh-work .kh-project-blush .kh-product-shot-primary > a::before {
+  content: 'KENDRICK LAMAR\A2017 / CHICAGO\A8:00 PM';
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1rem 1rem 1.2rem;
+  border: 1px solid rgba(246, 241, 231, 0.2);
+  border-radius: 5px 5px 12px 12px;
+  background: linear-gradient(180deg, rgba(255, 184, 0, 0.08), transparent 70%), #21182e;
+  color: #f6f1e7;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.kh-work .kh-project-blush .kh-product-shot-secondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.kh-work .kh-project-blush .kh-product-shot-secondary::before {
+  content: 'YOUR RANKING';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #4ecdc4;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.kh-work .kh-project-blush .kh-product-shot-secondary::after {
+  content: '01  Joanna Newsom\A02  Kendrick Lamar\A03  Sufjan Stevens\A04  Beyoncé\A05  Third Eye Blind';
+  display: block;
+  padding-top: 3.2rem;
+  color: #f6f1e7;
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  line-height: 2.15;
+  white-space: pre-line;
+}
+
+.kh-work .kh-project-blush .kh-product-shot-secondary > a::after {
+  content: 'EVERY SHOW BECOMES A CHOICE';
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  color: #a99bc4;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .kh-work .kh-project-blush .kh-product-visual-encore {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .kh-work .kh-project-blush .kh-product-visual-encore {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .kh-work .kh-project-blush .kh-product-shot {
+    min-height: 22rem;
+  }
+}

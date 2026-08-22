@@ -1,0 +1,318 @@
+/* Duel Cut — app identity translated into the portfolio card */
+/* Shared by the homepage panel and the compact Work index card. */
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) {
+  position: relative;
+  overflow: hidden;
+  border-color: #2a2035 !important;
+  background: #040011 !important;
+  color: #f3ecdd !important;
+  box-shadow: 0 24px 60px -42px rgba(4, 0, 17, 0.95);
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.34rem;
+  background: linear-gradient(90deg, #ba0101 0 48%, #e99d25 48% 74%, #add794 74% 100%);
+  pointer-events: none;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-copy,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-product-visual,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-work-index-topline,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-work-index-footer {
+  position: relative;
+  z-index: 1;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-topline,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-description,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-deck,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why p {
+  color: #f3ecdd !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-topline
+  span:first-child {
+  color: #e99d25 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-topline
+  span:last-child {
+  color: #9ca88c !important;
+  opacity: 1 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-role {
+  color: #add794 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) :is(h2, h3) {
+  max-width: none !important;
+  margin-bottom: 0.55rem !important;
+  color: #f3ecdd !important;
+  font-family: var(--font-body) !important;
+  font-size: clamp(5rem, 11vw, 10.5rem) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.075em !important;
+  line-height: 0.76 !important;
+  text-transform: uppercase;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) :is(h2, h3)::after {
+  content: 'YOUR MOVIES / HEAD TO HEAD';
+  display: block;
+  margin-top: 1rem;
+  color: #ba0101;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-title-link,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-title-link:hover,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-title-link:focus-visible {
+  color: #f3ecdd !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-deck {
+  color: #f3ecdd !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-description {
+  color: #d8d0c2 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why {
+  border-top-color: #2a2035 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-project-why
+  strong {
+  color: #add794 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-project-why p {
+  color: #9ca88c !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-chip-row span {
+  border-color: #2a2035 !important;
+  background: #120b1e !important;
+  color: #e99d25 !important;
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-pill {
+  border-color: #ba0101 !important;
+  background: #ba0101 !important;
+  color: #f3ecdd !important;
+  box-shadow: 0 12px 28px -18px rgba(186, 1, 1, 0.78);
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-pill:hover,
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut)
+  .kh-pill:focus-visible {
+  border-color: #e99d25 !important;
+  background: #e99d25 !important;
+  color: #040011 !important;
+  transform: translateY(-1px);
+}
+
+:is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) .kh-text-link {
+  color: #add794 !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #2a2035;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(186, 1, 1, 0.035), transparent 38%), #120b1e !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut::before {
+  content: 'DUELS  /  RANKINGS  /  INSIGHTS';
+  position: absolute;
+  top: 1rem;
+  left: 1.1rem;
+  z-index: 2;
+  color: #9ca88c;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot {
+  border-color: #2a2035 !important;
+  background: #1c1329 !important;
+  box-shadow: 0 16px 34px -20px rgba(0, 0, 0, 0.78) !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot img {
+  border-radius: 10px !important;
+}
+
+@media (max-width: 760px) {
+  :is(.kh-work .kh-project-lavender, .kh-work-index .kh-work-index-card-duelcut) :is(h2, h3) {
+    font-size: clamp(4rem, 20vw, 6rem) !important;
+  }
+
+  .kh-work .kh-project-lavender .kh-product-visual-duelcut::before {
+    top: 0.75rem;
+    left: 0.8rem;
+    font-size: 0.52rem;
+  }
+}
+
+/* Homepage editorial visual. The product idea replaces the low resolution screenshot. */
+.kh-work .kh-project-lavender .kh-product-visual-duelcut {
+  min-height: 33rem;
+  padding: clamp(1rem, 2vw, 1.4rem) !important;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(186, 1, 1, 0.14), transparent 30%),
+    linear-gradient(150deg, #090316 0%, #120b1e 55%, #1b1023 100%) !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut::before {
+  content: 'DUEL / 041';
+  top: 1.35rem;
+  left: 1.45rem;
+  color: #e99d25;
+}
+
+.kh-work .kh-project-lavender .kh-product-visual-duelcut::after {
+  content: 'VS';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  display: grid;
+  width: 3.65rem;
+  height: 3.65rem;
+  place-items: center;
+  border: 1px solid rgba(243, 236, 221, 0.22);
+  border-radius: 50%;
+  background: #ba0101;
+  color: #f3ecdd;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0.65rem rgba(186, 1, 1, 0.08);
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single {
+  position: absolute;
+  inset: clamp(3.8rem, 8vw, 5.2rem) clamp(1rem, 2vw, 1.4rem) clamp(1rem, 2vw, 1.4rem);
+  width: auto;
+  min-height: 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single > a {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single img {
+  display: none;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single::before,
+.kh-work .kh-project-lavender .kh-product-shot-single::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: calc(50% - 0.75rem);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  border: 1px solid #2a2035;
+  border-radius: 16px;
+  color: #f3ecdd;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 5.25rem);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.88;
+  white-space: pre-line;
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single::before {
+  content: 'BUGONIA\A2025';
+  left: 0;
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(4, 0, 17, 0.82) 100%),
+    radial-gradient(circle at 65% 20%, rgba(233, 157, 37, 0.5), transparent 28%),
+    linear-gradient(145deg, #5a160f 0%, #ba0101 42%, #23071e 100%);
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single::after {
+  content: 'HAROLD +\A MAUDE\A1971';
+  right: 0;
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(4, 0, 17, 0.84) 100%),
+    radial-gradient(circle at 30% 22%, rgba(173, 215, 148, 0.42), transparent 25%),
+    linear-gradient(145deg, #31412e 0%, #617b50 42%, #1a1528 100%);
+}
+
+.kh-work .kh-project-lavender .kh-product-shot-single > a::after {
+  content: 'CHOOSE ONE / RANKING UPDATES';
+  position: absolute;
+  right: 0;
+  bottom: -0.1rem;
+  left: 0;
+  z-index: 3;
+  color: #9ca88c;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  transform: translateY(1.7rem);
+}
+
+@media (max-width: 640px) {
+  .kh-work .kh-project-lavender .kh-product-visual-duelcut {
+    min-height: 28rem;
+  }
+
+  .kh-work .kh-project-lavender .kh-product-shot-single::before,
+  .kh-work .kh-project-lavender .kh-product-shot-single::after {
+    width: calc(50% - 0.45rem);
+    padding: 0.9rem;
+    font-size: clamp(1.65rem, 9vw, 2.8rem);
+  }
+
+  .kh-work .kh-project-lavender .kh-product-visual-duelcut::after {
+    width: 3rem;
+    height: 3rem;
+  }
+}
