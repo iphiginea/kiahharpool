@@ -190,20 +190,6 @@
   background: #ebe6da;
 }
 
-.acq-home-visual::before {
-  content: 'ACQUIRED.';
-  position: absolute;
-  right: 0.75rem;
-  bottom: 0.35rem;
-  color: rgba(123, 20, 32, 0.06);
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 11vw, 10rem);
-  font-weight: 800;
-  letter-spacing: -0.07em;
-  line-height: 0.8;
-  pointer-events: none;
-}
-
 .acq-home-record-head,
 .acq-home-record {
   position: relative;
