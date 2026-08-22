@@ -61,12 +61,6 @@ const addAcquiredCard = (homepage: HTMLElement, worksBase: URL) => {
           <a class="acq-home-primary" href="${acquiredHref}">See experiment →</a>
           <a
             class="acq-home-link"
-            href="https://iphiginea.github.io/acquired/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Open app ↗</a>
-          <a
-            class="acq-home-link"
             href="https://github.com/iphiginea/acquired"
             target="_blank"
             rel="noopener noreferrer"
