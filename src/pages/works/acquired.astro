@@ -8,19 +8,16 @@ import { withBase } from '../../lib/url';
   description="A personal museum for accessioning meaningful objects with photographs, provenance, catalog records, and the story of why each thing matters."
   ogType="article"
 >
-  <article class="kh-case section kh-case-acquired" data-pagefind-body>
+  <article class="kh-case section" data-pagefind-body>
     <header class="kh-case-head">
       <div>
         <p class="kh-case-kicker">06 / PRODUCT / ARCHIVE / COLLECTION SYSTEMS</p>
-        <p class="kh-acquired-number">KH.2026.0006 / PERMANENT COLLECTION</p>
-        <h1 class="kh-case-title kh-acquired-title">ACQUIRED</h1>
-        <p class="kh-case-deck kh-acquired-deck">
-          A personal museum for the things you keep — and why you kept them.
-        </p>
+        <h1 class="kh-case-title">ACQUIRED</h1>
+        <p class="kh-case-deck">A personal museum for the things you keep — and why you kept them.</p>
       </div>
 
       <div>
-        <dl class="kh-case-meta kh-acquired-meta">
+        <dl class="kh-case-meta">
           <div>
             <dt>Role</dt>
             <dd>Concept / Product Design / Development</dd>
@@ -36,13 +33,13 @@ import { withBase } from '../../lib/url';
         </dl>
         <div class="kh-case-actions">
           <a
-            class="kh-pill kh-acquired-primary"
+            class="kh-pill"
             href="https://iphiginea.github.io/acquired/"
             target="_blank"
             rel="noopener noreferrer">Open app ↗</a
           >
           <a
-            class="kh-text-link kh-acquired-link"
+            class="kh-text-link"
             href="https://github.com/iphiginea/acquired"
             target="_blank"
             rel="noopener noreferrer">GitHub ↗</a
@@ -53,7 +50,7 @@ import { withBase } from '../../lib/url';
 
     <div class="kh-case-body">
       <p class="kh-case-section-label">THE PROJECT</p>
-      <div class="kh-case-prose kh-acquired-prose">
+      <div class="kh-case-prose">
         <h2>Why I made it</h2>
         <p>
           We save photographs by the thousands, but the context around a physical object is much
@@ -81,10 +78,10 @@ import { withBase } from '../../lib/url';
 
         <h2>Design direction</h2>
         <p>
-          I borrowed the visual language of museum collection catalogs rather than social feeds:
-          cream paper tones, archival red, brass accession numbers, serif display type, fine rules,
-          and restrained object cards. The goal was to make documenting something feel like an act of
-          preservation, not another post.
+          The product itself borrows from museum collection catalogs rather than social feeds:
+          accession numbers, structured records, restrained typography, and object-focused layouts.
+          The portfolio page stays within the same visual system as the rest of my work so the project
+          feels like part of one body of experiments rather than a separate microsite.
         </p>
 
         <h2>Built to keep growing</h2>
@@ -97,7 +94,7 @@ import { withBase } from '../../lib/url';
       </div>
     </div>
 
-    <div class="kh-case-next kh-acquired-next">
+    <div class="kh-case-next">
       <a href={withBase('/works/first-light/')}>
         <span class="kh-case-section-label">PREVIOUS PROJECT</span>
         <strong>← First Light</strong>
@@ -105,87 +102,3 @@ import { withBase } from '../../lib/url';
     </div>
   </article>
 </BaseLayout>
-
-<style>
-  .kh-case-acquired {
-    --acq-red: #7b1420;
-    --acq-red-deep: #5c0f18;
-    --acq-cream: #f4f1e9;
-    --acq-ink: #171717;
-    --acq-brass: #a8874b;
-  }
-
-  .kh-case-acquired .kh-case-kicker {
-    color: var(--acq-ink);
-  }
-
-  .kh-acquired-number {
-    margin: 1rem 0 0;
-    color: var(--acq-brass);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  .kh-acquired-title {
-    margin-top: 0.7rem;
-    color: var(--acq-red);
-    font-style: normal;
-    font-weight: 750;
-    letter-spacing: -0.065em;
-    text-transform: uppercase;
-  }
-
-  .kh-acquired-deck {
-    max-width: 22ch;
-    color: var(--acq-red-deep);
-    font-weight: 520;
-  }
-
-  .kh-acquired-meta {
-    border-color: rgba(23, 23, 23, 0.28);
-    background: var(--acq-cream);
-    color: var(--acq-ink);
-  }
-
-  .kh-acquired-meta dt {
-    color: var(--acq-red);
-  }
-
-  .kh-acquired-primary {
-    border-color: var(--acq-ink);
-    background: var(--acq-ink);
-    color: var(--acq-cream) !important;
-  }
-
-  .kh-acquired-primary:hover,
-  .kh-acquired-primary:focus-visible {
-    border-color: var(--acq-red);
-    background: var(--acq-red);
-  }
-
-  .kh-acquired-link {
-    color: var(--acq-ink);
-  }
-
-  .kh-acquired-prose h2 {
-    color: var(--acq-red);
-  }
-
-  .kh-acquired-next {
-    border: 1px solid rgba(23, 23, 23, 0.24);
-    background: var(--acq-cream);
-  }
-
-  .kh-acquired-next a {
-    color: var(--acq-red);
-  }
-
-  @media (max-width: 520px) {
-    .kh-acquired-title {
-      font-size: clamp(4rem, 20vw, 6rem);
-    }
-  }
-</style>
