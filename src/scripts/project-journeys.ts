@@ -173,6 +173,15 @@ const enhanceProjectJourneys = () => {
       }
     }
 
+    const firstLightHeading = homepage.querySelector('.kh-firstlight-wordmark');
+    if (firstLightHeading instanceof HTMLHeadingElement && !firstLightHeading.querySelector('a')) {
+      const link = document.createElement('a');
+      link.className = 'kh-firstlight-title-link';
+      link.href = new URL('first-light/', worksBase).href;
+      while (firstLightHeading.firstChild) link.appendChild(firstLightHeading.firstChild);
+      firstLightHeading.appendChild(link);
+    }
+
     const firstLightVisual = homepage.querySelector('.kh-firstlight-visual');
     if (firstLightVisual instanceof HTMLElement) {
       const label = firstLightVisual.querySelector('.kh-firstlight-visual-label');
