@@ -37,7 +37,9 @@ const siteName = SITE.title;
 const { title = siteName, description = SITE.description, ogType = 'website', image } = Astro.props;
 const siteBase = Astro.site ?? new URL(Astro.url.origin);
 const canonicalURL = new URL(Astro.url.pathname, siteBase);
-const imageURL = image ? new URL(image, siteBase) : new URL(withBase(SITE.ogImage), siteBase);
+const workMatch = Astro.url.pathname.match(/\/works\/([^/]+)\/?$/);
+const defaultImage = workMatch ? withBase(`/og/works/${workMatch[1]}.png`) : withBase(SITE.ogImage);
+const imageURL = new URL(image ?? defaultImage, siteBase);
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
 const currentPath = Astro.url.pathname;
@@ -66,12 +68,12 @@ const isActive = (href: string) => {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content={locale.replace('-', '_')} />
-    {imageURL && <meta property="og:image" content={imageURL} />}
+    <meta property="og:image" content={imageURL} />
 
-    <meta name="twitter:card" content={imageURL ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    {imageURL && <meta name="twitter:image" content={imageURL} />}
+    <meta name="twitter:image" content={imageURL} />
     <slot name="head" />
     <ClientRouter />
   </head>
