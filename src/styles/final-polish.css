@@ -34,8 +34,19 @@
   letter-spacing: -0.07em;
 }
 
-/* Works cards: Acquired and Lakeglass link through their case studies first. */
-.kh-work-index-card-acquired .kh-work-index-actions a[href='https://iphiginea.github.io/acquired/'],
-.kh-work-index-card-lakeglass .kh-work-index-actions a[href='https://iphiginea.github.io/lakeglass/'] {
+/* Keep project-card actions consistent: case study first, live app second. */
+.kh-work-index-card-firstlight .kh-work-index-actions a[href='https://github.com/iphiginea/FirstLIGHT'],
+.kh-work-index-card-acquired .kh-work-index-actions a[href='https://github.com/iphiginea/acquired'],
+.kh-work-index-card-lakeglass .kh-work-index-actions a[href='https://github.com/iphiginea/lakeglass'] {
   display: none;
+}
+
+/* Keep Lakeglass project navigation inside the portfolio palette. */
+.kh-case-lakeglass .kh-lakeglass-next {
+  background: #b39fef !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-next a,
+.kh-case-lakeglass .kh-lakeglass-next .kh-case-section-label {
+  color: #5a1f4f !important;
 }
