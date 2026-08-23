@@ -1,0 +1,433 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/url';
+---
+
+<BaseLayout
+  title="Lakeglass"
+  description="A Lake Michigan beach-glass field guide that uses physical clues and source-backed research to build careful readings of likely object type, historical context, occurrence, and provenance."
+  ogType="article"
+>
+  <article class="kh-case section kh-case-lakeglass" data-pagefind-body>
+    <header class="kh-case-head">
+      <div>
+        <p class="kh-case-kicker">07 / PRODUCT / FIELD GUIDE / LOCAL HISTORY</p>
+        <h1 class="kh-case-title kh-lakeglass-case-title">Lakeglass</h1>
+        <p class="kh-case-deck kh-lakeglass-case-deck">What did the lake give you?</p>
+      </div>
+
+      <div>
+        <dl class="kh-case-meta kh-lakeglass-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Concept / Product Design / Research / Development</dd>
+          </div>
+          <div>
+            <dt>Built</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Core idea</dt>
+            <dd>Read a find from observable evidence, then keep inference separate from known provenance.</dd>
+          </div>
+        </dl>
+        <div class="kh-case-actions">
+          <a
+            class="kh-pill kh-lakeglass-button"
+            href="https://iphiginea.github.io/lakeglass/"
+            target="_blank"
+            rel="noopener noreferrer">Open app ↗</a
+          >
+          <a
+            class="kh-text-link kh-lakeglass-link"
+            href="https://github.com/iphiginea/lakeglass"
+            target="_blank"
+            rel="noopener noreferrer">GitHub ↗</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <section class="kh-lakeglass-fieldboard" aria-label="Lakeglass field reading concept">
+      <div class="kh-lakeglass-specimens" aria-hidden="true">
+        <span class="kh-glass kh-glass-aqua"></span>
+        <span class="kh-glass kh-glass-cobalt"></span>
+        <span class="kh-glass kh-glass-amber"></span>
+        <p>LAKE MICHIGAN / FIELD SAMPLE</p>
+      </div>
+
+      <div class="kh-lakeglass-reading">
+        <div class="kh-lakeglass-reading-head">
+          <span>FIELD READING</span>
+          <span>LM-042</span>
+        </div>
+        <p class="kh-lakeglass-reading-label">LIKELY READING</p>
+        <h2>Pale aqua</h2>
+        <p class="kh-lakeglass-reading-summary">
+          Likely utility-bottle glass, softened by prolonged Lake Michigan tumbling.
+        </p>
+        <dl class="kh-lakeglass-reading-grid">
+          <div>
+            <dt>Physical clue</dt>
+            <dd>Thin / curved wall</dd>
+          </div>
+          <div>
+            <dt>Occurrence</dt>
+            <dd>Uncommon</dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>Chicago shoreline</dd>
+          </div>
+          <div>
+            <dt>Provenance</dt>
+            <dd>Recorded separately</dd>
+          </div>
+        </dl>
+        <p class="kh-lakeglass-evidence-note">
+          Identification is based on observable clues, not a photo match.
+        </p>
+      </div>
+    </section>
+
+    <div class="kh-case-body">
+      <p class="kh-case-section-label">THE PROJECT</p>
+      <div class="kh-case-prose">
+        <h2>Why I made it</h2>
+        <p>
+          Beach glass invites a very specific kind of curiosity: you can hold a fragment in your
+          hand and know that it had a life before the lake, but the evidence is incomplete. I wanted
+          a tool that helped read those clues without turning uncertainty into a false answer.
+          Lakeglass treats a find more like field evidence than an image-search problem.
+        </p>
+
+        <h2>The identification model</h2>
+        <p>
+          The flow starts with what can actually be observed: shoreline, color, thickness, form,
+          opacity, surface condition, markings, and any diagnostic feature that survived tumbling.
+          Those clues are combined into a likely object type, historical context, and occurrence
+          reading. Color matters, but it never gets to make the decision by itself.
+        </p>
+
+        <h2>Provenance, not prediction</h2>
+        <p>
+          The app keeps known provenance — where and when something was found, plus the collector's
+          note — separate from inferred history. A fragment can have a strong physical reading while
+          its original maker, date, or route into Lake Michigan remains unresolved. That distinction
+          is part of the product rather than fine print hidden after the answer.
+        </p>
+
+        <h2>Research-backed on purpose</h2>
+        <p>
+          Regional and beach-glass research informs the field reading, and the result explains why a
+          hypothesis was made. Lakeglass surfaces evidence, occurrence, local shoreline context, and
+          the research basis so the user can understand the reasoning instead of receiving a single
+          black-box label.
+        </p>
+
+        <h2>No camera identification</h2>
+        <p>
+          There is deliberately no photo upload or camera-identification step. A photograph can make
+          an uncertain fragment look more knowable than it is, while useful clues like thickness,
+          curvature, texture, and a partial mark are easier to assess in hand. The interaction asks
+          the user to look more closely rather than outsource the observation.
+        </p>
+
+        <h2>Local-first and offline</h2>
+        <p>
+          Lakeglass is an installable PWA with a local IndexedDB specimen archive, import/export, and
+          service-worker support for offline use. There are no accounts, no server-side collection
+          database, and no photo storage. The field guide can go to the shoreline, and the collection
+          stays with the person doing the finding.
+        </p>
+
+        <h2>Design direction</h2>
+        <p>
+          The interface borrows from field guides and collection labels: soft paper tones, Lake
+          Michigan blue-greens, serif headings, monospaced evidence labels, and translucent specimen
+          shapes. For the portfolio, I kept those signals inside the same editorial/brutalist system
+          as the rest of the work so Lakeglass feels distinct without becoming a separate visual
+          world.
+        </p>
+      </div>
+    </div>
+
+    <div class="kh-case-next kh-lakeglass-next">
+      <a href={withBase('/works/acquired/')}>
+        <span class="kh-case-section-label">PREVIOUS PROJECT</span>
+        <strong>← Acquired</strong>
+      </a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .kh-case-lakeglass {
+    --lake-paper: #fffdf8;
+    --lake-ink: #243239;
+    --lake-muted: #6f7a7e;
+    --lake-line: #d8e1df;
+    --lake: #7fb7bc;
+    --lake-deep: #315f69;
+    --lake-amber: #d8a36f;
+    color: var(--lake-ink);
+  }
+
+  .kh-lakeglass-case-title {
+    max-width: none;
+    color: var(--lake-deep);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    line-height: 0.78;
+  }
+
+  .kh-lakeglass-case-deck {
+    max-width: 13ch;
+    color: var(--lake-ink);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .kh-lakeglass-meta {
+    border-color: rgba(49, 95, 105, 0.32);
+    background: #eaf3f1;
+    color: var(--lake-ink);
+  }
+
+  .kh-lakeglass-button {
+    border-color: var(--lake-deep);
+    background: var(--lake-deep);
+    color: var(--lake-paper) !important;
+  }
+
+  .kh-lakeglass-button:hover,
+  .kh-lakeglass-button:focus-visible {
+    border-color: #244f58;
+    background: #244f58;
+  }
+
+  .kh-lakeglass-link {
+    color: var(--lake-deep);
+  }
+
+  .kh-lakeglass-fieldboard {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: stretch;
+    overflow: hidden;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+    padding: clamp(1.5rem, 4vw, 4rem);
+    border: 1.5px solid rgba(49, 95, 105, 0.28);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 16% 12%, rgba(189, 226, 226, 0.6), transparent 32%),
+      linear-gradient(145deg, #f9fbfa 0%, #f2f7f6 55%, #eef3f0 100%);
+  }
+
+  .kh-lakeglass-specimens {
+    position: relative;
+    min-height: clamp(23rem, 40vw, 34rem);
+  }
+
+  .kh-lakeglass-specimens p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    color: var(--lake-deep);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+  }
+
+  .kh-glass {
+    position: absolute;
+    display: block;
+    border: 1px solid rgba(49, 95, 105, 0.14);
+    box-shadow:
+      inset 14px 18px 24px rgba(255, 255, 255, 0.52),
+      inset -8px -10px 18px rgba(49, 95, 105, 0.12),
+      0 20px 38px rgba(49, 95, 105, 0.12);
+    filter: saturate(0.92);
+  }
+
+  .kh-glass-aqua {
+    width: clamp(8rem, 17vw, 13rem);
+    height: clamp(10rem, 21vw, 16rem);
+    top: 8%;
+    left: 22%;
+    border-radius: 52% 44% 58% 42% / 48% 54% 46% 52%;
+    background: linear-gradient(145deg, #d9f3ef, #97d0cc 70%, #79afb1);
+    transform: rotate(-9deg);
+  }
+
+  .kh-glass-cobalt {
+    width: clamp(5rem, 10vw, 8rem);
+    height: clamp(6rem, 12vw, 9.5rem);
+    top: 48%;
+    right: 7%;
+    border-radius: 47% 53% 44% 56% / 56% 46% 54% 44%;
+    background: linear-gradient(145deg, #b7cbed, #6f91c5 68%, #496b9f);
+    transform: rotate(13deg);
+  }
+
+  .kh-glass-amber {
+    width: clamp(4rem, 8vw, 6rem);
+    height: clamp(5rem, 9vw, 7rem);
+    left: 3%;
+    bottom: 14%;
+    border-radius: 58% 42% 49% 51% / 45% 55% 47% 53%;
+    background: linear-gradient(145deg, #f4ddbb, #d3a06d 70%, #aa7347);
+    transform: rotate(18deg);
+  }
+
+  .kh-lakeglass-reading {
+    align-self: center;
+    padding: clamp(1.4rem, 3vw, 2.5rem);
+    border: 1px solid var(--lake-line);
+    border-radius: 20px;
+    background: rgba(255, 253, 248, 0.92);
+    box-shadow: 0 18px 48px rgba(49, 95, 105, 0.08);
+  }
+
+  .kh-lakeglass-reading-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--lake-line);
+    color: var(--lake-muted);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .kh-lakeglass-reading-label {
+    margin: 1.4rem 0 0.45rem;
+    color: var(--lake-deep);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .kh-lakeglass-reading h2 {
+    margin: 0;
+    color: var(--lake-deep);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+
+  .kh-lakeglass-reading-summary {
+    max-width: 36rem;
+    margin: 1rem 0 1.6rem;
+    color: var(--lake-muted);
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.55;
+  }
+
+  .kh-lakeglass-reading-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid var(--lake-line);
+    background: var(--lake-line);
+  }
+
+  .kh-lakeglass-reading-grid div {
+    min-height: 6.5rem;
+    padding: 1rem;
+    background: var(--lake-paper);
+  }
+
+  .kh-lakeglass-reading-grid dt,
+  .kh-lakeglass-reading-grid dd {
+    margin: 0;
+  }
+
+  .kh-lakeglass-reading-grid dt {
+    margin-bottom: 0.55rem;
+    color: var(--lake-muted);
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kh-lakeglass-reading-grid dd {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .kh-lakeglass-evidence-note {
+    margin: 1rem 0 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid #d7e7e3;
+    background: #eaf5f2;
+    color: var(--lake-deep);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .kh-case-lakeglass .kh-case-section-label {
+    color: var(--lake-deep);
+  }
+
+  .kh-case-lakeglass .kh-case-prose h2 {
+    color: var(--lake-deep);
+  }
+
+  .kh-lakeglass-next {
+    background: #dcece9;
+  }
+
+  .kh-lakeglass-next a {
+    color: var(--lake-deep);
+  }
+
+  @media (max-width: 980px) {
+    .kh-lakeglass-fieldboard {
+      grid-template-columns: 1fr;
+    }
+
+    .kh-lakeglass-specimens {
+      min-height: 24rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .kh-lakeglass-case-title {
+      font-size: clamp(4rem, 19vw, 6rem);
+    }
+
+    .kh-lakeglass-fieldboard {
+      padding: 1.15rem;
+      border-radius: 18px;
+    }
+
+    .kh-lakeglass-specimens {
+      min-height: 19rem;
+    }
+
+    .kh-lakeglass-reading-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
