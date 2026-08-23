@@ -24,7 +24,7 @@ export interface SocialLink {
 export const SOCIAL_LINKS: readonly SocialLink[] = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kiahharpool', icon: 'linkedin' },
   { label: 'GitHub', href: 'https://github.com/iphiginea', icon: 'github' },
-  { label: 'Email', href: 'mailto:kiah.harpool@gmail.com', icon: 'email' },
+  { label: 'Email', href: 'mailto:hello@kiahharpool.com', icon: 'email' },
 ];
 
 export interface GiscusConfig {
