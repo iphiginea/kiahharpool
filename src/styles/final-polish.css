@@ -41,7 +41,81 @@
   display: none;
 }
 
-/* Keep Lakeglass project navigation inside the portfolio palette. */
+/* Lakeglass keeps its specimen colors, but the portfolio framing stays on-brand. */
+.kh-case-lakeglass {
+  --lake-paper: #fffafc !important;
+  --lake-ink: #5a1f4f !important;
+  --lake-muted: #7a526f !important;
+  --lake-line: rgba(90, 31, 79, 0.2) !important;
+  --lake: #b39fef !important;
+  --lake-deep: #5a1f4f !important;
+  --lake-amber: #a23d3d !important;
+  color: #5a1f4f !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-case-title,
+.kh-case-lakeglass .kh-lakeglass-case-deck,
+.kh-case-lakeglass .kh-lakeglass-link,
+.kh-case-lakeglass .kh-lakeglass-reading-label,
+.kh-case-lakeglass .kh-lakeglass-reading h2,
+.kh-case-lakeglass .kh-case-section-label,
+.kh-case-lakeglass .kh-case-prose h2,
+.kh-case-lakeglass .kh-lakeglass-specimens p {
+  color: #5a1f4f !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-meta {
+  border-color: rgba(90, 31, 79, 0.34) !important;
+  background: #d7caf5 !important;
+  color: #5a1f4f !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-button {
+  border-color: #5a1f4f !important;
+  background: #5a1f4f !important;
+  color: #f7e8ea !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-button:hover,
+.kh-case-lakeglass .kh-lakeglass-button:focus-visible {
+  border-color: #a23d3d !important;
+  background: #a23d3d !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-fieldboard {
+  border-color: rgba(90, 31, 79, 0.28) !important;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(215, 202, 245, 0.78), transparent 32%),
+    linear-gradient(145deg, #fffafc 0%, #f7e8ea 55%, #e7def7 100%) !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-reading {
+  border-color: rgba(90, 31, 79, 0.2) !important;
+  background: rgba(255, 250, 252, 0.96) !important;
+  box-shadow: 0 18px 48px rgba(90, 31, 79, 0.08) !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-reading-head,
+.kh-case-lakeglass .kh-lakeglass-reading-summary,
+.kh-case-lakeglass .kh-lakeglass-reading-grid dt {
+  color: #7a526f !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-reading-grid {
+  border-color: rgba(90, 31, 79, 0.2) !important;
+  background: rgba(90, 31, 79, 0.2) !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-reading-grid div {
+  background: #fffafc !important;
+}
+
+.kh-case-lakeglass .kh-lakeglass-evidence-note {
+  border-color: rgba(90, 31, 79, 0.24) !important;
+  background: #d7caf5 !important;
+  color: #5a1f4f !important;
+}
+
 .kh-case-lakeglass .kh-lakeglass-next {
   background: #b39fef !important;
 }
