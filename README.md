@@ -2,7 +2,7 @@
 
 Personal portfolio for Kiah Harpool, a Chicago media leader and systems thinker working across media investment, strategy, operations, AI workflows, and culture.
 
-**Live site:** https://iphiginea.github.io/kiahharpool/
+**Live site:** https://kiahharpool.com/
 
 ## About
 
@@ -45,4 +45,4 @@ npm run build
 
 ## Deployment
 
-Production is built and deployed exclusively from `main`. The former redesign branch, `soft-brutalist-editorial`, is archived and no longer participates in the GitHub Pages deployment.
+Production is built and deployed exclusively from `main` to GitHub Pages at `https://kiahharpool.com/`. The site is configured for the custom-domain root (`/`) rather than a repository subpath. The former redesign branch, `soft-brutalist-editorial`, is archived and no longer participates in the GitHub Pages deployment.
