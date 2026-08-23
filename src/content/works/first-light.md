@@ -6,6 +6,7 @@ tech:
   - Xeno-canto API
   - Web Audio
   - Geolocation
+link: 'https://iphiginea.github.io/FirstLIGHT/'
 repo: 'https://github.com/iphiginea/FirstLIGHT'
 order: 5
 publishDate: 2026-08-18
