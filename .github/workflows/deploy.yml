@@ -1,11 +1,9 @@
 name: Deploy to GitHub Pages
 
-# Rebuild both production and the editorial preview when either source changes.
-# Production is always checked out from main; the preview is always checked out
-# from soft-brutalist-editorial and published under its preview path.
+# Production has a single source of truth: main.
 on:
   push:
-    branches: [main, soft-brutalist-editorial]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -21,21 +19,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout production main
+      - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: main
-          path: production-src
 
       - name: Set up Node
         uses: actions/setup-node@v7
         with:
-          node-version-file: production-src/.nvmrc
+          node-version-file: .nvmrc
           cache: npm
-          cache-dependency-path: production-src/package-lock.json
 
       - name: Build production site
-        working-directory: production-src
         env:
           SITE_URL: https://iphiginea.github.io
           BASE_PATH: /kiahharpool
@@ -43,31 +36,10 @@ jobs:
           npm ci
           npm run build
 
-      - name: Checkout preview branch
-        uses: actions/checkout@v7
-        with:
-          ref: soft-brutalist-editorial
-          path: preview-src
-
-      - name: Build preview site
-        working-directory: preview-src
-        env:
-          SITE_URL: https://iphiginea.github.io
-          BASE_PATH: /kiahharpool/preview/soft-brutalist-editorial
-        run: |
-          npm ci
-          npm run build
-
-      - name: Combine production and preview
-        run: |
-          mkdir -p site/preview/soft-brutalist-editorial
-          cp -a production-src/dist/. site/
-          cp -a preview-src/dist/. site/preview/soft-brutalist-editorial/
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: site
+          path: dist
 
   deploy:
     needs: build
