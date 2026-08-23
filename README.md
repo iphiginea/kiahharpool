@@ -45,4 +45,4 @@ npm run build
 
 ## Deployment
 
-Production is built from `main` and deployed to GitHub Pages. The former redesign branch, `soft-brutalist-editorial`, is currently retained as a matching reference branch while the portfolio is finalized.
+Production is built and deployed exclusively from `main`. The former redesign branch, `soft-brutalist-editorial`, is archived and no longer participates in the GitHub Pages deployment.
