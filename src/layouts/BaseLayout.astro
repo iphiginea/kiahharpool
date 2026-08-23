@@ -38,7 +38,9 @@ const { title = siteName, description = SITE.description, ogType = 'website', im
 const siteBase = Astro.site ?? new URL(Astro.url.origin);
 const canonicalURL = new URL(Astro.url.pathname, siteBase);
 const workMatch = Astro.url.pathname.match(/\/works\/([^/]+)\/?$/);
-const defaultImage = workMatch ? withBase(`/og/works/${workMatch[1]}.png`) : withBase(SITE.ogImage);
+const defaultImage = workMatch
+  ? withBase(`/og/works/${workMatch[1]}.png`)
+  : withBase(SITE.ogImage);
 const imageURL = new URL(image ?? defaultImage, siteBase);
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
