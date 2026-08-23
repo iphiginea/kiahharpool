@@ -33,3 +33,9 @@
 .kh-case-firstlight .kh-firstlight-preview-copy h2 > span:last-of-type {
   letter-spacing: -0.07em;
 }
+
+/* Works cards: Acquired and Lakeglass link through their case studies first. */
+.kh-work-index-card-acquired .kh-work-index-actions a[href='https://iphiginea.github.io/acquired/'],
+.kh-work-index-card-lakeglass .kh-work-index-actions a[href='https://iphiginea.github.io/lakeglass/'] {
+  display: none;
+}
