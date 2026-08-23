@@ -30,8 +30,8 @@ jobs:
 
       - name: Build production site
         env:
-          SITE_URL: https://iphiginea.github.io
-          BASE_PATH: /kiahharpool
+          SITE_URL: https://kiahharpool.com
+          BASE_PATH: /
         run: |
           npm ci
           npm run build
