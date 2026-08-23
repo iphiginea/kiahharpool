@@ -52,6 +52,7 @@ const isActive = (href: string) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#f7e8ea" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
@@ -75,6 +76,8 @@ const isActive = (href: string) => {
     <ClientRouter />
   </head>
   <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <header class="site-header">
       <a class="brand" href={withBase('/')} aria-label={t('nav.brandHome', { site: siteName })}>
         <span class="brand-mark" aria-hidden="true"></span>
@@ -91,7 +94,7 @@ const isActive = (href: string) => {
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
