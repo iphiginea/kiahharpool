@@ -124,3 +124,27 @@
 .kh-case-lakeglass .kh-lakeglass-next .kh-case-section-label {
   color: #5a1f4f !important;
 }
+
+/* Keyboard users can bypass the repeated header navigation. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #5a1f4f;
+  border-radius: 999px;
+  background: #f7e8ea;
+  color: #5a1f4f;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 120ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
