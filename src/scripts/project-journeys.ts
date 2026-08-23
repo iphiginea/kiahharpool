@@ -61,10 +61,10 @@ const addAcquiredCard = (homepage: HTMLElement, worksBase: URL) => {
           <a class="acq-home-primary" href="${acquiredHref}">See experiment →</a>
           <a
             class="acq-home-link"
-            href="https://github.com/iphiginea/acquired"
+            href="https://iphiginea.github.io/acquired/"
             target="_blank"
             rel="noopener noreferrer"
-          >GitHub ↗</a>
+          >Open app ↗</a>
         </div>
       </div>
     </div>
@@ -130,6 +130,16 @@ const enhanceProjectJourneys = () => {
         slug: 'points',
         app: 'https://iphiginea.github.io/points/',
       },
+      {
+        label: 'FIRST LIGHT',
+        slug: 'first-light',
+        app: 'https://iphiginea.github.io/FirstLIGHT/',
+      },
+      {
+        label: 'LAKEGLASS',
+        slug: 'lakeglass',
+        app: 'https://iphiginea.github.io/lakeglass/',
+      },
     ];
 
     const cards = Array.from(homepage.querySelectorAll('article'));
@@ -192,6 +202,11 @@ const enhanceProjectJourneys = () => {
     }
 
     addAcquiredCard(homepage, worksBase);
+
+    const lakeglassNumber = homepage.querySelector(
+      '.kh-mini-project-lakeglass .kh-mini-project-topline span:first-child',
+    );
+    if (lakeglassNumber) lakeglassNumber.textContent = '07 / LAKEGLASS';
   }
 
   const firstLightCase = document.querySelector('.kh-case-firstlight');
