@@ -3,7 +3,15 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../lib/url';
 
-const projectOrder = ['duel-cut', 'encore', 'duel-draw', 'points', 'first-light'];
+const projectOrder = [
+  'duel-cut',
+  'encore',
+  'duel-draw',
+  'points',
+  'first-light',
+  'acquired',
+  'lakeglass',
+];
 
 export async function getStaticPaths() {
   const projectIds = ['duel-draw', 'points', 'first-light'];
@@ -87,47 +95,6 @@ const role = 'Concept / Product Design / Development';
         </div>
       </dl>
     </header>
-
-    {
-      entry.id === 'duel-cut' && (
-        <section
-          class="kh-case-gallery kh-case-gallery-duel section"
-          aria-label="Duel Cut interface"
-        >
-          <img
-            src={withBase('/images/duelcut-duel-hd.webp')}
-            alt="Duel Cut interface showing a head-to-head movie ranking choice"
-            width="600"
-            height="959"
-            loading="eager"
-          />
-        </section>
-      )
-    }
-
-    {
-      entry.id === 'encore' && (
-        <section
-          class="kh-case-gallery kh-case-gallery-encore section"
-          aria-label="Encore interface"
-        >
-          <img
-            src={withBase('/images/encore-duel-hd.webp')}
-            alt="Encore interface showing a head-to-head concert ranking choice"
-            width="600"
-            height="843"
-            loading="eager"
-          />
-          <img
-            src={withBase('/images/encore-rankings-hd.webp')}
-            alt="Encore interface showing ranked concerts"
-            width="600"
-            height="1035"
-            loading="eager"
-          />
-        </section>
-      )
-    }
 
     {
       entry.id === 'first-light' && (
