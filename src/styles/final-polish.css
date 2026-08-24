@@ -125,6 +125,33 @@
   color: #5a1f4f !important;
 }
 
+/* Acquired should read as one clean card, not a bordered card inside another border. */
+.acq-home-card {
+  box-shadow: none !important;
+}
+
+/* Long one-word project names need a tighter mobile scale to stay inside the card. */
+@media (max-width: 560px) {
+  .acq-home-title {
+    font-size: clamp(2.9rem, 13vw, 4.25rem) !important;
+    letter-spacing: -0.055em !important;
+    line-height: 0.82 !important;
+    white-space: nowrap !important;
+  }
+
+  .kh-mini-project-lakeglass .kh-mini-project-body h3 {
+    max-width: 100%;
+    font-size: clamp(2.6rem, 12vw, 4rem) !important;
+    letter-spacing: -0.055em !important;
+    line-height: 0.86 !important;
+  }
+
+  .kh-mini-project-lakeglass .kh-project-title-link {
+    display: block;
+    max-width: 100%;
+  }
+}
+
 /* Keyboard users can bypass the repeated header navigation. */
 .skip-link {
   position: fixed;
