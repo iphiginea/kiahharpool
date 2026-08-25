@@ -5,7 +5,7 @@ tech:
   - Game Design
   - Real time Interaction
   - JavaScript
-link: 'https://iphiginea.github.io/dueldraw/duel-draw.html'
+link: 'https://iphiginea.github.io/dueldraw/'
 repo: 'https://github.com/iphiginea/dueldraw'
 order: 3
 publishDate: 2026-08-18
