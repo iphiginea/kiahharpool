@@ -123,7 +123,7 @@ const enhanceProjectJourneys = () => {
       {
         label: 'DUEL DRAW',
         slug: 'duel-draw',
-        app: 'https://iphiginea.github.io/dueldraw/duel-draw.html',
+        app: 'https://iphiginea.github.io/dueldraw/',
       },
       {
         label: 'POINTS',
